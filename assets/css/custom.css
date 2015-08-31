@@ -1,0 +1,365 @@
+body{
+	margin-bottom:0;
+	font-family: 'Asap', sans-serif;
+	background-color:#f7f7d9;
+}
+a{
+	color:#f7ae00;
+}
+.row{
+	z-index:9;
+}
+#busca-home{ 
+	background-image: url('../images/busca.png');
+	background-repeat: no-repeat;
+	text-indent: 20px;
+	border:none;
+	height:50px;
+	background-position:20px 50%;
+	
+	}
+#busca-home:active, #busca-home:focus { 
+	background-image: none;
+	border:none;
+	box-shadow:none;
+	}
+#header{
+	position:relative;
+	z-index:99;
+}
+#header .page-header {
+	border: none;
+    margin: 0px 0 20px;
+}
+#img-header{
+	top:0;
+	width:100%;
+	left:0;
+	-webkit-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
+	box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
+	
+}
+.absolute{
+	position:absolute;
+}
+.sem-margem{
+	padding:0;
+	margin:0;
+}
+#logo{
+	position:relative;
+	z-index:99;
+}
+#main-navigation{
+	background-color:#f7ae00;
+	}
+#main-navigation a{
+	color:#ffffff;
+	font-weight:lighter
+	
+}
+#main-navigation, #top-navigation{
+	display:none!important;
+}
+#top-navigation{
+	background-color:#f7f7d9;
+	font-size:12px;
+}
+#top-navigation a{
+	color:#a7a9ac;
+}
+#top-navigation .navbar-main-navigation{
+	margin-right:0;
+	padding-right:0;
+}
+.navbar-form{
+	padding:0;
+	margin:0;
+}
+#responsive-navigation{
+	
+	display:block!important;
+	
+}
+.sem-padding{
+	padding:0;
+}
+.home .container{
+	position:relative;
+}
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 1px solid transparent;
+	border-radius:0;
+}
+#header #main-navigation{
+	margin-top:0;
+}
+.row.exp-insp, .row.indique{
+	z-index: 9;
+	position:relative;
+	max-width: 848px;
+    margin: 0 auto;
+}
+#destaque_insp{
+	color:#ffffff;
+	font-size:17px;
+	width:53%;
+	bottom: 35%;
+    left:10%;
+}
+
+#olho-home{
+	left:0;
+	-ms-transform: translate(-50%,100%); /* IE 9 */
+	-webkit-transform: translate(-50%,100%); /* Safari */
+    transform: translate(-50%,100%);
+}
+.indique{
+	color:#ffffff;
+
+}
+#triangulo_indique {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 25px 20px 25px 0;
+    border-color: transparent #EE7D00 transparent transparent;
+    position: absolute;
+    top: 33%;
+    left: 0;
+    -ms-transform: translate(-100%,0);
+    -webkit-transform: translate(-100%,0);
+    transform: translate(-100%,0);
+}
+
+.indique h4{
+	margin-top:0;
+	text-transform:uppercase;
+	font-size:30px;
+}
+.indique h3{
+		text-transform:uppercase;
+	font-size:80px;
+}
+
+#indique-uma{
+	padding: 43px;
+	height: 295px;
+	background-color:#ee7d00;
+}
+#lista-home{
+	right:0;
+	-ms-transform: translate(50%,-50%);
+    -webkit-transform: translate(50%,-50%);
+    transform: translate(50%,-50%);
+}
+.video-indique img{
+	width:100%;
+}
+.papel{
+	
+    background-color: #00a6a6;
+	z-index: 999;
+	position: relative;
+	color:#fff;
+}
+.papel h4{
+	padding-top:60px;
+	text-transform:uppercase;
+	font-size:35px;
+}
+#content{
+	padding:0;
+}
+#boneco-home{
+	-ms-transform: translate(0,-10%);
+	-webkit-transform: translate(0,-10%);
+	transform: translate(0,-10%);
+}
+#footer a:hover{
+	background-color:transparent;
+	color:#00b2ad;
+}
+
+#footer a, #footer p{
+	font-family: 'Asap', sans-serif;
+	color:#ffffff;
+	text-align:left;
+	padding: 3px 0;
+	font-weight:lighter;
+    
+}
+
+#footer{
+	-webkit-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
+	box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
+	padding: 60px 170px;
+    margin-top: -35px;
+    z-index: 9999;
+	position:relative;
+	background-color:#003b5f;
+	height:initial;
+}
+#footer .nav  li{
+	display:block;
+	float:none!important;
+}
+#copyright, #social{
+    padding: 22px 0;
+    text-align: left;
+}
+#social img{
+	margin: 0 20px 0 0;
+}
+#copyright {
+	color:#00b2ad;
+}
+#apoio{
+	color:#ffffff;
+}
+#header .page-header {
+    position: absolute;
+    top: 0;
+}
+@media (max-width: 992px){
+	
+	.row.exp-insp .col-md-6 > img, .row.indique .col-md-6 > img, .row.papel .col-md-6 > img  {
+	    position: relative;
+		width:80%;
+		display:block;
+		margin:0 auto;
+	}
+	#footer{
+	    margin-top: -20px;
+	}
+	.papel{
+		padding-bottom:20px;
+	}
+	#olho-home{
+		position: absolute;
+		    -ms-transform: translate(78%, -50%);
+		    -webkit-transform: translate(78%, -50%);
+		    transform: translate(78%, -50%);
+		    z-index: 99;
+		    width: 20%;
+	}
+	#boneco-home {
+	    -ms-transform: translate(0);
+	     -webkit-transform: translate(0); 
+	    transform: translate(0);
+	}
+	#lista-home{
+		position: absolute;
+		    -ms-transform: translate(0);
+		    -webkit-transform: translate(0);
+		    transform: translate(0%, -50%);
+		    z-index: 99;
+		    width: 20%;
+	}
+	
+	#social{
+		display: block;
+	    clear: both;
+	}
+	#footer{
+		padding: 60px 10px;
+	    
+	}
+	#footer .pull-right, .papel .pull-left{
+		float:none!important;
+	}
+	#logo{
+		width: 60%;
+	    
+	}
+	#destaque_insp {
+	    width: 45%;
+	    left: 21%;
+	    top: 27%;
+	
+	}
+}
+@media (max-width: 768px){
+	.navbar-header{
+		background-color:#f7ae00;
+	}
+	.navbar-header li a, .navbar-default .navbar-brand, .navbar-default .navbar-toggle .icon-bar {
+		color:#ffffff;
+	}
+	.navbar-default .navbar-toggle .icon-bar {
+		background-color:#ffffff;
+	}
+}
+
+
+@media (min-width: 768px) {
+	.nav a {
+		font-size:13px;
+	}
+	#main-navigation, #top-navigation{
+		display:block!important;
+	}
+	#responsive-navigation{
+		display:none!important;
+	}
+	.navbar-main-navigation{
+		float:right;
+	}
+	#footer {
+	    width: 100%;
+	}
+	.container {
+	    width: 100%;
+	}
+	
+}
+@media (min-width: 992px){
+	.row.exp-insp img{
+		max-height:383px;
+		float:right;
+	}
+	.row.exp-insp .col-md-6:nth-child(2) img {
+		float:left;
+	}
+	#header .page-header {
+	    position: relative;
+	    top: 0;
+	}
+	#header .container{
+		height: 47vw;
+	    
+	}
+	#logo{
+	    width: 110%;
+	}
+	#img-header{
+		position:absolute;
+
+}
+
+@media (min-width: 1200px){
+	.container {
+	    width: 1170px;
+	}
+	
+	.papel{
+		padding: 0 170px;
+	    
+	}
+	.home #header .container{
+		height: 555px;
+	}
+	.nav a {
+		font-size:15px;
+	}
+	#footer {
+	    width: 1170px!important;
+	}
+	
+}
+
