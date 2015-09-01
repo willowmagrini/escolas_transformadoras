@@ -9,18 +9,18 @@
  * @since 2.2.0
  */
 ?>
-<?php $odin_general_opts = get_option( 'odin_general' );?>
+<?php $odin_footer_opts = get_option( 'odin_footer' );?>
 
 		</div><!-- .row -->
 	</div><!-- #wrapper -->
 	
 	<footer id="footer" class="container" role="contentinfo">
-		<div class="col-md-5">
-			<p><?php echo $odin_general_opts['footer1'];?></p>
-			<p><?php echo $odin_general_opts['footer2'];?></p>
-			<p><?php echo $odin_general_opts['footer3'];?></p>
+		<div id="frases-footer" class="col-sm-5 pull-right">
+			<p><?php echo $odin_footer_opts['footer1'];?></p>
+			<p><?php echo $odin_footer_opts['footer2'];?></p>
+			<p><?php echo $odin_footer_opts['footer3'];?></p>
 		</div>
-		<div class="col-md-7 pull-right">
+		<div class="col-sm-7 pull-left">
 			<nav class="col-xs-6" role="navigation">
 				<?php
 					wp_nav_menu(
@@ -52,12 +52,12 @@
 			</nav><!-- .navbar-collapse -->
 			
 			<div id="social" class="col-md-12">
-			<a href="<?php echo $odin_general_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png">          </a>
-			<a href="<?php echo $odin_general_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png">    </a>
-			<a href="<?php echo $odin_general_opts['linkedin'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/linkedin.png">  </a>
-			<a href="<?php echo $odin_general_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker.png">    </a>
-			<a href="<?php echo $odin_general_opts['google'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/google.png">      </a>
-			<a href="<?php echo $odin_general_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
+			<a href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png">          </a>
+			<a href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png">    </a>
+			<a href="<?php echo $odin_footer_opts['linkedin'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/linkedin.png">  </a>
+			<a href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker.png">    </a>
+			<a href="<?php echo $odin_footer_opts['google'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/google.png">      </a>
+			<a href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
 				
 			</div>
 			<div id="copyright" class="col-md-6">

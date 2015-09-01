@@ -9,6 +9,7 @@ a{
 .row{
 	z-index:9;
 }
+/*home*/
 #busca-home{ 
 	background-image: url('../images/busca.png');
 	background-repeat: no-repeat;
@@ -31,14 +32,25 @@ a{
 	border: none;
     margin: 0px 0 20px;
 }
-#img-header{
-	top:0;
-	width:100%;
-	left:0;
+.home #img-header{
 	-webkit-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
 	-moz-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
 	box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
-	
+}
+.page #img-header{
+	position:relative;
+}
+.page #header .page-header, .page  #header #main-navigation{
+	margin-bottom:0;
+	padding-bottom:0;
+}
+.page #header .container {
+    height: initial;
+}
+ #img-header{
+	top:0;
+	width:100%;
+	left:0;
 }
 .absolute{
 	position:absolute;
@@ -46,6 +58,10 @@ a{
 .sem-margem{
 	padding:0;
 	margin:0;
+}
+.page #logo{
+	height: 104px;
+    
 }
 #logo{
 	position:relative;
@@ -85,7 +101,7 @@ a{
 .sem-padding{
 	padding:0;
 }
-.home .container{
+ .container{
 	position:relative;
 }
 .navbar {
@@ -98,7 +114,7 @@ a{
 #header #main-navigation{
 	margin-top:0;
 }
-.row.exp-insp, .row.indique{
+.row.exp-insp, .row.indique, .row.visao, .row.apoio{
 	z-index: 9;
 	position:relative;
 	max-width: 848px;
@@ -180,6 +196,91 @@ a{
 	-webkit-transform: translate(0,-10%);
 	transform: translate(0,-10%);
 }
+/*sobre*/
+.visao{
+	text-align:center;
+	z-index:999!important;
+	-ms-transform: translate(0,-23%);
+	-webkit-transform: translate(0,-23%);
+	transform: translate(0,-23%);
+}
+.visao h3{
+	margin:50px 0;
+	text-transform:uppercase;
+}
+#fundo-sobre{
+	background-color:#f7ae00;
+	height:504px;
+	border-radius: 269px;
+    
+}
+.apoio{
+	text-align:center;
+	padding:50px 0;
+	background-color:#ffffff;
+	max-width: 100%!important;
+    
+}
+
+.row.apoio img{
+	margin:20px 10px;
+	
+	
+}
+.fotos{
+	position:relative;
+}
+.fotos img{
+	z-index:99;
+}
+#sobre1{
+	top:0;
+	left:0;
+}
+#sobre2{
+	bottom:0;
+	left:0;
+	
+}
+#sobre3{
+	right:0;
+	bottom:0;
+}
+#barra-sobre{
+	top: 40%;
+    left: 47%;
+}
+.fotos h2{
+	z-index:9999;
+	color:#fff;
+	text-transform:uppercase;
+	margin:0;
+}
+#escolas-sobre{
+	top:50px;
+	z-index:9999;
+	left: 300px;
+}
+#experiencias-sobre{
+	bottom:40px;
+	z-index:9999;
+	right: 400px;
+}
+.inline-block{
+	display:inline-block;
+}
+.fotos .inline-block p{
+	width:170px;
+	margin: 0 20px;
+	
+}
+#escolas-sobre h2{
+	-ms-transform: translate(0%, -82%);
+    -webkit-transform: translate(0%, -82%);
+    transform: translate(0%, -82%);
+}
+
+/*footer*/
 #footer a:hover{
 	background-color:transparent;
 	color:#00b2ad;
@@ -193,13 +294,20 @@ a{
 	font-weight:lighter;
     
 }
-
-#footer{
+.home #footer{
 	-webkit-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
 	-moz-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
 	box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
+	margin-top: -35px;
+   
+}
+.apoio h4{
+	text-transform:uppercase;
+	color:#929497;
+}
+#footer{
+	
 	padding: 60px 170px;
-    margin-top: -35px;
     z-index: 9999;
 	position:relative;
 	background-color:#003b5f;
@@ -216,7 +324,7 @@ a{
 #social img{
 	margin: 0 20px 0 0;
 }
-#copyright {
+#copyright p{
 	color:#00b2ad;
 }
 #apoio{
@@ -225,6 +333,10 @@ a{
 #header .page-header {
     position: absolute;
     top: 0;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+	background-color:transparent;
+	color:#00ccff;
 }
 @media (max-width: 992px){
 	
@@ -270,10 +382,8 @@ a{
 		padding: 60px 10px;
 	    
 	}
-	#footer .pull-right, .papel .pull-left{
-		float:none!important;
-	}
-	#logo{
+	
+	.home #logo{
 		width: 60%;
 	    
 	}
@@ -283,8 +393,22 @@ a{
 	    top: 27%;
 	
 	}
+
+	#escolas-sobre p, #experiencias-sobre p{
+    	background-color: rgba(255, 255, 255, 0.54);
+		padding:10px;
+	}
+	.page #logo {
+	    height: 52px;
+	}
 }
 @media (max-width: 768px){
+	.page #logo {
+	    height: 70px;
+	}
+	#footer .pull-right, #footer .pull-left, .papel .pull-left{
+		float:none!important;
+	}
 	.navbar-header{
 		background-color:#f7ae00;
 	}
@@ -294,6 +418,43 @@ a{
 	.navbar-default .navbar-toggle .icon-bar {
 		background-color:#ffffff;
 	}
+	.visao{
+		-ms-transform: translate(0);
+		-webkit-transform: translate(0);
+		transform: translate(0);
+		padding-top:30px;
+		text-align:center;
+	}
+	.visao h3{
+		margin:20px 0;
+	}
+	.visao p{
+		max-width:400px;
+		display:block;
+		margin:10px auto 20px;
+		
+	}
+	.page #header .page-header{
+		top:initial;
+		bottom:0;
+	}
+	#escolas-sobre h2{
+		-ms-transform: translate(0);
+		-webkit-transform: translate(0);
+		transform: translate(0);
+	}
+	#escolas-sobre {
+	    top: 20px;
+	    z-index: 9999;
+	    left: 30px;
+	}
+	#experiencias-sobre {
+	    bottom: 10px;
+	    z-index: 9999;
+	    right: 10px;
+	}
+	
+		
 }
 
 
@@ -316,6 +477,10 @@ a{
 	.container {
 	    width: 100%;
 	}
+	#frases-footer{
+		padding-left:40px;
+		border-left:solid 1px #b1dcde;
+	}
 	
 }
 @media (min-width: 992px){
@@ -334,7 +499,7 @@ a{
 		height: 47vw;
 	    
 	}
-	#logo{
+	.home #logo{
 	    width: 110%;
 	}
 	#img-header{
@@ -351,7 +516,7 @@ a{
 		padding: 0 170px;
 	    
 	}
-	.home #header .container{
+	 #header .container{
 		height: 555px;
 	}
 	.nav a {

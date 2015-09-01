@@ -315,15 +315,24 @@ function odin_theme_settings_example() {
 
     $settings = new Odin_Theme_Options(
         'odin-settings', // Slug/ID of the Settings Page (Required)
-        'Theme Settings', // Settings page name (Required)
+        'Opções do tema', // Settings page name (Required)
         'manage_options' // Page capability (Optional) [default is manage_options]
     );
 
     $settings->set_tabs(
         array(
-            array(
+            
+			array(
                 'id' => 'odin_general', // Slug/ID of the Settings tab (Required)
-                'title' => __( 'General Settings', 'odin' ), // Settings tab title (Required)
+                'title' => __( 'Home', 'odin' ), // Settings tab title (Required)
+            ),
+			array(
+                'id' => 'odin_footer', // Slug/ID of the Settings tab (Required)
+                'title' => __( 'Rodapé', 'odin' ), // Settings tab title (Required)
+            ),
+			array(
+                'id' => 'odin_sobre', // Slug/ID of the Settings tab (Required)
+                'title' => __( 'Sobre', 'odin' ), // Settings tab title (Required)
             ),
             
         )
@@ -331,29 +340,11 @@ function odin_theme_settings_example() {
 
     $settings->set_fields(
         array(
-            'odin_general_fields_section' => array( // Slug/ID of the section (Required)
-                'tab'   => 'odin_general', // Tab ID/Slug (Required)
-                'title' => __( 'Configurações do tema', 'odin' ), // Section title (Required)
+			'odin_footer_fields_section' => array( // Slug/ID of the section (Required)
+                'tab'   => 'odin_footer', // Tab ID/Slug (Required)
+                'title' => __( 'Configurações do rodapé', 'odin' ), // Section title (Required)
                 'fields' => array( // Section fields (Required)
 					array(
-                        'id'         => 'destaque_insp', // Required
-                        'label'      => __( 'Destaque Experiências Inspiradoras na Home ', 'odin' ), // Required
-					    'type'        => 'editor', // Obrigatório
-					    'default'     => 'Default text', // Opcional
-					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
-					        'textarea_rows' => 3
-					    ),
-					),
-					array(
-                        'id'         => 'indique_uma', // Required
-                        'label'      => __( 'Destaque Indique uma escola ', 'odin' ), // Required
-					    'type'        => 'editor', // Obrigatório
-					    'default'     => 'Default text', // Opcional
-					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
-					        'textarea_rows' => 2
-					    ),
-					),
-                    array(
                         'id'         => 'face', // Required
                         'label'      => __( 'Endereço do Facebook', 'odin' ), // Required
                         'type'       => 'text', // Required
@@ -409,11 +400,91 @@ function odin_theme_settings_example() {
 					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
 					        'textarea_rows' => 3
 					    ),
-					)
-                )
+                    )
+				)
+			),
+			'odin_sobre_fields_section' => array( // Slug/ID of the section (Required)
+                'tab'   => 'odin_sobre', // Tab ID/Slug (Required)
+                'title' => __( 'Página Sobre', 'odin' ), // Section title (Required)
+                'fields' => array( // Section fields (Required)
+					array(
+                        'id'         => 'visao', // Required
+                        'label'      => __( 'Texto para visão', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					array(
+                        'id'         => 'estrategia', // Required
+                        'label'      => __( 'Texto para estratégia ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					array(
+                        'id'         => 'equipe', // Required
+                        'label'      => __( 'Texto para equipe ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					array(
+                        'id'         => 'esc_trans', // Required
+                        'label'      => __( 'Destaque Experiências Escolas transformadoras ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					array(
+                        'id'         => 'exp_ins', // Required
+                        'label'      => __( 'Destaque Experiências Inspiradoras na página sobre ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					
+					
+				)
             ),
-        )
+            'odin_general_fields_section' => array( // Slug/ID of the section (Required)
+                'tab'   => 'odin_general', // Tab ID/Slug (Required)
+                'title' => __( 'Configurações do tema', 'odin' ), // Section title (Required)
+                'fields' => array( // Section fields (Required)
+					array(
+                        'id'         => 'destaque_insp', // Required
+                        'label'      => __( 'Destaque Experiências Inspiradoras na Home ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => 'Default text', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					array(
+                        'id'         => 'indique_uma', // Required
+                        'label'      => __( 'Destaque Indique uma escola ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => 'Default text', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
+					
+					
+				)
+            )
+         )
     );
+    
 }
 
 add_action( 'init', 'odin_theme_settings_example', 1 );
