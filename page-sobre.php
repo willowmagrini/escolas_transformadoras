@@ -48,7 +48,7 @@ get_header(''); ?>
 			<img class="absolute" id="barra-sobre" src="<?php echo get_template_directory_uri(); ?>/assets/images/barra-sobre.png">
 			<div id="experiencias-sobre" class="absolute">
 				<div class="inline-block">
-					<?php echo $odin_sobre_opts['esc_trans'];?>
+					<?php echo $odin_sobre_opts['exp_ins'];?>
 				</div>
 				<div class="inline-block">
 					<h2  >Experiências</h2>
