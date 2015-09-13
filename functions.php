@@ -305,6 +305,10 @@ require_once get_template_directory() . '/inc/template-tags.php';
 *custom post types
 */
 require_once get_template_directory() . '/inc/custom-post.php';
+/**
+*custom fields
+*/
+require_once get_template_directory() . '/inc/custom-fields.php';
 
 
 /**
@@ -315,6 +319,10 @@ require_once get_template_directory() . '/inc/options.php';
 *mask image
 */
 require_once get_template_directory() . '/inc/mask-image.php';
+/**
+*funcoes do ajax
+*/
+require_once get_template_directory() . '/inc/ajax-functions.php';
 
 
 /**

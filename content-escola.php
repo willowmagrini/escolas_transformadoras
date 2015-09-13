@@ -47,7 +47,9 @@
 			<?php
 				if( get_field('upload_de_pdf') ):
 				    ?>
-					<a target="_blank" href="<?php the_field('upload_de_pdf'); ?>" ><img id="info-escola-download" class="absolute" src="<?php echo get_template_directory_uri().'/assets/images/icon-download.png';?>"></a>
+					<a target="_blank" href="<?php the_field('upload_de_pdf'); ?>" >7
+						<img id="info-escola-download" class="absolute" src="<?php echo get_template_directory_uri().'/assets/images/icon-download.png';?>">
+					</a>
 				<?php
 				
 				endif;

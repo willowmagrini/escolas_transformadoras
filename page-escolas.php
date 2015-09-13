@@ -7,49 +7,132 @@
  */
 
 get_header('escolas'); ?>
-<div class="row conteudo-citacao">
-	<div class="inline-block" id="citacao">
-		<form>
-			<input type="text" id="filtro-pais" name="pais" placeholder="País"></input>
-			<input type="text" id="filtro-cidade" name="cidade" placeholder="Cidade"></input>
-			<input type="text" id="filtro-palavra" name="palavra" placeholder="Palavra-Chave"></input>
-			<input type="submit" id="filtro-enviar" name="enviar" placeholder="Enviar"></input>		
-		</form>
-	</div>
-</div><!-- .row.conteudo-citacao -->
 
-<?php
-$posts = get_posts(array(
-	'posts_per_page' => 1,
-	'post_type' => 'escola',
-	'meta_query' => array(
-		array(
-			'key' => 'destaque',
-			'value' => '1',
-			'compare' => '==',
-
-		)
-	)
-));
-if( $posts )
-{
-	foreach( $posts as $post )
-	{
-		setup_postdata( $post );
-		?>
-			<a href="<?php the_permalink()?>">
-				<?php 
-				the_title();
-				echo get_the_excerpt();
-				
-				?>
-				
-			</a>
-		<?php
-	}
-	wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
-}
-?>
+<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 	
+	<div class="row filtro-escolas">
+		<div class="inline-block"  id="filtro">
+				
+			
+			<form>
+				<select id="filtro-pais" class="btn-ajax-filtro" data-filtro="pais">
+					<option  value="todos"><?php echo __( 'Todos','odin'); ?></option>
+					<?php  
+                
+                
+					$values = $wpdb->get_col("SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'pais'" );						
+					foreach ($values as $value) {
+						echo '<option  value="'.$value.'">'.$value.'</option>';
+					}
+					?>
+                
+				</select>
+				<select id="filtro-cidade" class="btn-ajax-filtro" data-filtro="cidade">
+					<option  value=""><?php echo __( 'Todas','odin'); ?></option>
+					
+					<?php  
+                
+                
+					$values = $wpdb->get_col("SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cidade'" );						
+					foreach ($values as $value) {
+						echo '<option value="'.$value.'">'.$value.'</option>';
+					}
+					?>
+                
+				</select>
+				<input type="text" id="filtro-palavra" name="palavra" placeholder="Palavra-Chave"></input>
+				<input type="submit" id="filtro-enviar" name="enviar" placeholder="Enviar"></input>		
+			</form>
+		</div>
+	</div><!-- .row.conteudo-citacao -->
+
+	<?php
+	$tempo=microtime();
+	$posts = get_posts(array(
+		'posts_per_page' => 1,
+		'post_type' => 'escola',
+		'meta_query' => array(
+			array(
+				'key' => 'destaque',
+				'value' => '1',
+				'compare' => '==',
+
+			)
+		)
+	));
+	
+	if( $posts )
+	{
+		foreach( $posts as $post )
+		{
+			setup_postdata( $post );
+			?>
+			<div id="escola-destaque" class="row">
+				<a href="<?php the_permalink()?>">
+					<?php 
+					the_title();
+					echo get_the_excerpt();
+				
+					?>
+				
+				</a>
+			</div><!-- escola-destaque -->
+			<?php
+		}
+
+		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+	}
+
+	$tempo = microtime() -$tempo;
+	echo 'tempo de destaque'.$tempo;
+	?>
+	<hr>
+	<hr>
+	<hr>
+	<div id="ajax-escolas">
+		<?php
+		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+		$args = array(
+			'post_type' => 'escola',
+		);
+	
+		$WP_Query_escola = new WP_Query( $args );
+	
+		if( $WP_Query_escola->have_posts()  )
+		{
+			// echo '<pre>';
+			// 		print_r($WP_Query_escola);
+			// 	echo '</pre>';
+			while ( $WP_Query_escola->have_posts() ) 
+			{
+				$WP_Query_escola->the_post();
+				?>
+				<div class="cada-escola animated fadeIn">
+					<a href="<?php the_permalink()?>">
+						<?php 
+						echo the_title();				
+						?>
+					</a>
+				</div><!-- escola-destaque -->
+				<?php
+			}
+		
+			?>
+	</div> <!-- id="escolad" -->
+
+		<a class="btn btn-loadmore" data-paged="2" data-loading="'.__('Carregando...', 'odin').'" data-selector="#ajax-escolas" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" data-category="all">
+			<?php echo __('Carregar +','odin'); ?>
+		</a>
+			
+			<?php
+			
+		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+	}
+	
+
+	$tempo = microtime() -$tempo;
+	echo $tempo;
+	?>
+</main>
 	<?php
 	get_footer();
