@@ -50,18 +50,23 @@ jQuery(document).ready(function($) {
 	//ajax filtros
 
 	$('.btn-ajax-filtro').change(function(e){
-		var_pais_value
-		var meta_key = $(this).attr("data-filtro");
-		id=$(this).attr("id");
-		$( "#"+id+" option:selected" ).each(function() {
-		 	meta_value=$( this ).attr('value');
+		var meta = {};
+		var data = {'action': 'escola_filtra_posts'};
+		data.gatilho = $( this ).attr('data-filtro');
+		
+		$( "select option:selected" ).each(function() {
+			
+			meta_key = ($( this ).parent().attr('data-filtro'));
+			meta_value = ($( this ).attr('value'));
+			if (meta_value != ""){
+				meta[meta_key] = meta_value;
+			}
 		});
-		var data = {
-			'action': 'escola_filtra_posts',
-			'meta_key': meta_key,
-			'meta_value': meta_value
-		};
-		console.log(data);
+		
+		data.meta = meta;
+		id=$(this).attr("id");
+		console.log(meta);
+
 		var elem = this;
 		var selector = $('.btn-loadmore').attr('data-selector');
 		$.ajax({
@@ -74,6 +79,12 @@ jQuery(document).ready(function($) {
 				if (obj.cidades != ""){
 					$('#filtro-cidade').html(obj.cidades);
 				}
+				if (obj.pais != ""){
+					console.log(obj.pais);
+					$('#filtro-pais option[value="'+obj.pais+'"]').attr('selected','selected');
+					
+				}
+				console.log(obj.teste);
 				$(selector).html(obj.html);
 				
 				

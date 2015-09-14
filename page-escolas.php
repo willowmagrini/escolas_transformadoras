@@ -16,24 +16,37 @@ get_header('escolas'); ?>
 			
 			<form>
 				<select id="filtro-pais" class="btn-ajax-filtro" data-filtro="pais">
-					<option  value="todos"><?php echo __( 'Todos','odin'); ?></option>
+					<option  value=""><?php echo __( 'Todos','odin'); ?></option>
 					<?php  
                 
                 
-					$values = $wpdb->get_col("SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'pais'" );						
+					$values = $wpdb->get_col("SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
+				        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+				        WHERE pm.meta_key = 'pais' 
+				        AND p.post_status = 'publish' 
+				        AND p.post_type = 'escola'");						
 					foreach ($values as $value) {
-						echo '<option  value="'.$value.'">'.$value.'</option>';
+						echo '<option  data-key="pais" value="'.$value.'">'.$value.'</option>';
 					}
+					
+					
+					
+					
 					?>
                 
 				</select>
+				
 				<select id="filtro-cidade" class="btn-ajax-filtro" data-filtro="cidade">
 					<option  value=""><?php echo __( 'Todas','odin'); ?></option>
 					
 					<?php  
                 
-                
-					$values = $wpdb->get_col("SELECT DISTINCT meta_value FROM $wpdb->postmeta WHERE meta_key = 'cidade'" );						
+                	
+					$values = $wpdb->get_col("SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
+				        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+				        WHERE pm.meta_key = 'cidade' 
+				        AND p.post_status = 'publish' 
+				        AND p.post_type = 'escola'" );						
 					foreach ($values as $value) {
 						echo '<option value="'.$value.'">'.$value.'</option>';
 					}
@@ -100,17 +113,19 @@ get_header('escolas'); ?>
 	
 		if( $WP_Query_escola->have_posts()  )
 		{
-			// echo '<pre>';
-			// 		print_r($WP_Query_escola);
-			// 	echo '</pre>';
+			
 			while ( $WP_Query_escola->have_posts() ) 
 			{
 				$WP_Query_escola->the_post();
 				?>
 				<div class="cada-escola animated fadeIn">
 					<a href="<?php the_permalink()?>">
-						<?php 
-						echo the_title();				
+						<?php echo the_title();?>
+						<?php 	
+						echo '<pre>';
+							print_r(get_post_meta( $post->ID));
+						echo '</pre>';
+						
 						?>
 					</a>
 				</div><!-- escola-destaque -->
