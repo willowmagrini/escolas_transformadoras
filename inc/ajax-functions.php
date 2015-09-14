@@ -9,7 +9,7 @@ function ajax_escola_load_posts(){
 	$args = array(
 		'paged'=> $_POST['paged'],
 		'post_type' => 'escola',
-		'posts_per_page'=>1
+		'posts_per_page'=>8
 	);
 	if (isset($_POST['meta'])){ //se tem meta dados pro query
 		$resposta = $_POST['meta'];//puxa os metas do ajax da forma meta_key:meta_value, meta_key:meta_value, 
@@ -32,11 +32,12 @@ function ajax_escola_load_posts(){
 		{
 			$WP_Query_escola->the_post();
 			?>
-			<div class="cada-escola animated  fadeIn">
+			<div class="cada-escola animated col-sm-3 fadeIn">
 				<a href="<?php the_permalink()?>">
-					<?php 
-					echo get_the_title().get_field( "cidade" );	
-					?>
+					<div class='img-redonda '>
+						<img src="<?php echo get_field( "imagem_redonda" )?>">	
+					</div>
+					<?php echo get_the_title();?>
 				</a>
 			</div><!-- escola-destaque -->
 			<?php
@@ -59,7 +60,7 @@ function ajax_escola_filtra_posts(){
 	$html = "";
 	$args= array(
 		'post_type' => 'escola',
-		'posts_per_page'=>1
+		'posts_per_page'=>8
 		
 	);
 	$ajax_response['teste'] ="nao";
@@ -119,9 +120,12 @@ function ajax_escola_filtra_posts(){
 		while ( $WP_Query_escola->have_posts() ) 
 		{
 			$WP_Query_escola->the_post();
-			$ajax_response['html'] .='<div class="cada-escola animated  fadeIn">';
+			$ajax_response['html'] .='<div class="cada-escola animated  col-sm-3 fadeIn">';
 				$ajax_response['html'] .='<a href="'.get_the_permalink().'">'; 
-					$ajax_response['html'] .=get_the_title().get_field( "cidade" );	
+					$ajax_response['html'] .='
+					<div class="img-redonda ">
+						<img src="'.get_field( "imagem_redonda" ).'">	
+					</div>'.get_the_title();	
 				$ajax_response['html'] .='</a>';
 			$ajax_response['html'] .= '</div><!-- escola-destaque -->';				
 		}

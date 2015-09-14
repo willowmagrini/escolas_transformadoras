@@ -83,6 +83,7 @@ get_header('escolas'); ?>
 			<div id="escola-destaque" class="row">
 				<a href="<?php the_permalink()?>">
 					<?php 
+					echo get_the_post_thumbnail( get_the_ID());
 					the_title();
 					echo get_the_excerpt();
 				
@@ -98,16 +99,14 @@ get_header('escolas'); ?>
 
 
 	?>
-	<hr>
-	<hr>
-	<hr>
-	<div id="ajax-escolas">
+	
+	<div class="row" id="ajax-escolas">
 		<?php
 		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 		$args = array(
 			'post_type' => 'escola',
 			'paged'=> $paged,
-			'posts_per_page' =>1
+			'posts_per_page' =>8
 		);
 	
 		$WP_Query_escola = new WP_Query( $args );
@@ -119,20 +118,10 @@ get_header('escolas'); ?>
 			{
 				$WP_Query_escola->the_post();
 				?>
-				<div class="cada-escola animated fadeIn">
-					<a href="<?php the_permalink()?>">
-						<?php echo the_title();?>
-						<?php echo get_field( "cidade" )?>	
-						
-						<?php 	
-						
-						// echo '<pre>';
-						// 						echo '</pre>';
-						
-						?>
-					</a>
-				</div><!-- escola-destaque -->
 				<?php
+				
+				get_template_part('content', 'cada-escola');
+				
 			}
 		
 			?>

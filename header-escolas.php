@@ -126,12 +126,13 @@
 					</nav><!-- .navbar-collapse -->
 				</div><!-- #secondary-navigation-->
 			</div><!-- #menus -->
-			<!-- <div class="google-maps">
-						    <iframe  src="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc" width="600" height="450" frameborder="0" style="border:0"></iframe> 
-						</div> -->
-			<!-- <img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>"> -->
 			
+			<!-- <img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>"> -->
+			 <div id="maps">
+				<iframe src="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc" ></iframe>
+			</div>
 		</div><!-- .container-->
+		
 	</header><!-- #header -->
 
 	<div id="wrapper" class="container ">
