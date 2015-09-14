@@ -96,8 +96,7 @@ get_header('escolas'); ?>
 		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
 	}
 
-	$tempo = microtime() -$tempo;
-	echo 'tempo de destaque'.$tempo;
+
 	?>
 	<hr>
 	<hr>
@@ -107,6 +106,8 @@ get_header('escolas'); ?>
 		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 		$args = array(
 			'post_type' => 'escola',
+			'paged'=> $paged,
+			'posts_per_page' =>1
 		);
 	
 		$WP_Query_escola = new WP_Query( $args );
@@ -121,10 +122,12 @@ get_header('escolas'); ?>
 				<div class="cada-escola animated fadeIn">
 					<a href="<?php the_permalink()?>">
 						<?php echo the_title();?>
+						<?php echo get_field( "cidade" )?>	
+						
 						<?php 	
-						echo '<pre>';
-							print_r(get_post_meta( $post->ID));
-						echo '</pre>';
+						
+						// echo '<pre>';
+						// 						echo '</pre>';
 						
 						?>
 					</a>
@@ -135,7 +138,7 @@ get_header('escolas'); ?>
 			?>
 	</div> <!-- id="escolad" -->
 
-		<a class="btn btn-loadmore" data-paged="2" data-loading="'.__('Carregando...', 'odin').'" data-selector="#ajax-escolas" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" data-category="all">
+		<a class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="'.__('Carregando...', 'odin').'" data-selector="#ajax-escolas" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" data-category="all">
 			<?php echo __('Carregar +','odin'); ?>
 		</a>
 			
@@ -145,8 +148,7 @@ get_header('escolas'); ?>
 	}
 	
 
-	$tempo = microtime() -$tempo;
-	echo $tempo;
+	
 	?>
 </main>
 	<?php

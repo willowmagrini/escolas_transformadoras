@@ -9,10 +9,20 @@ function ajax_escola_load_posts(){
 	$args = array(
 		'paged'=> $_POST['paged'],
 		'post_type' => 'escola',
+		'posts_per_page'=>1
 	);
-
+	if (isset($_POST['meta'])){ //se tem meta dados pro query
+		$resposta = $_POST['meta'];//puxa os metas do ajax da forma meta_key:meta_value, meta_key:meta_value, 
+		foreach ($resposta as  $meta_key => $meta_value) {///chama todas os metas como argumentos para o query
+			$args['meta_query'][$meta_key.'_clause'] = array('meta_key' => $meta_key,'value' => $meta_value);
+			$args['meta_query']['relation'] ='AND';
+		}
+	}
+		
 	$WP_Query_escola = new WP_Query( $args );
-
+	// echo '<pre>';
+	// 				print_r($WP_Query_escola);
+	// 			echo '</pre>';
 	if( $WP_Query_escola->have_posts()  )
 	{
 		// echo '<pre>';
@@ -25,7 +35,7 @@ function ajax_escola_load_posts(){
 			<div class="cada-escola animated  fadeIn">
 				<a href="<?php the_permalink()?>">
 					<?php 
-					echo the_title();				
+					echo get_the_title().get_field( "cidade" );	
 					?>
 				</a>
 			</div><!-- escola-destaque -->
@@ -49,6 +59,8 @@ function ajax_escola_filtra_posts(){
 	$html = "";
 	$args= array(
 		'post_type' => 'escola',
+		'posts_per_page'=>1
+		
 	);
 	$ajax_response['teste'] ="nao";
 	if (isset($_POST['meta'])){ //se tem meta dados pro query
@@ -101,7 +113,7 @@ function ajax_escola_filtra_posts(){
 	$ajax_response['html'] ="";
 	$ajax_response['teste'] = $args; 
 	$WP_Query_escola = new WP_Query( $args);
-	
+	$ajax_response['max_pages'] = $WP_Query_escola->max_num_pages;
 	if( $WP_Query_escola->have_posts()  )	{
 		
 		while ( $WP_Query_escola->have_posts() ) 
@@ -109,7 +121,7 @@ function ajax_escola_filtra_posts(){
 			$WP_Query_escola->the_post();
 			$ajax_response['html'] .='<div class="cada-escola animated  fadeIn">';
 				$ajax_response['html'] .='<a href="'.get_the_permalink().'">'; 
-					$ajax_response['html'] .=get_the_title();	
+					$ajax_response['html'] .=get_the_title().get_field( "cidade" );	
 				$ajax_response['html'] .='</a>';
 			$ajax_response['html'] .= '</div><!-- escola-destaque -->';				
 		}

@@ -26,8 +26,19 @@ jQuery(document).ready(function($) {
 		var data = {
 			'action': 'escola_load_posts',
 			'paged': $(this).attr('data-paged'),
-			'category': $(this).attr('data-category')
 		};
+		var meta = {};
+		
+		$( "select option:selected" ).each(function() {
+			meta_key = ($( this ).parent().attr('data-filtro'));
+			meta_value = ($( this ).attr('value'));
+			if (meta_value != ""){
+				meta[meta_key] = meta_value;
+			}
+		});
+		data.meta = meta;
+		console.log(data);
+		
 		var default_html = $(this).html();
 		$(this).html($(this).attr('data-loading'));
 		var elem = this;
@@ -40,6 +51,8 @@ jQuery(document).ready(function($) {
 			$(elem).attr('data-paged',paged);
 			if(paged > max_paged){
 				$(elem).fadeOut('slow');
+				$(elem).attr('data-estado-botao','sumido')
+				
 			}
 		});
 
@@ -65,7 +78,6 @@ jQuery(document).ready(function($) {
 		
 		data.meta = meta;
 		id=$(this).attr("id");
-		console.log(meta);
 
 		var elem = this;
 		var selector = $('.btn-loadmore').attr('data-selector');
@@ -80,12 +92,22 @@ jQuery(document).ready(function($) {
 					$('#filtro-cidade').html(obj.cidades);
 				}
 				if (obj.pais != ""){
-					console.log(obj.pais);
 					$('#filtro-pais option[value="'+obj.pais+'"]').attr('selected','selected');
 					
 				}
-				console.log(obj.teste);
+				estado_botao = $('.btn-loadmore').attr('data-estado-botao');
+				$('.btn-loadmore').attr('data-max-paged',obj.max_pages);
+				$('.btn-loadmore').attr('data-paged',2);
+				if( 2 > obj.max_pages && estado_botao =='aparecido'){
+					$('.btn-loadmore').fadeOut('slow');
+					$('.btn-loadmore').attr('data-estado-botao','sumido')
+				}
+				else if ( 2 <= obj.max_pages && estado_botao =='sumido'){
+					$('.btn-loadmore').fadeIn('slow');
+					$('.btn-loadmore').attr('data-estado-botao','aparecido')
+				}
 				$(selector).html(obj.html);
+				
 				
 				
 				
