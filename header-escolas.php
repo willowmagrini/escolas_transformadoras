@@ -129,7 +129,7 @@
 			
 			<!-- <img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>"> -->
 			 <div id="maps">
-				<iframe src="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc" ></iframe>
+				<iframe src="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc" width="1000"></iframe>
 			</div>
 		</div><!-- .container-->
 		

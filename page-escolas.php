@@ -11,9 +11,26 @@ get_header('escolas'); ?>
 <main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 	
 	<div class="row filtro-escolas">
-		<div class="inline-block"  id="filtro">
-				
+		<div id="titulo-conteudo" class="inline-block">
+			<header class="entry-header">
+				<?php
+						the_title( '<h1 class=" entry-title">', '</h1>' );
+				?>
+			</header><!-- .entry-header -->
+			<?php 
+				$content= get_the_content( );
+				$content = strip_shortcode('gallery', $content);
+				echo '<p>'.$content.'</p>';
+				if( ! has_shortcode( $post->post_content, 'gallery' ) )
+				 		return $content;
+
+				 	// Retrieve the first gallery in the post
+				 	$gallery = get_post_gallery_images( $post );
+			?>
 			
+		</div><!-- titulo-conteudo -->
+		
+		<div class="inline-block"  id="filtro">	
 			<form>
 				<select id="filtro-pais" class="btn-ajax-filtro" data-filtro="pais">
 					<option  value=""><?php echo __( 'Todos','odin'); ?></option>

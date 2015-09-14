@@ -21,7 +21,9 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<!-- <body <?php body_class('front-page home'); ?>> -->
+
+<body class=" page-id-2 page-template page-template-page-frontpage page-template-page-frontpage-php logged-in front-page home">
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span></div></a>
 
 	<header id="header" role="banner">
