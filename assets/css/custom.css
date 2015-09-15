@@ -3481,6 +3481,13 @@ a{
 	transform: translate(0,-10%);
 }
 /*sobre*/
+.page-template-page-sobre a{
+	text-decoration:none;
+}
+.page-template-page-sobre a:hover h2, a:focus h2{
+	opacity:0.8;
+;
+}
 .visao{
 	text-align:center;
 	z-index:999!important;
@@ -3532,7 +3539,13 @@ a{
 }
 #barra-sobre{
 	top: 40%;
-    left: 47%;
+    left: 42%;
+	-moz-transform: scaleX(-1);
+	        -o-transform: scaleX(-1);
+	        -webkit-transform: scaleX(-1);
+	        transform: scaleX(-1);
+	        filter: FlipH;
+	        -ms-filter: "FlipH";
 }
 .fotos h2{
 	z-index:9999;
@@ -3541,15 +3554,16 @@ a{
 	margin:0;
 }
 #escolas-sobre{
-	top:50px;
+	top:143px;
 	z-index:9999;
-	left: 300px;
+    right: 301px;
 }
 #experiencias-sobre{
-	bottom:40px;
+	bottom:80px;
 	z-index:9999;
-	right: 400px;
+    left: 350px;
 }
+
 .esquerda{
 	float:left;
 }
@@ -3638,6 +3652,7 @@ select.form-control {
 .cada-escola{
 	padding:10px;
 }
+
 .page-template-page-escolas #content{
 	text-align:center;
 }
@@ -3645,13 +3660,31 @@ select.form-control {
 	
 	clear:both;
 }
+.cada-escola a:hover{
+	text-decoration:none;
+}
+.cada-escola a div{
+	-webkit-transition: all  ease-out 0.5s;
+	    -moz-transition: all  ease-out 0.5s;
+	    -o-transition: all  ease-out 0.5s;
+	    transition: all  ease-out 0.5s;
+	opacity:1;
+}
+.cada-escola a:hover div{
+	opacity:0.7;
+	-webkit-transition: all  ease-out 0.5s;
+	    -moz-transition: all  ease-out 0.5s;
+	    -o-transition: all  ease-out 0.5s;
+	    transition: all  ease-out 0.5s;
+		
+}
 .cada-escola{
 	text-align:center;
 	
-	-webkit-transition: all 500ms ease-out 1s;
-	    -moz-transition: all 500ms ease-out 1s;
-	    -o-transition: all 500ms ease-out 1s;
-	    transition: all 500ms ease-out 1s;
+	-webkit-transition: all  ease-out 0.5s;
+	    -moz-transition: all  ease-out 0.5s;
+	    -o-transition: all  ease-out 0.5s;
+	    transition: all  ease-out 0.5s;
 }
 #escolas-sobre h2{
 	-ms-transform: translate(0%, -82%);
@@ -3674,6 +3707,36 @@ select.form-control {
 .row.destaque-escolas, .filtro-escolas, #ajax-escolas{
     max-width: 992px;
 	margin:0 auto;
+}
+.filtro-escolas{
+	position:relative;
+	z-index: inherit;
+    
+}
+#abre-fecha{
+	position:absolute;
+	width:40px;
+	right:0;
+}
+#abre-fecha .fecha{
+	display:none;
+	
+	-webkit-transition: all 50ms ease-out 1s;
+	    -moz-transition: all 50ms ease-out 1s;
+	    -o-transition: all 50ms ease-out 1s;
+	    transition: all 50ms ease-out 1s;
+		
+}
+#abre-fecha .abre{
+	-webkit-transition: all 50ms ease-out 1s;
+	    -moz-transition: all 50ms ease-out 1s;
+	    -o-transition: all 50ms ease-out 1s;
+	    transition: all 50ms ease-out 1s;
+		-ms-transform: rotate(180deg); /* IE 9 */
+		-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+		transform: rotate(180deg);
+		right:-30px;
+	
 }
 .row.destaque-escolas{
 	margin-top:20px;
@@ -3833,6 +3896,9 @@ a.navbar-brand{
 	outline: none;
     
 }
+#titulo-conteudo .entry-header{
+	position:relative;
+}
 .texto-filtro-mapa[data-estado="inativo"]{
 	display:none;
 }
@@ -3847,16 +3913,46 @@ a.navbar-brand{
 	font-size:25px;
 }
 .page-template-page-escolas #titulo-conteudo p{
-		border-color:#ee7d00;
+		border:none;
 }
 .page-template-page-escolas #titulo-conteudo h1.btn-filtro-mapa[data-estado="ativo"]{
 	color:#ee7d00;
 	
 }
 .page-template-page-escolas #titulo-conteudo{
-	margin: -330px 0 0 0px;
-	max-height: 700px;
+		margin: 0;
+	    max-height: 700px;
+	    position: absolute;
+	    left: 0px;
+	    top: -58px;
+	    height: 104px;
+	    overflow: hidden;
+	    z-index: 999;
+	}
+	.filtro-escolas
     
+}
+.page-template-page-escolas #titulo-conteudo.fechado{
+	-webkit-transition: all  ease-out 1s;
+	    -moz-transition: all  ease-out 1s;
+	    -o-transition: all  ease-out 1s;
+	    transition: all  ease-out 1s;
+	
+	
+}
+.page-template-page-escolas #titulo-conteudo.aberto{
+	margin: 0;
+    position: absolute;
+    left: 76px;
+    top: -400px;
+	height: 450px;
+    overflow: hidden;
+    z-index: 999;
+	-webkit-transition: all  ease-out 1s;
+	    -moz-transition: all  ease-out 1s;
+	    -o-transition: all  ease-out 1s;
+	    transition: all  ease-out 1s;
+
 }
 .page-template-page-escolas #filtro{
 	float:right;

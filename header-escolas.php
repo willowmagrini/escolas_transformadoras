@@ -132,7 +132,7 @@
 				<div class="icon-loading">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif">
 				</div>
-				<iframe  frameborder="0" data-alternativo="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc"  src="https://www.google.com/maps/d/embed?mid=zljj_OPzVNjg.kMd4kxyAOoak" data-filtro='latam' height="500" width="1000"></iframe>
+				<iframe  frameborder="0" data-alternativo="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc"  src="https://www.google.com/maps/d/embed?mid=zljj_OPzVNjg.kMd4kxyAOoak" data-filtro='latam' height="400" width="1000"></iframe>
 			</div>
 		</div><!-- .container-->
 		

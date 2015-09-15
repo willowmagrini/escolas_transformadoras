@@ -20,6 +20,20 @@ jQuery(document).ready(function($) {
 	// altura_img_header=$('#img-header').css('height');
 	// $('#header .container').css('height',altura_img_header);
 
+	$("#abre-fecha a .abre").click(function(e){
+		e.preventDefault();
+		$( "#titulo-conteudo" ).removeClass( "fechado" ).addClass( "aberto" );
+		$(this).hide();
+		$('.fecha').show();
+			
+	});
+	$("#abre-fecha a .fecha").click(function(e){
+		e.preventDefault();
+		$(this).hide();
+		$('.abre').show();
+		$( "#titulo-conteudo" ).removeClass( "aberto" ).addClass( "fechado" );
+
+	});
 //ajax escolas
 
 	$('.btn-loadmore').on('click',function(e){
@@ -78,6 +92,7 @@ jQuery(document).ready(function($) {
 		
 		data.meta = meta;
 		id=$(this).attr("id");
+		console.log(data)
 
 		var elem = this;
 		var selector = $('.btn-loadmore').attr('data-selector');
@@ -150,5 +165,6 @@ jQuery(document).ready(function($) {
 	        }, 1000);
 	    });
 	}
+	
 });
 

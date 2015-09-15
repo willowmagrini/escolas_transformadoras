@@ -12,20 +12,27 @@ get_header(''); ?>
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 		<div class="row visao">
 			<div class="col-sm-4"> 
-				<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-olho2.png">
-				<h3>visão</h3>
-				<?php echo $odin_sobre_opts['visao'];?>
+				<a href="http://escolastransformadoras.com.br/sobre/visao/">
+					<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-olho2.png">
+					<h3>visão</h3>
+					<?php echo $odin_sobre_opts['visao'];?>
+				</a>
 			</div>
 			<div class="col-sm-4">
-				<img class="icon-visao"  src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-alvo.png">
-				<h3>Estratégia</h3>
-				<?php echo $odin_sobre_opts['estrategia'];?>
+				<a href="http://escolastransformadoras.com.br/sobre/competencias-transformadoras/">
 				
+					<img class="icon-visao"  src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-alvo.png">
+					<h3>Competências Transformadoras</h3>
+					<?php echo $odin_sobre_opts['estrategia'];?>
+				</a>
 			 </div>
 			<div class="col-sm-4">
-				<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-equipe.png">
-				<h3>Equipe</h3>
-				<?php echo $odin_sobre_opts['equipe'];?>
+				<a href="http://escolastransformadoras.com.br/sobre/equipe/">
+				
+					<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-equipe.png">
+					<h3>Equipe</h3>
+					<?php echo $odin_sobre_opts['equipe'];?>
+				</a>
 			</div>
 		</div><!-- visao -->
 		<div class="row fotos sem-margem">
@@ -37,8 +44,10 @@ get_header(''); ?>
 			<div id="escolas-sobre" class="absolute">
 				
 				<div class="inline-block">
-					<h2  >Escolas</h2>
-					<h2  >Transformadoras</h2>
+					<a href="http://escolastransformadoras.com.br/escolas-transformadoras/">
+						<h2  >Escolas</h2>
+						<h2  >Transformadoras</h2>
+					</a>
 				</div>
 				<div class="inline-block">
 					<?php echo $odin_sobre_opts['esc_trans'];?>
@@ -51,8 +60,10 @@ get_header(''); ?>
 					<?php echo $odin_sobre_opts['exp_ins'];?>
 				</div>
 				<div class="inline-block">
-					<h2  >Experiências</h2>
-					<h2  >Inspiradoras</h2>
+					<a href="http://escolastransformadoras.com.br/experiencias-inspiradoras/">
+						<h2  >Experiências</h2>
+						<h2  >Inspiradoras</h2>
+					</a>
 				</div>
 			</div>
 			<img class="absolute" id="sobre3" src="<?php echo get_template_directory_uri(); ?>/assets/images/sobre3.png">
@@ -61,13 +72,9 @@ get_header(''); ?>
 		
 		<div class="row apoio">
 			<div class="col-md-12">
-				<h4>Parceiros:</h4>
-				<img class="icon-parceiros" src="<?php echo get_template_directory_uri(); ?>/assets/images/intel.png">
-				<img class="icon-parceiros" src="<?php echo get_template_directory_uri(); ?>/assets/images/unicef.png">
-				<img class="icon-parceiros" src="<?php echo get_template_directory_uri(); ?>/assets/images/citi.png">
-				<img class="icon-parceiros" src="<?php echo get_template_directory_uri(); ?>/assets/images/staples.png">
-				<img class="icon-parceiros" src="<?php echo get_template_directory_uri(); ?>/assets/images/google-apoio.png">
-				
+				<h4>Parceiros</h4>
+				<img class="icon-parceiros" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/itau-bba.png">
+				<img class="icon-parceiros" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/fundacao-telefonica.png">
 			</div>
 		</div>
 	</main><!-- #main -->

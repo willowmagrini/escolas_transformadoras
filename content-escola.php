@@ -57,7 +57,7 @@
 			<?php
 				if( get_field('upload_de_pdf') ):
 				    ?>
-					<a target="_blank" href="<?php the_field('upload_de_pdf'); ?>" >7
+					<a target="_blank" href="<?php the_field('upload_de_pdf'); ?>" >
 						<img id="info-escola-download" class="absolute" src="<?php echo get_template_directory_uri().'/assets/images/icon-download.png';?>">
 					</a>
 				<?php
@@ -83,14 +83,6 @@
 			<div id="contato-escola" class="">
 				<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-msg.png';?>">
 				<div class="inline-block">
-					<?php if( get_field('destaque') )
-					{
-					    echo "do something";
-					}
-					else
-					{
-					    echo "do something else";
-					}	?>
 					<p ><?php echo get_field( "contato" );	?> Professores </p>
 				</div>
 

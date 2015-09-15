@@ -12,8 +12,14 @@ get_header('escolas'); ?>
 <main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 	
 	<div class="row filtro-escolas">
-		<div id="titulo-conteudo" class="inline-block">
+		<div id="titulo-conteudo" class="inline-block" data-estado="fechado">
 			<header class="entry-header">
+				<!-- <div id="abre-fecha" class="fechado">
+									<a href="#">
+										<img class="fecha" src='<?php echo get_template_directory_uri(); ?>/assets/images/seta-mapa.png'>
+										<img class="abre" src='<?php echo get_template_directory_uri(); ?>/assets/images/seta-mapa.png'>
+									</a>
+								</div> -->
 				<a href="#">
 					<h1 class="btn-filtro-mapa inline-block" data-estado="ativo" data-filtro="latam" id="global">latam</h2>
 				</a>
@@ -119,7 +125,8 @@ get_header('escolas'); ?>
 			?>
 	</div> <!-- id="escolad" -->
 
-		<a class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-escolas" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" data-category="all">
+		
+		<a class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-escolas" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" style="<?php if ($WP_Query_escola->max_num_pages<2){echo 'display:none;';}?>" data-category="all">
 			<?php echo __('Mais Escolas ','odin'); ?>
 			<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/btn-loadmore-seta.png">
 			
