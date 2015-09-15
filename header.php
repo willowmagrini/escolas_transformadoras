@@ -127,7 +127,7 @@
 				</div><!-- #secondary-navigation-->
 			</div><!-- #menus -->
 			<img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>">
-			
+			<div id="frase-pagina"><?php echo get_field('frase');?></div>
 		</div><!-- .container-->
 	</header><!-- #header -->
 
