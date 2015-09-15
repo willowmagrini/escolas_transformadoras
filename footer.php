@@ -52,21 +52,40 @@
 			</nav><!-- .navbar-collapse -->
 			
 			<div id="social" class="col-md-12">
-			<a href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png">          </a>
-			<a href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png">    </a>
-			<a href="<?php echo $odin_footer_opts['linkedin'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/linkedin.png">  </a>
-			<a href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker.png">    </a>
-			<a href="<?php echo $odin_footer_opts['google'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/google.png">      </a>
-			<a href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
 				
+				<?php if ($odin_footer_opts['face']!=""){?>
+					<a href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png">          </a>
+				<?php }?>
+				<?php if ($odin_footer_opts['twitter']!=""){?>
+					<a href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png">    </a>
+				<?php }?>
+				<?php if ($odin_footer_opts['linkedin']!=""){?>
+					<a href="<?php echo $odin_footer_opts['linkedin'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/linkedin.png">  </a>
+					
+				<?php }?>
+				<?php if ($odin_footer_opts['flicker']!=""){?>
+					<a href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker.png">    </a>
+					
+				<?php }?>
+				<?php if ($odin_footer_opts['google']!=""){?>
+					<a href="<?php echo $odin_footer_opts['google'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/google.png">      </a>
+					
+				<?php }?>
+				<?php if ($odin_footer_opts['youtube']!=""){?>
+					<a href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
+					
+				<?php }?>
+			
 			</div>
-			<div id="copyright" class="col-md-6">
-				<p>&copy; <?php echo date( 'Y' ); ?> Ashoka Changemakers</p>
+			<div id="copyright" class="sem-margem col-sm-6">
+				<p>&copy; <?php echo date( 'Y' ); ?> Ashoka </p>
+				
 			</div>
 			
-			<div id="apoio" class="col-md-6">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-alana.png">
-				
+			<div id="apoio" class="sem-margem col-sm-6">
+				<p>Correalização:</p>
+					<img class="inline-block" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-alana.png">
+					<img class="inline-block" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-ashoka.png">
 			</div>
 			
 		</div>

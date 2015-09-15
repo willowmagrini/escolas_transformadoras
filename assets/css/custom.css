@@ -3478,7 +3478,7 @@ a{
 }
 .pagina .entry-content{
 	min-height:400px;
-	margin-top:100px;
+	margin-top:20px;
 }
 #content.pagina  {
     padding: 0;
@@ -3550,7 +3550,7 @@ a{
 	z-index:9999999;
 	top:0;
 	left:0;
-    padding: 5% 10%;
+    padding: 1% 10%;
 	width: 100vw;
     height: 100vh;
     position: fixed;
@@ -3630,6 +3630,39 @@ a{
 		-ms-transform: translate(-50%,50%);
 		-webkit-transform: translate(-50%,50%);
 		transform: translate(-50%,50%);
+}
+#frase-pagina *{
+	margin:0;
+	
+}
+#destaque-info{
+	width: 281px;
+    position: absolute;
+    top: 10%;
+    right: 13%;
+
+}
+.destaque-escolas h5{
+	color:#ee7d00;
+	font-size:1.2em;
+	text-transform:uppercase;
+}
+.destaque-escolas h3{
+	color:#f7ae00;
+	margin-top: 40px;
+	text-transform:uppercase;
+}
+.destaque-escolas p{
+	color:#ffffff;
+	margin-top:20px;
+}
+#seta-destaque{
+	width:initial;
+	margin-top:40px;
+}
+.destaque-escolas{
+	position:relative;
+	text-align:left;
 }
 .visao{
 	text-align:center;
@@ -3964,7 +3997,21 @@ div.wpcf7-mail-sent-ok {
 .menu-footer{
 	padding:0;
 }
-
+#copyright img, #apoio img{
+	max-width: 125px;
+	width:45%;
+}
+#apoio, #copyright{
+	min-height:100px;
+}
+#apoio{
+}
+#footer .navbar-nav {
+	float:left;
+}
+#footer nav:nth-child(2){
+	padding-left:20px;
+}
 #footer a, #footer p{
 	font-family: 'Asap', sans-serif;
 	color:#ffffff;
@@ -3985,7 +4032,6 @@ div.wpcf7-mail-sent-ok {
 	color:#929497;
 }
 #footer{
-	
 	padding: 60px 170px;
     z-index: 9999;
 	position:relative;
@@ -3996,19 +4042,28 @@ div.wpcf7-mail-sent-ok {
 	display:block;
 	float:none!important;
 }
-#copyright, #social{
+ #social{
     padding: 22px 0;
     text-align: left;
+}
+#social{
 }
 #social img{
 	margin: 0 20px 0 0;
 }
+#copyright{
+	position:relative;
+	padding:0;
+}
 #copyright p{
+	text-align:left;
 	color:#00b2ad;
+	
 }
 #apoio{
 	color:#ffffff;
-	padding: 22px 0;
+	padding-left: 20px;
+    
     
 	
 }
@@ -4237,6 +4292,15 @@ a.navbar-brand{
 .error404 #header .container{
 	height:initial;
 }
+.page-template-page-faca #content{
+	margin-top: -140px;
+	position:relative;
+	z-index:99;
+}
+.page-template-page .entry-content{
+	margin-top: -117px;
+}
+
 @media (max-width: 992px){
 	
 	.single-escola .inline-block{
@@ -4290,7 +4354,8 @@ a.navbar-brand{
 	    clear: both;
 	}
 	#footer{
-		padding: 60px 10px;
+	    padding: 60px 25px;
+
 	    
 	}
 	
@@ -4326,7 +4391,17 @@ a.navbar-brand{
 		
 	}
 }
-@media (max-width: 768px){
+@media (max-width: 766px){
+	#copyright p{
+		text-align:center;
+	}
+	#copyright, #apoio{
+		min-height:initial;
+		padding:0;
+	}
+	#apoio p{
+		text-align:center;
+		}
 	.item-nome{
 		clear:both;
 	}

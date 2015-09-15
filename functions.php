@@ -351,3 +351,31 @@ function strip_shortcode($code, $content)
 }
 
 
+add_filter(  'gettext',  'change_post_to_portfolio'  );
+add_filter(  'ngettext',  'change_post_to_portfolio'  );
+
+function change_post_to_portfolio( $translated ) {
+  $translated = str_ireplace(  'Post',  'Notícia',  $translated );
+$translated = str_ireplace(  'Posts',  'Notícias',  $translated );  // ireplace is PHP5 only
+  return $translated;
+}
+
+
+function the_excerpt_max_charlength($charlength) {
+	$excerpt = get_the_excerpt();
+	$charlength++;
+
+	if ( mb_strlen( $excerpt ) > $charlength ) {
+		$subex = mb_substr( $excerpt, 0, $charlength - 5 );
+		$exwords = explode( ' ', $subex );
+		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+		if ( $excut < 0 ) {
+			echo mb_substr( $subex, 0, $excut );
+		} else {
+			echo $subex;
+		}
+		echo '[...]';
+	} else {
+		echo $excerpt;
+	}
+}
