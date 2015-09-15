@@ -111,7 +111,7 @@
 				imagealphamask( $dest_thumb_video, $mask_video );
 				imagepng( $dest_thumb_video, get_template_directory().'/assets/images/'.get_the_ID().'/video-thumb.png' );
 			?>
-			<a target="blank" href="<?php echo get_field('video')?>">
+			<a id="link-video-escola" target="blank" href="#">
 				<img id="thumb-video-play" class="absolute" src="<?php echo get_template_directory_uri().'/assets/images/thumb-video-play.png';?>">
 			</a>
 			<img src="<?php echo get_template_directory_uri().'/assets/images/'.get_the_ID().'/video-thumb.png'; ?>" width="420" height="195" alt="" />
@@ -145,5 +145,10 @@
 		</div ><!-- id="foto3-foto4" -->
 		
 		
-		
+	<div id="fundo-modal">	</div>
+	<div id="modal-conteudo">
+		<a href="#">
+			<div id="botao-fechar">x</div>
+		</a>
+		<?php echo get_field('video')?></div>
 </article><!-- #post-## -->

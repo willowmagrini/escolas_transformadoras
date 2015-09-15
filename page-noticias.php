@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: recursos
+ * Template Name: Noticias
  *
  * @package Odin
  * @since 2.2.0
@@ -9,11 +9,13 @@
 get_header(''); ?>
 
 <main id="content" class="pagina-itens <?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+	<h1><?php echo get_the_title();?></h1>
+	
 	<div class="row" id="ajax-itens">
 		<?php
 		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 		$args = array(
-			'post_type' => 'recurso',
+			'post_type' => 'post',
 			'paged'=> $paged,
 			'posts_per_page' =>4
 		);
@@ -34,7 +36,7 @@ get_header(''); ?>
 			?>
 		
 	</div> <!-- id="escolad" -->
-	<a data-type="recurso" class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-itens" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" style="<?php if ($WP_Query_escola->max_num_pages<2){echo 'display:none;';}?>" data-category="all">
+	<a data-type="post" class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-itens" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" style="<?php if ($WP_Query_escola->max_num_pages<2){echo 'display:none;';}?>" data-category="all">
 		<?php echo __('Mais Recursos ','odin'); ?>
 		<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/btn-loadmore-seta.png">
 		

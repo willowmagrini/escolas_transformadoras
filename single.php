@@ -7,9 +7,8 @@
  */
 
 get_header(); ?>
+	<main id="content" class="pagina <?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 
-	<div id="primary" class="<?php echo odin_classes_page_sidebar(); ?>">
-		<main id="main-content" class="site-main" role="main">
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
@@ -28,8 +27,7 @@ get_header(); ?>
 				endwhile;
 			?>
 		</main><!-- #main -->
-	</div><!-- #primary -->
+	
 
 <?php
-get_sidebar();
 get_footer();

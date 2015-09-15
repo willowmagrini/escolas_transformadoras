@@ -7,8 +7,8 @@
  */
 
 get_header(); ?>
+	<main id="content" class="pagina <?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 
-	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 
 			<header class="page-header">
 				<h1 class="page-title"><?php _e( 'Not Found', 'odin' ); ?></h1>

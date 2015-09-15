@@ -65,7 +65,47 @@ add_action( 'wp_ajax_escola_load_posts', 'ajax_escola_load_posts' );
 add_action( 'wp_ajax_nopriv_escola_load_posts', 'ajax_escola_load_posts' );
 
 
-//ajax load escolas posts
+function ajax_itens_load_posts(){
+	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+	$args = array(
+		'paged'=> $_POST['paged'],
+		'post_type' => $_POST['type'],
+		'posts_per_page'=>4
+	);
+		
+	$WP_Query_escola = new WP_Query( $args );
+	// echo '<pre>';
+	// 				print_r($WP_Query_escola);
+	// 			echo '</pre>';
+	if( $WP_Query_escola->have_posts()  )
+	{
+		// echo '<pre>';
+		// 		print_r($WP_Query_escola);
+		// 	echo '</pre>';
+		while ( $WP_Query_escola->have_posts() ) 
+		{
+			$WP_Query_escola->the_post();
+			
+				get_template_part('content','todos');
+
+					?>
+				</a>
+			</div><!-- escola-destaque -->
+			<?php
+			
+		}
+		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+		
+	}
+wp_die();
+}
+add_action( 'wp_ajax_itens_load_posts', 'ajax_itens_load_posts' );
+add_action( 'wp_ajax_nopriv_itens_load_posts', 'ajax_itens_load_posts' );
+//ajax load itenss posts
+
+
+
+
 function ajax_escola_filtra_posts(){
 	global $wpdb;
 	$ajax_response = array();

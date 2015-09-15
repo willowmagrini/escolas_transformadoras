@@ -31,13 +31,16 @@ get_header('front'); ?>
 			
 			<div class="row indique">
 				<div class="col-md-6 sem-margem">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/home3.png">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/home3.png">
 				</div>
 				<div class="col-md-6 sem-margem">
 					<div id="indique-uma">
 						<div id="triangulo_indique"></div>
-						<h4>Indique uma</h4>
-						<h3>Escola!</h3>
+						<a href="http://escolastransformadoras.com.br/faca-parte/indique-uma-escola/">
+						
+							<h4>Indique uma</h4>
+							<h3>Escola!</h3>
+						</a>
 						<?php echo $odin_general_opts['indique_uma'];?>
 					</div>
 					<img class="absolute" id="lista-home" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-lista.png">

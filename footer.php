@@ -21,7 +21,7 @@
 			<p><?php echo $odin_footer_opts['footer3'];?></p>
 		</div>
 		<div class="menu-footer col-sm-7 pull-left">
-			<nav class="sem-margem col-xs-6" role="navigation">
+			<nav class="sem-margem col-sm-6" role="navigation">
 				<?php
 					wp_nav_menu(
 						array(
@@ -35,7 +35,7 @@
 					);
 				?>
 			</nav><!-- .navbar-collapse -->
-			<nav class="sem-margem col-xs-6" role="navigation">
+			<nav class="sem-margem col-sm-6" role="navigation">
 				<?php
 					wp_nav_menu(
 						array(

@@ -126,7 +126,23 @@
 					</nav><!-- .navbar-collapse -->
 				</div><!-- #secondary-navigation-->
 			</div><!-- #menus -->
-			<img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>">
+			<?php 
+			if ( has_post_thumbnail( )){
+					echo 'temtem';
+				?>
+
+					<img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>">
+				<?php
+			}
+			else{
+				echo 'naotemtem';
+				
+				?>
+				<img id="img-header" src="<?php echo get_template_directory_uri(); ?>/assets/images/foto-recursos.png">
+				
+				
+				
+			<?php }?>
 			<div id="frase-pagina"><?php echo get_field('frase');?></div>
 		</div><!-- .container-->
 	</header><!-- #header -->

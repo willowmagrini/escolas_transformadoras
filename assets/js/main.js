@@ -2,6 +2,8 @@ jQuery(document).ready(function($) {
 	// fitVids.
 	$( '.entry-content' ).fitVids();
 	$('#maps').fitVids({ customSelector: "iframe" });
+	$( '#modal-conteudo' ).fitVids();
+
 	// Responsive wp_video_shortcode().
 	$( '.wp-video-shortcode' ).parent( 'div' ).css( 'width', 'auto' );
 
@@ -36,7 +38,7 @@ jQuery(document).ready(function($) {
 	});
 //ajax escolas
 
-	$('.btn-loadmore').on('click',function(e){
+	$('.page-template-page-escolas .btn-loadmore').on('click',function(e){
 		var data = {
 			'action': 'escola_load_posts',
 			'paged': $(this).attr('data-paged'),
@@ -52,7 +54,6 @@ jQuery(document).ready(function($) {
 		});
 		data.meta = meta;
 		console.log(data);
-		
 		var default_html = $(this).html();
 		$(this).html($(this).attr('data-loading'));
 		var elem = this;
@@ -72,6 +73,37 @@ jQuery(document).ready(function($) {
 
 	});
 	//ajax escolas
+	//ajax itens
+
+		$('.pagina-itens .btn-loadmore').on('click',function(e){
+			var data = {
+				'action': 'itens_load_posts',
+				'paged': $(this).attr('data-paged'),
+			};
+			var meta = {};
+
+			
+				
+			var default_html = $(this).html();
+			$(this).html($(this).attr('data-loading'));
+			var elem = this;
+			data.type = $(elem).attr('data-type');
+			var selector = $(elem).attr('data-selector');
+			$.post(odin_main.ajaxurl, data, function(response) {
+				$(selector).append(response);
+				$(elem).html(default_html);
+				var paged = parseInt($(elem).attr('data-paged')) + 1;
+				var max_paged = parseInt($(elem).attr('data-max-paged'));
+				$(elem).attr('data-paged',paged);
+				if(paged > max_paged){
+					$(elem).fadeOut('slow');
+					$(elem).attr('data-estado-botao','sumido')
+
+				}
+			});
+
+		});
+		//ajax itens
 	
 	
 	//ajax filtros
@@ -165,6 +197,33 @@ jQuery(document).ready(function($) {
 	        }, 1000);
 	    });
 	}
+	$('#link-video-escola').click(function(e) {
+		e.preventDefault();
+		$('#fundo-modal').attr('modal-estado','ativo');
+		$('#modal-conteudo').attr('modal-estado','ativo');
+		
+		
+		$('#botao-fechar').click(function(f) {
+			f.preventDefault();
+			url = $('#modal-conteudo iframe').attr('src');
+			$('#modal-conteudo iframe').attr('src','');
+		
+			$('#fundo-modal').attr('modal-estado','inativo');
+			$('#modal-conteudo').attr('modal-estado','inativo');
+			$('#modal-conteudo iframe').attr('src',url);
+			
+			
+		});
+		function pausecomp(millis)
+		 {
+		  var date = new Date();
+		  var curDate = null;
+		  do { curDate = new Date(); }
+		  while(curDate-date < millis);
+		}
+		
+		
+	});
 	
 });
 
