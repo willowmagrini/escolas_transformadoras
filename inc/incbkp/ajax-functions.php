@@ -35,22 +35,9 @@ function ajax_escola_load_posts(){
 			<div class="cada-escola animated col-sm-3 fadeIn">
 				<a href="<?php the_permalink()?>">
 					<div class='img-redonda '>
-						<img src="<?php 
-							echo get_field( "imagem_redonda" );
-						?>">	
+						<img src="<?php echo get_field( "imagem_redonda" )?>">	
 					</div>
-					<div class="escola-nome">
-						<?php echo the_title();?>
-					</div>
-					<div class="escola-cidade">
-						<?php echo get_field( "cidade" );?> / <?php echo get_field( "estado" );?>
-					</div>
-					<div class="escola-pais">
-						<?php echo get_field( "pais" );?>
-					</div>
-					<?php 	
-
-					?>
+					<?php echo get_the_title();?>
 				</a>
 			</div><!-- escola-destaque -->
 			<?php
@@ -136,18 +123,9 @@ function ajax_escola_filtra_posts(){
 			$ajax_response['html'] .='<div class="cada-escola animated  col-sm-3 fadeIn">';
 				$ajax_response['html'] .='<a href="'.get_the_permalink().'">'; 
 					$ajax_response['html'] .='
-						<div class="img-redonda ">
-							<img src="'. get_field( "imagem_redonda" ).'">	
-						</div>
-						<div class="escola-nome">'.
-							get_the_title().'
-						</div>
-						<div class="escola-cidade">'.
-							get_field( "cidade" ). '/' .get_field( "estado" ).'
-						</div>
-						<div class="escola-pais">'.
-							get_field( "pais" ).'
-						</div>';
+					<div class="img-redonda ">
+						<img src="'.get_field( "imagem_redonda" ).'">	
+					</div>'.get_the_title();	
 				$ajax_response['html'] .='</a>';
 			$ajax_response['html'] .= '</div><!-- escola-destaque -->';				
 		}

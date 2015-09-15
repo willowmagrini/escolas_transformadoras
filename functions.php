@@ -349,3 +349,5 @@ function strip_shortcode($code, $content)
     $shortcode_tags = $stack;
     return $content;
 }
+
+

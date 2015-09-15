@@ -128,8 +128,11 @@
 			</div><!-- #menus -->
 			
 			<!-- <img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>"> -->
-			 <div id="maps">
-				<iframe src="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc" width="1000"></iframe>
+			 <div id="maps"  >
+				<div class="icon-loading">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif">
+				</div>
+				<iframe  frameborder="0" data-alternativo="https://www.google.com/maps/d/embed?mid=zDFLF9ve_G90.klYOf0jACsPc"  src="https://www.google.com/maps/d/embed?mid=zljj_OPzVNjg.kMd4kxyAOoak" data-filtro='latam' height="500" width="1000"></iframe>
 			</div>
 		</div><!-- .container-->
 		

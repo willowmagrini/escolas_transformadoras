@@ -107,6 +107,7 @@ jQuery(document).ready(function($) {
 					$('.btn-loadmore').attr('data-estado-botao','aparecido')
 				}
 				$(selector).html(obj.html);
+				$(selector).scrollView();
 				
 				
 				
@@ -116,5 +117,38 @@ jQuery(document).ready(function($) {
 	});
 	//ajax filtros
 	
+	////tabs e filtro mapa///
+	$(".btn-filtro-mapa").click(function(e) {
+		e.preventDefault();
+		filtro=$(this).attr('data-filtro');
+		$('.btn-filtro-mapa').attr('data-estado','inativo');
+		$('.texto-filtro-mapa').attr('data-estado','inativo');
+		$('.btn-filtro-mapa[data-filtro="'+filtro+'"]').attr('data-estado','ativo');
+		$('.texto-filtro-mapa[data-filtro="'+filtro+'"]').attr('data-estado','ativo');
+		
+		// $('.btn-filtro-mapa[data-estado="ativo"]').attr('data-estado','inativo')
+		// 	$(this).attr('data-estado','ativo');
+		mapa=$('#maps iframe').attr('data-filtro');
+	
+		if (mapa != filtro){
+			$('#maps iframe').attr('data-filtro', filtro);
+			alternativo = $('#maps iframe').attr('data-alternativo');
+			src=$('#maps iframe').attr('src');
+			$('#maps iframe').attr('data-alternativo',src);
+			$('#maps iframe').attr('src',alternativo);
+			
+		}
+			
+		
+	});
+	
+	
+	$.fn.scrollView = function () {
+	    return this.each(function () {
+	        $('html, body').animate({
+	            scrollTop: $(this).offset().top
+	        }, 1000);
+	    });
+	}
 });
 

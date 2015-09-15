@@ -7,116 +7,91 @@
  */
 
 get_header('escolas'); ?>
+<?php $odin_escolas_opts = get_option( 'odin_escolas' );?>
 
 <main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 	
 	<div class="row filtro-escolas">
 		<div id="titulo-conteudo" class="inline-block">
 			<header class="entry-header">
-				<?php
-						the_title( '<h1 class=" entry-title">', '</h1>' );
-				?>
+				<a href="#">
+					<h1 class="btn-filtro-mapa inline-block" data-estado="ativo" data-filtro="latam" id="global">latam</h2>
+				</a>
+				<h1 class="inline-block">/</h2>
+				<a href="#">
+					<h1 class="btn-filtro-mapa inline-block" data-estado="inativo" data-filtro="global" id="global">global</h2>
+				</a>
 			</header><!-- .entry-header -->
-			<?php 
-				$content= get_the_content( );
-				$content = strip_shortcode('gallery', $content);
-				echo '<p>'.$content.'</p>';
-				if( ! has_shortcode( $post->post_content, 'gallery' ) )
-				 		return $content;
-
-				 	// Retrieve the first gallery in the post
-				 	$gallery = get_post_gallery_images( $post );
-			?>
 			
+			<div id="texto_latam" class="texto-filtro-mapa" data-estado="ativo" data-filtro="latam">
+				<p>
+					<?php echo $odin_escolas_opts['texto_latam'];?>
+				</p>
+			</div>
+			<div id="texto_global" class="texto-filtro-mapa" data-estado="inativo" data-filtro="global">
+				<p>
+					<?php echo $odin_escolas_opts['texto_global'];?>
+				</p>
+			</div>
 		</div><!-- titulo-conteudo -->
-		
 		<div class="inline-block"  id="filtro">	
 			<form>
-				<select id="filtro-pais" class="btn-ajax-filtro" data-filtro="pais">
-					<option  value=""><?php echo __( 'Todos','odin'); ?></option>
-					<?php  
+				<div id="localizacao" class="inline-block">
+					<h3>filtro</h3>
+						
+					<select id="filtro-pais" class="btn-ajax-filtro" data-filtro="pais">
+						
+						<option  value=""><?php echo __( 'País','odin'); ?></option>
+						<?php  
                 
                 
-					$values = $wpdb->get_col("SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
-				        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-				        WHERE pm.meta_key = 'pais' 
-				        AND p.post_status = 'publish' 
-				        AND p.post_type = 'escola'");						
-					foreach ($values as $value) {
-						echo '<option  data-key="pais" value="'.$value.'">'.$value.'</option>';
-					}
+						$values = $wpdb->get_col("SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
+					        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+					        WHERE pm.meta_key = 'pais' 
+					        AND p.post_status = 'publish' 
+					        AND p.post_type = 'escola'");						
+						foreach ($values as $value) {
+							echo '<option  data-key="pais" value="'.$value.'">'.$value.'</option>';
+						}
 					
 					
 					
 					
-					?>
+						?>
                 
-				</select>
-				
-				<select id="filtro-cidade" class="btn-ajax-filtro" data-filtro="cidade">
-					<option  value=""><?php echo __( 'Todas','odin'); ?></option>
+					</select>
 					
-					<?php  
+					<select id="filtro-cidade" class="btn-ajax-filtro" data-filtro="cidade">
+						<div class='btn-drop'></div>
+						<option  value=""><?php echo __( 'Cidade','odin'); ?></option>
+					
+						<?php  
                 
                 	
-					$values = $wpdb->get_col("SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
-				        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-				        WHERE pm.meta_key = 'cidade' 
-				        AND p.post_status = 'publish' 
-				        AND p.post_type = 'escola'" );						
-					foreach ($values as $value) {
-						echo '<option value="'.$value.'">'.$value.'</option>';
-					}
-					?>
+						$values = $wpdb->get_col("SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
+					        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+					        WHERE pm.meta_key = 'cidade' 
+					        AND p.post_status = 'publish' 
+					        AND p.post_type = 'escola'" );						
+						foreach ($values as $value) {
+							echo '<option value="'.$value.'">'.$value.'</option>';
+						}
+						?>
                 
-				</select>
-				<input type="text" id="filtro-palavra" name="palavra" placeholder="Palavra-Chave"></input>
-				<input type="submit" id="filtro-enviar" name="enviar" placeholder="Enviar"></input>		
+					</select>
+				</div ><!--id="localizacao"-->
+				<div class="inline-block" id="palavra-chave">
+					<h3>busca</h3>
+					<p>Encontre a escola por palavra-chave</p>
+					<input type="text" id="filtro-palavra" name="palavra" placeholder="Palavra-Chave"></input>
+					<button type="submit" id="filtro-enviar" name="enviar" placeholder=""></input>		
+				</div>
 			</form>
 		</div>
 	</div><!-- .row.conteudo-citacao -->
-
-	<?php
-	$tempo=microtime();
-	$posts = get_posts(array(
-		'posts_per_page' => 1,
-		'post_type' => 'escola',
-		'meta_query' => array(
-			array(
-				'key' => 'destaque',
-				'value' => '1',
-				'compare' => '==',
-
-			)
-		)
-	));
-	
-	if( $posts )
-	{
-		foreach( $posts as $post )
-		{
-			setup_postdata( $post );
-			?>
-			<div id="escola-destaque" class="row">
-				<a href="<?php the_permalink()?>">
-					<?php 
-					echo get_the_post_thumbnail( get_the_ID());
-					the_title();
-					echo get_the_excerpt();
-				
-					?>
-				
-				</a>
-			</div><!-- escola-destaque -->
-			<?php
-		}
-
-		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
-	}
-
-
-	?>
-	
+	<div class="row destaque-escolas">
+		<?php echo $odin_escolas_opts['destaque'];?>
+	</div>
 	<div class="row" id="ajax-escolas">
 		<?php
 		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
@@ -144,8 +119,10 @@ get_header('escolas'); ?>
 			?>
 	</div> <!-- id="escolad" -->
 
-		<a class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="'.__('Carregando...', 'odin').'" data-selector="#ajax-escolas" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" data-category="all">
-			<?php echo __('Carregar +','odin'); ?>
+		<a class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-escolas" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" data-category="all">
+			<?php echo __('Mais Escolas ','odin'); ?>
+			<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/btn-loadmore-seta.png">
+			
 		</a>
 			
 			<?php

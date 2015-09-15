@@ -3271,6 +3271,7 @@ Copyright (c) 2015 Daniel Eden
   animation-name: slideOutUp;
 }
 body{
+	letter-spacing: 1.2px;
 	margin-bottom:0;
 	font-family: 'Asap', sans-serif;
 	background-color:#f7f7d9;
@@ -3304,7 +3305,7 @@ a{
 	border: none;
     margin: 0px 0 20px;
 }
-.home #img-header, .single #img-header{
+.home #img-header, .single #img-header, #maps{
 	-webkit-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
 	-moz-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
 	box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
@@ -3312,6 +3313,13 @@ a{
 .page #img-header, .single #img-header{
 	position:relative;
 }
+#main-navigation .active a, #main-navigation a:hover{
+	color:#ee7d00;
+}
+#top-navigation .active a, #top-navigation a:hover{
+	color:#ee7d00;
+}
+
 .page #header .page-header, .page  #header #main-navigation, .single #header .page-header, .single  #header #main-navigation{
 	margin-bottom:0;
 	padding-bottom:0;
@@ -3347,7 +3355,7 @@ a{
 	font-weight:lighter
 	
 }
-.escolas-transformadoras #menus{
+.page-template-page-escolas #menus{
 	position:relative;
 	z-index:99;
 }
@@ -3597,22 +3605,41 @@ select.form-control {
 #filtro{
 	color:#000;
 }
-.maps{
-	width:100%;
-	height:300px;
+#maps{
+	background-color:#f7f7d9;
 	z-index:9;
+	margin-top: 62px;
+    
 	}
+	
 #ajax-escolas{
 	-webkit-transition: all 500ms ease-out 1s;
 	    -moz-transition: all 500ms ease-out 1s;
 	    -o-transition: all 500ms ease-out 1s;
 	    transition: all 500ms ease-out 1s;
+	margin-bottom:30px!important;
+}
+.icon-loading{
+	width:150px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-right:-75px;
 }
 .img-redonda{
 	text-align:center;
+    padding: 20px;
+    
 }
 .img-redonda img{
-	width:200px;
+	width:100%;
+	max-width:200px;
+}
+.cada-escola{
+	padding:10px;
+}
+.page-template-page-escolas #content{
+	text-align:center;
 }
 .cada-escola:nth-child(4n+1){
 	
@@ -3643,6 +3670,18 @@ select.form-control {
 }
 #video-escola{
 	position:relative;
+}
+.row.destaque-escolas, .filtro-escolas, #ajax-escolas{
+    max-width: 992px;
+	margin:0 auto;
+}
+.row.destaque-escolas{
+	margin-top:20px;
+}
+
+.row.destaque-escolas img{
+	width:100%;
+	height:auto;
 }
 #thumb-video-play{
 	top:50%;
@@ -3754,7 +3793,151 @@ select.form-control {
 a.navbar-brand{
 	display:none!important;
 }
+.entry-header{
+	text-align:center;
+}
+.btn-filtro-mapa{
+	text-transform:uppercase;
+}
+.btn-loadmore:hover,.btn-loadmore:active, .btn-loadmore:focus{
+	text-decoration:none;
+	color:#ee7d00;
+}	
+.btn-loadmore{
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: solid 1px #f7ae00;
+    margin: 0 0 30px 30px;
+}
+.btn-loadmore img{
+	margin-left:10px;
+	width:15px;
+}
 
+.escola-nome{
+	font-size:17px;
+	color:#003b5f;
+}
+.escola-cidade{
+	font-size:15px;
+	color:#00b2ad;
+}
+.escola-pais{
+	font-size:13px;
+	color:#00b2ad;
+	
+}
+#titulo-conteudo a:active,#titulo-conteudo a:focus{
+	text-decoration:none;
+	outline: none;
+    
+}
+.texto-filtro-mapa[data-estado="inativo"]{
+	display:none;
+}
+.texto-filtro-mapa[data-estado="ativo"]{
+	display:block;
+}
+.page-template-page-escolas #titulo-conteudo h1.btn-filtro-mapa[data-estado="inativo"]{
+	color:#d1d3d4;
+}
+.page-template-page-escolas #titulo-conteudo .entry-header h1{
+	color:#ee7d00;
+	font-size:25px;
+}
+.page-template-page-escolas #titulo-conteudo p{
+		border-color:#ee7d00;
+}
+.page-template-page-escolas #titulo-conteudo h1.btn-filtro-mapa[data-estado="ativo"]{
+	color:#ee7d00;
+	
+}
+.page-template-page-escolas #titulo-conteudo{
+	margin: -330px 0 0 0px;
+	max-height: 700px;
+    
+}
+.page-template-page-escolas #filtro{
+	float:right;
+	
+}
+
+#filtro select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+	width:150px;
+	text-align:center;
+	display:block;
+	margin-top:22px;
+	border:none;
+	padding:0 10px;
+	position:relative;
+}
+.btn-drop{
+	position:absolute;
+	right:0;
+	background-image: url('../images/drop-btn.png');
+	background-size:contain;
+	height:40px;
+	width:40px;
+}
+#filtro-enviar{
+	width:40px;
+}
+#palavra-chave{
+	max-width:50%;
+	font-size:15px;
+}
+#filtro, #localizacao{
+	vertical-align:top;
+}
+#filtro h3{
+	text-transform:uppercase;
+	color:#003a5f;
+}
+#filtro{
+	padding: 25px 50px 50px;
+    
+}
+#localizacao{
+	margin-right:10%;
+	
+}
+#palavra-chave p{
+	height:33.33px;
+	margin:20px 0 0 0 ;
+	color:#808285;
+	
+}
+#filtro input{
+	height:33.33px;
+	vertical-align:bottom;
+	margin-top:20px;
+	border:none;
+	border-radius:5px;
+	padding:0 10px;
+
+}
+#filtro input[type="text"]{
+	font-size:22px;
+	width:80%;	
+}
+#filtro-enviar{
+	background-image: url('../images/enviar-btn.png');
+	background-repeat:no-repeat;
+	height: 35.33px;
+    width: 35.33px;
+	border:none;
+	background-color:transparent;
+	background-size:contain;
+	margin-left:-10px;
+}
+#filtro-pais{
+	color:#003a5f;
+}
 @media (max-width: 992px){
 	
 	.single-escola .inline-block{
