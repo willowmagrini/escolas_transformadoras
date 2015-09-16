@@ -26,6 +26,10 @@ function opcoes_tema() {
 	           'id' => 'odin_escolas', // Slug/ID of the Settings tab (Required)
 	           'title' => __( 'Escolas', 'odin' ), // Settings tab title (Required)
 	       ),
+			array(
+	           'id' => 'odin_faca', // Slug/ID of the Settings tab (Required)
+	           'title' => __( 'Faça Parte', 'odin' ), // Settings tab title (Required)
+	       ),
            
         )
     );
@@ -205,7 +209,40 @@ function opcoes_tema() {
 					
 					
 				)
-            )
+            ),
+			'odin_faca_fields_section' => array( // Slug/ID of the section (Required)
+                'tab'   => 'odin_faca', // Tab ID/Slug (Required)
+                'title' => __( 'Página Faça Parte', 'odin' ), // Section title (Required)
+                'fields' => array( // Section fields (Required)
+					array(
+                        'id'         => 'parceiro', // Required
+                        'label'      => __( 'texto para seja um parceiro', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					array(
+                        'id'         => 'inscrevase', // Required
+                        'label'      => __( 'Texto para inscreva-se ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+					array(
+                        'id'         => 'indique', // Required
+                        'label'      => __( 'Texto para indique uma escola ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 3
+					    ),
+					),
+				)
+            ),
          )
     );
     

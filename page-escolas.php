@@ -118,7 +118,7 @@ get_header('escolas'); ?>
 				    mkdir($dir, 0755, true);
 				}
 				if (!file_exists($dir.'/dest.png')) {
-					fopen($dir.'/foto-1-temp.png', "x");
+					fopen($dir.'dest.png', "x");
 				}
 				$foto3 = wp_get_attachment_url( get_post_thumbnail_id() );
 			 	$dest =  '/assets/images/'.get_the_ID().'/dest.png';

@@ -12,7 +12,35 @@
 get_header(); ?>
 
 	<main id="content" class="pagina <?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+			<div class="row visao">
+				<div class="col-sm-4"> 
+					<a href="http://escolastransformadoras.com.br/faca-parte/seja-um-parceiro">
+						<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-olho2.png">
+						<h3>visão</h3>
+					</a>
+					<?php echo $odin_sobre_opts['parceiro'];?>
 
+				</div>
+				<div class="col-sm-4">
+					<a href="http://escolastransformadoras.com.br/faca-parte/inscreva-se">
+
+						<img class="icon-visao"  src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-alvo.png">
+						<h3>Competências Transformadoras</h3>
+					</a>
+					<?php echo $odin_sobre_opts['inscrevase'];?>
+				 </div>
+				<div class="col-sm-4">
+					<a href="http://escolastransformadoras.com.br/faca-parte/indique-uma-escola">
+
+						<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-equipe.png">
+						<h3>Equipe</h3>
+					</a>
+
+					<?php echo $odin_sobre_opts['indique'];?>
+				</div>
+			</div><!-- visao -->
+			
+			
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
