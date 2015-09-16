@@ -201,8 +201,9 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 		$('#fundo-modal').attr('modal-estado','ativo');
 		$('#modal-conteudo').attr('modal-estado','ativo');
-		
-		
+		$('#modal-conteudo')click(function(a) {
+			a.preventDefault();}
+		}
 		$('#botao-fechar').click(function(f) {
 			f.preventDefault();
 			url = $('#modal-conteudo iframe').attr('src');

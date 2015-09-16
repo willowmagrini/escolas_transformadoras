@@ -51,8 +51,9 @@ get_header(''); ?>
 		</div>
 		<div class="col-sm-4 link-conte">
 				<h2><?php echo __('Envie sua estória','odin');?></h2>
-				<p><?php echo __('Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.','odin');?></p>
-				<img class="botao-conte" src="<?php echo get_template_directory_uri(); ?>/assets/images/botao-conte.png">
+				<a href="http://escolastransformadoras.com.br/contato/">
+					<img class="botao-conte" src="<?php echo get_template_directory_uri(); ?>/assets/images/botao-conte.png">
+				</a>
 		</div>
 		<div class="col-sm-4 boneco-conte">
 			<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/boneco-conte.png">
