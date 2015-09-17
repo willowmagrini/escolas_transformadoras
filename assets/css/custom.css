@@ -3279,6 +3279,9 @@ body{
 a{
 	color:#f7ae00;
 }
+a:hover, a:active, a:focus{
+	text-decoration:none;
+}
 .row{
 	z-index:9;
 }
@@ -3535,13 +3538,14 @@ a{
 	transform: translate(0,-100%);
 }
 #modal-conteudo[modal-estado="ativo"]{
-	-ms-transform: translate(0,0);
-	-webkit-transform: translate(0,0);
-	transform: translate(0,0);
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
 	-webkit-transition: all  ease-out 0.5s;
 	    -moz-transition: all  ease-out 0.5s;
 	    -o-transition: all  ease-out 0.5s;
 	    transition: all  ease-out 0.5s;
+	display:block;
 	
 }
 #modal-conteudo a, #modal-conteudo a:hover,#modal-conteudo a:active{
@@ -3555,21 +3559,22 @@ a{
 	color:#23527c;
 }
 #modal-conteudo{
-	
-	z-index:9999999;
-	top:0;
-	left:0;
+    z-index: 9999999;
+    top: 50%;
+    left: 50%;
     padding: 1% 10%;
-	width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: auto;
     position: fixed;
-	-webkit-transition: all  ease-out 0.5s;
-	    -moz-transition: all  ease-out 0.5s;
-	    -o-transition: all  ease-out 0.5s;
-	    transition: all  ease-out 0.5s;
-	-ms-transform: translate(0,100%);
-	-webkit-transform: translate(0,100%);
-	transform: translate(0,100%);
+    -webkit-transition: all ease-out 0.5s;
+    -moz-transition: all ease-out 0.5s;
+    -o-transition: all ease-out 0.5s;
+    transition: all ease-out 0.5s;
+    -ms-transform: translate(0,100%);
+    -webkit-transform: translate(0,100%);
+    transform: translate(0,100%);
+    max-width: 900px;
+	display:none;
 }
 .pagina-itens#content{
 	text-align:center;
@@ -4327,7 +4332,41 @@ a.navbar-brand{
 .page-template-page .entry-content{
 	margin-top: -117px;
 }
+#destaque-info a:hover h3{
+	color:#ee7d00;
 
+}
+#destaque-info a:hover{
+	text-decoration:none;
+}
+#post-seguinte{
+	float:right;
+}
+.seta-paginacao{
+	width:10px;
+}
+.paginacao-single{
+	font-size:16px;
+}
+.paginacao-single .seta-pag{
+	background-image: url('../images/seta-paginacao.png');
+	background-size: 25px;
+	background-repeat: no-repeat;
+	width: 12px;
+	height: 16px;
+	vertical-align: middle;
+}
+#post-anterior .seta-pag{
+	background-position:-13px -16px;
+}
+#post-anterior a:hover .seta-pag{
+	background-position:-0 -16px;
+
+}
+#post-seguinte a:hover .seta-pag{
+	background-position:-13px -0;
+	
+}
 @media (max-width: 992px){
 	
 	.single-escola .inline-block{

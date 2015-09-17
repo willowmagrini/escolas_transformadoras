@@ -74,9 +74,9 @@ get_header(''); ?>
 		
 		<div class="row apoio">
 			<div class="col-md-12">
-				<h4>Parceiros:</h4>
-				<img class="icon-parceiros" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/itau-bba.png">
-				<img class="icon-parceiros" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/fundacao-telefonica.png">
+				<h4>Parceiros</h4>
+				<img class="icon-parceiros" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/logos-parceiros.png">
+				
 			</div>
 		</div>
 	</main><!-- #main -->

@@ -17,6 +17,15 @@ get_header(); ?>
 
 				endwhile;
 			?>
+			<div id="post-anterior" class="inline-block paginacao-single" >
+			 		<?php previous_post_link('%link','<div class="seta-pag inline-block"></div>
+					'. __(' Anterior','odin')); ?> 
+			</div>
+			<div id="post-seguinte" class="inline-block paginacao-single">
+				<?php next_post_link('%link', __('Próximo 
+				','odin').'<div class="seta-pag inline-block"></div>'); ?> 
+				
+			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

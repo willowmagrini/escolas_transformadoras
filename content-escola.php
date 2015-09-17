@@ -143,7 +143,7 @@
 				
 			</div>
 		</div ><!-- id="foto3-foto4" -->
-		
+	</div>	
 		
 	<div id="fundo-modal">	</div>
 	<div id="modal-conteudo">
