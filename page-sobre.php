@@ -14,7 +14,7 @@ get_header(''); ?>
 			<div class="col-sm-4"> 
 				<a href="http://escolastransformadoras.com.br/sobre/visao/">
 					<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-olho2.png">
-					<h3>visão</h3>
+					<h3><?php echo __('visão', 'odin')?></h3>
 				</a>
 				<?php echo $odin_sobre_opts['visao'];?>
 				
@@ -23,7 +23,7 @@ get_header(''); ?>
 				<a href="http://escolastransformadoras.com.br/sobre/competencias-transformadoras/">
 				
 					<img class="icon-visao"  src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-alvo.png">
-					<h3>Competências Transformadoras</h3>
+					<h3><?php echo __('Competências Transformadoras', 'odin')?></h3>
 				</a>
 				<?php echo $odin_sobre_opts['estrategia'];?>
 			 </div>
@@ -31,7 +31,7 @@ get_header(''); ?>
 				<a href="http://escolastransformadoras.com.br/sobre/equipe/">
 				
 					<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-equipe.png">
-					<h3>Equipe</h3>
+					<h3><?php echo __('Equipe', 'odin')?></h3>
 				</a>
 				
 				<?php echo $odin_sobre_opts['equipe'];?>
@@ -47,8 +47,8 @@ get_header(''); ?>
 				
 				<div class="inline-block">
 					<a href="http://escolastransformadoras.com.br/escolas-transformadoras/">
-						<h2  >Escolas</h2>
-						<h2  >Transformadoras</h2>
+						<h2  ><?php echo __('Escolas', 'odin')?></h2>
+						<h2  ><?php echo __('Transformadoras', 'odin')?></h2>
 					</a>
 				</div>
 				<div class="inline-block">
@@ -63,8 +63,8 @@ get_header(''); ?>
 				</div>
 				<div class="inline-block">
 					<a href="http://escolastransformadoras.com.br/experiencias-inspiradoras/">
-						<h2  >Experiências</h2>
-						<h2  >Inspiradoras</h2>
+						<h2  ><?php echo __('Experiências', 'odin')?></h2>
+						<h2  ><?php echo __('Inspiradoras', 'odin')?></h2>
 					</a>
 				</div>
 			</div>
@@ -74,7 +74,7 @@ get_header(''); ?>
 		
 		<div class="row apoio">
 			<div class="col-md-12">
-				<h4>Parceiros</h4>
+				<h4><?php __('Parceiros', 'odin')?></h4>
 				<img class="icon-parceiros" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/logos-parceiros.png">
 				
 			</div>

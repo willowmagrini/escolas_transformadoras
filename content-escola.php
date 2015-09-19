@@ -76,8 +76,8 @@
 			<div id="numeros-escola" class="">
 				<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-pessoas.png';?>">
 				<div class="border-bottom inline-block">
-					<p><?php echo get_field( "numero_de_alunos" );	?>	Alunos</p>
-					<p><?php echo get_field( "numero_de_professores" );	?> Professores </p>
+					<p><?php echo get_field( "numero_de_alunos" );	?><?php echo  __(	'Alunos','odin')?></p>
+					<p><?php echo get_field( "numero_de_professores" );	?> <?php echo  __('Professores','odin')?> </p>
 				</div>
 			</div>
 			<div id="contato-escola" class="">

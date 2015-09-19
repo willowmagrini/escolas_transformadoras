@@ -18,7 +18,7 @@ get_header(); ?>
 				<div class="col-sm-4"> 
 					<a href="http://escolastransformadoras.com.br/faca-parte/seja-um-parceiro">
 						<img class="icon-visao" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/bola_parceiro1.png">
-						<h3>seja um parceiro</h3>
+						<h3><?php echo  __('seja um parceiro','odin');?></h3>
 					</a>
 					<?php echo $odin_faca_opts['parceiro'];?>
 
@@ -27,7 +27,7 @@ get_header(); ?>
 					<a href="http://escolastransformadoras.com.br/faca-parte/inscreva-se">
 
 						<img class="icon-visao" 	 src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/bola_inscreva-se1.png">
-						<h3>inscreva-se</h3>
+						<h3><?php echo  __('inscreva-se','odin');?></h3>
 					</a>
 					<?php echo $odin_faca_opts['inscrevase'];?>
 				 </div>
@@ -35,7 +35,7 @@ get_header(); ?>
 					<a href="http://escolastransformadoras.com.br/faca-parte/indique-uma-escola">
 
 						<img class="icon-visao" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/bola_indique1.png">
-						<h3>indique uma escola</h3>
+						<h3><?php echo  __('indique uma escola','odin');?></h3>
 					</a>
 
 					<?php echo $odin_faca_opts['indique'];?>

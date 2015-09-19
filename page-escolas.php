@@ -43,7 +43,7 @@ get_header('escolas'); ?>
 		<div class="inline-block"  id="filtro">	
 			<form method="get"  action="<?php bloginfo('url');?>/">
 				<div id="localizacao" class="inline-block">
-					<h3>filtro</h3>
+					<h3><?php echo  __('filtro','odin')?></h3>
 						
 					<select id="filtro-pais" class="btn-ajax-filtro" data-filtro="pais">
 						
@@ -87,8 +87,8 @@ get_header('escolas'); ?>
 					</select>
 				</div ><!--id="localizacao"-->
 				<div class="inline-block" id="palavra-chave">
-					<h3>busca</h3>
-					<p>Encontre a escola por palavra-chave</p>
+					<h3><?php echo  __('busca','odin')?></h3>
+					<p><?php echo  __('Encontre a escola por palavra-chave','odin')?></p>
 					<input type="text" id="filtro-palavra" name="s" placeholder="Palavra-Chave"></input>
 					<button type="submit" id="filtro-enviar" name="enviar" placeholder=""></input>		
 				</div>
