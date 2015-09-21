@@ -74,7 +74,7 @@ get_header(''); ?>
 		
 		<div class="row apoio">
 			<div class="col-md-12">
-				<h4><?php __('Parceiros', 'odin')?></h4>
+				<h4><?php echo __('Parceiros', 'odin')?></h4>
 				<img class="icon-parceiros" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/logos-parceiros.png">
 				
 			</div>

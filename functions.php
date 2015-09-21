@@ -350,16 +350,20 @@ function strip_shortcode($code, $content)
     return $content;
 }
 
+// 
+// add_filter(  'gettext',  'change_post_to_portfolio'  );
+// add_filter(  'ngettext',  'change_post_to_portfolio'  );
+// 
+// function change_post_to_portfolio( $translated ) {
+//   $translated = str_ireplace(  'Post',  'Notícia',  $translated );
+// $translated = str_ireplace(  'Posts',  'Notícias',  $translated );  // ireplace is PHP5 only
+//   return $translated;
+// }
 
-add_filter(  'gettext',  'change_post_to_portfolio'  );
-add_filter(  'ngettext',  'change_post_to_portfolio'  );
-
-function change_post_to_portfolio( $translated ) {
-  $translated = str_ireplace(  'Post',  'Notícia',  $translated );
-$translated = str_ireplace(  'Posts',  'Notícias',  $translated );  // ireplace is PHP5 only
-  return $translated;
+function custom_menu_page_removing() {
+    remove_menu_page( 'edit.php' );
 }
-
+add_action( 'admin_menu', 'custom_menu_page_removing' );
 
 function the_excerpt_max_charlength($charlength) {
 	$excerpt = get_the_excerpt();

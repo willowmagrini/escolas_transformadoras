@@ -50,6 +50,7 @@
 
 		comment_form(
 		array(
+			'title_reply'=> __('Deixe um comentário','odin'),
 			'comment_notes_after' => '',
 			'comment_field' => '<div class="comment-form-comment form-group"><label class="control-label" for="comment">' . __( 'Comment', 'odin' ) . '</label><div class="controls"><textarea id="comment" name="comment" cols="45" rows="8" class="form-control" aria-required="true"></textarea></div></div>',
 			'fields' => apply_filters( 'comment_form_default_fields', array(

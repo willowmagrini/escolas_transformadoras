@@ -121,4 +121,45 @@ function escola_cpt() {
 		register_post_type( 'recurso', $args );
 	}
 	/////////////////////////////////////////
-?>
+
+		/////////////CPT noticias
+		add_action( 'init', 'noticia_cpt' );
+
+		function noticia_cpt() {
+			$labels = array(                        
+				'name'               => 'noticias',
+				'singular_name'      => 'Notícia',
+				'menu_name'          => 'Notícias',
+				'name_admin_bar'     => 'Notícia',
+				'add_new'            => 'Adicionar Notícia',
+				'add_new_item'       => 'Adicionar nova notícia',
+				'new_item'           => 'Nova notícia' ,
+				'edit_item'          => 'Editar Notícia',
+				'view_item'          => 'Ver todas' ,
+				'all_items'          => 'Todas' ,
+				'search_items'       => 'Buscar',
+				'parent_item_colon'  => 'Pai' ,
+				'not_found'          => 'Nenhuma encontrado' ,
+				'not_found_in_trash' => 'Nenhuma encontrado na lixeira' ,
+			);
+
+			$args = array(
+				'labels'             => $labels,
+				'public'             => true,
+				'publicly_queryable' => true,
+				'show_ui'            => true,
+				'show_in_menu'       => true,
+				'query_var'          => true,
+				'rewrite'            => array( 'slug' => 'noticia' ),
+				'capability_type'    => 'post',
+				'has_archive'        => true,
+				'hierarchical'       => false,
+				'menu_position'      => null,
+				'menu-position' => 5,
+				'menu_icon' => 'dashicons-admin-post',
+				'supports'           => array( 'title','comments', 'editor', 'thumbnail', 'excerpt' )
+			);
+
+			register_post_type( 'noticia', $args );
+		}
+		/////////////////////////////////////////
