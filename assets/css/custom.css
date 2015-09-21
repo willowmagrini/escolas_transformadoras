@@ -3497,8 +3497,10 @@ a:hover, a:active, a:focus{
 
 }
 .pagina .entry-content{
-	min-height:400px;
 	margin-top:20px;
+}
+article .entry-meta{
+	display:none;
 }
 #content.pagina  {
     padding: 0;

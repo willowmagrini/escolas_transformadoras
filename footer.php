@@ -83,7 +83,7 @@
 			</div>
 			
 			<div id="apoio" class="sem-margem col-sm-6">
-				<p><?php __('Correalização:','odin')?></p>
+				<p><?php echo  __('Correalização:','odin')?></p>
 					<img class="inline-block" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-alana.png">
 					<img class="inline-block" src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-ashoka.png">
 			</div>
