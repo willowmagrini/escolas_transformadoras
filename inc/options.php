@@ -157,6 +157,13 @@ function opcoes_tema() {
                 'title' => __( 'Configurações do tema', 'odin' ), // Section title (Required)
                 'fields' => array( // Section fields (Required)
 					array(
+					    'id'          => 'img_padrao', // Obrigatório
+					    'label'       => __( 'Imagem padrão', 'odin' ), // Obrigatório
+					    'type'        => 'image', // Obrigatório
+					    'default'     => '', // Opcional (deve ser o id de uma imagem em mídia)
+					    'description' => __( 'Imagem padrão para ocupar o lugar no Header quando o post/página não tem imagem destacada.', 'odin' ), // Opcional
+					),
+					array(
                         'id'         => 'destaque_insp', // Required
                         'label'      => __( 'Destaque Experiências Inspiradoras na Home ', 'odin' ), // Required
 					    'type'        => 'editor', // Obrigatório

@@ -17,14 +17,14 @@ get_header(); ?>
 
 				endwhile;
 			?>
-			<div id="post-anterior" class="inline-block paginacao-single" >
-			 		<?php previous_post_link('%link','<div class="seta-pag inline-block"></div>
+			<div class='paginacao'>
+				<div id="post-anterior" class=" paginacao-single" >
+			 		<?php previous_post_link('%link','<div class="seta-pag "></div>
 					'. __(' Anterior','odin')); ?> 
-			</div>
-			<div id="post-seguinte" class="inline-block paginacao-single">
-				<?php next_post_link('%link', __('Próximo 
-				','odin').'<div class="seta-pag inline-block"></div>'); ?> 
-				
+				</div>
+				<div id="post-seguinte" class=" paginacao-single">
+					<?php next_post_link('%link', __('Próximo ','odin').'<div class="seta-pag "></div>'); ?> 
+				</div>
 			</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->

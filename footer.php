@@ -54,25 +54,25 @@
 			<div id="social" class="col-md-12">
 				
 				<?php if ($odin_footer_opts['face']!=""){?>
-					<a href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png">          </a>
+					<a target=_blank  href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png">          </a>
 				<?php }?>
 				<?php if ($odin_footer_opts['twitter']!=""){?>
-					<a href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png">    </a>
+					<a target=_blank  href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png">    </a>
 				<?php }?>
 				<?php if ($odin_footer_opts['linkedin']!=""){?>
-					<a href="<?php echo $odin_footer_opts['linkedin'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/linkedin.png">  </a>
+					<a target=_blank  href="<?php echo $odin_footer_opts['linkedin'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/linkedin.png">  </a>
 					
 				<?php }?>
 				<?php if ($odin_footer_opts['flicker']!=""){?>
-					<a href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker.png">    </a>
+					<a target=_blank  href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker.png">    </a>
 					
 				<?php }?>
 				<?php if ($odin_footer_opts['google']!=""){?>
-					<a href="<?php echo $odin_footer_opts['google'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/google.png">      </a>
+					<a target=_blank  href="<?php echo $odin_footer_opts['google'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/google.png">      </a>
 					
 				<?php }?>
 				<?php if ($odin_footer_opts['youtube']!=""){?>
-					<a href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
+					<a target=_blank  href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
 					
 				<?php }?>
 			

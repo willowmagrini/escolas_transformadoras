@@ -127,20 +127,26 @@
 				</div><!-- #secondary-navigation-->
 			</div><!-- #menus -->
 			<?php 
-			if ( has_post_thumbnail( )){
-				?>
+			if ( !is_search() ) {
+				if ( has_post_thumbnail( )){
+					?>
 
-					<img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>">
-				<?php
+						<img id="img-header" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id() );?>">
+					<?php
+				}
+				else{
+					 $odin_general_opts = get_option( 'odin_general' );
+					$img=$odin_general_opts['img_padrao'];
+					$img = wp_get_attachment_image_src( $img, 'full' );
+					?>
+					<img id="img-header" src="<?php echo $img[0]; ?>">
+
+
+
+				<?php }
 			}
-			else{
-				
-				?>
-				<img id="img-header" src="<?php echo get_template_directory_uri(); ?>/assets/images/foto-recursos.png">
-				
-				
-				
-			<?php }?>
+
+			?>
 			<div id="frase-pagina"><?php echo get_field('frase');?></div>
 		</div><!-- .container-->
 	</header><!-- #header -->

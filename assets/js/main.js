@@ -224,6 +224,22 @@ jQuery(document).ready(function($) {
 		
 		
 	});
+	if($('#info-escola').length !== 0) {
+		$('#menu-item-94').addClass('active');
+		console.log('esc')
+	}
+	else if($('.single-experiencia').length !== 0) {
+		$('#menu-item-95').addClass('active');
+				console.log('exp')
+	}	
+	else if($('.single-recurso').length !== 0) {
+		$('#menu-item-97').addClass('active');	
+				console.log('rec')
+	}
+	else if($('.single-noticia').length !== 0) {
+		$('#menu-item-112').addClass('active');
+				console.log('noticia')
+	}
 	
 });
 

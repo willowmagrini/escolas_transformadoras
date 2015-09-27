@@ -83,7 +83,9 @@
 			<div id="contato-escola" class="">
 				<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-msg.png';?>">
 				<div class="inline-block">
-					<p ><?php the_field( "contato" );	?> </p>
+					<p ><?php 
+					the_field( "contato" );	
+					?> </p>
 				</div>
 
 			</div>
