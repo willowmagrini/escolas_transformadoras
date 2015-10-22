@@ -37,40 +37,8 @@ get_header(''); ?>
 				<?php echo $odin_sobre_opts['equipe'];?>
 			</div>
 		</div><!-- visao -->
-		<div class="row fotos sem-margem">
-			<div id="fundo-sobre" class="sem-margem col-md-11">
-			</div><!-- fundo-sobre -->
-				
-			
-			<img class="absolute" id="sobre1" src="<?php echo get_template_directory_uri(); ?>/assets/images/sobre1.png">
-			<div id="escolas-sobre" class="absolute">
-				
-				<div class="inline-block">
-					<a href="http://escolastransformadoras.com.br/escolas-transformadoras/">
-						<h2  ><?php echo __('Escolas', 'odin')?></h2>
-						<h2  ><?php echo __('Transformadoras', 'odin')?></h2>
-					</a>
-				</div>
-				<div class="inline-block">
-					<?php echo $odin_sobre_opts['esc_trans'];?>
-				</div>
-			</div>
-			<img class="absolute" id="sobre2" src="<?php echo get_template_directory_uri(); ?>/assets/images/sobre2.png">
-			<img class="absolute" id="barra-sobre" src="<?php echo get_template_directory_uri(); ?>/assets/images/barra-sobre.png">
-			<div id="experiencias-sobre" class="absolute">
-				<div class="inline-block">
-					<?php echo $odin_sobre_opts['exp_ins'];?>
-				</div>
-				<div class="inline-block">
-					<a href="http://escolastransformadoras.com.br/experiencias-inspiradoras/">
-						<h2  ><?php echo __('Experiências', 'odin')?></h2>
-						<h2  ><?php echo __('Inspiradoras', 'odin')?></h2>
-					</a>
-				</div>
-			</div>
-			<img class="absolute" id="sobre3" src="<?php echo get_template_directory_uri(); ?>/assets/images/sobre3.png">
-			
-		</div>
+		
+		
 		
 		<div class="row apoio">
 			<div class="col-md-12">

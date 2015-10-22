@@ -181,7 +181,24 @@ function opcoes_tema() {
 					        'textarea_rows' => 2
 					    ),
 					),
-					
+					array(
+                        'id'         => 'destaque_recursos_tit', // Required
+                        'label'      => __( 'Título do Destaque Recusrsos pré rodapé ', 'odin' ), // Required
+					    'type'        => 'text', // Obrigatório
+					    'default'     => 'Default text', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
+					array(
+                        'id'         => 'destaque_recursos', // Required
+                        'label'      => __( 'Destaque Recusrsos pré rodapé ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => 'Default text', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
 					
 				)
             ),
@@ -209,6 +226,24 @@ function opcoes_tema() {
                         'id'         => 'texto_global', // Required
                         'label'      => __( 'Texto para o filtro do mapa GLOBAL ', 'odin' ), // Required
 					    'type'        => 'textarea', // Obrigatório
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
+					array(
+                        'id'         => 'destaque_esco_pre_tit', // Required
+                        'label'      => __( 'Título do Destaque  pré rodapé ', 'odin' ), // Required
+					    'type'        => 'text', // Obrigatório
+					    'default'     => 'Default text', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
+					array(
+                        'id'         => 'destaque_esco_pre', // Required
+                        'label'      => __( 'Destaque  pré rodapé ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => 'Default text', // Opcional
 					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
 					        'textarea_rows' => 2
 					    ),

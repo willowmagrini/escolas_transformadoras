@@ -36,10 +36,10 @@ get_header('front'); ?>
 				<div class="col-md-6 sem-margem">
 					<div id="indique-uma">
 						<div id="triangulo_indique"></div>
-						<a href="http://escolastransformadoras.com.br/faca-parte/indique-uma-escola/">
+						<a href="escolas-transformadoras">
 						
-							<h4><?php echo __('Indique uma','odin')?></h4>
-							<h3><?php echo __('Escola!','odin')?></h3>
+							<h4><?php echo __('Conheça as ','odin')?></h4>
+							<h3><?php echo __('Escolas Transformadoras','odin')?></h3>
 						</a>
 						<?php echo $odin_general_opts['indique_uma'];?>
 					</div>
@@ -53,9 +53,9 @@ get_header('front'); ?>
 			<div class="row papel sem-margem"><!-- row papel -->
 				<div class="col-md-6 pull-right ">
 					<h4>
-						<?php echo __('Um novo papel para a escola','odin')?>
+					<?php echo $odin_general_opts['destaque_recursos_tit'];?>
 					</h4>
-					<p><?php echo __('O papel da escola tem sido tradicionalmente o de transmitir conteúdos e reproduzir os modelos sociais vigentes por meio de métodos de repetição. Mais do que nunca, é preciso repensar o papel da escola.','odin')?> <a href="/sobre" ><?php echo __('SAIBA MAIS!','odin');?></a></p>
+					<p><?php echo $odin_general_opts['destaque_recursos'];?></p>
 				</div>
 				<div class="col-md-6 pull-left">
 					<img id="boneco-home" src="<?php echo get_template_directory_uri(); ?>/assets/images/home4.png">

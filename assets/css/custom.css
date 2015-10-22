@@ -3459,11 +3459,11 @@ a:hover, a:active, a:focus{
 .indique h4{
 	margin-top:0;
 	text-transform:uppercase;
-	font-size:30px;
+	font-size:22px;
 }
 .indique h3{
 		text-transform:uppercase;
-	font-size:80px;
+	font-size:34px;
 }
 
 #indique-uma{
@@ -3738,6 +3738,8 @@ article .entry-meta{
 .visao h3{
 	margin:50px 0;
 	text-transform:uppercase;
+	height: 40px;
+    
 }
 #fundo-sobre{
 	background-color:#f7ae00;
@@ -4085,13 +4087,17 @@ div.wpcf7-mail-sent-ok {
 	font-weight:lighter;
     
 }
-.home #footer{
+.home #footer, .page-template-page-escolas #footer{
 	-webkit-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
 	-moz-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
 	box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
 	margin-top: -35px;
    
 }
+.page-template-page-escolas .papel {
+	background-color:#f7ae00;
+}
+#f7ae00
 .apoio h4{
 	text-transform:uppercase;
 	color:#929497;
@@ -4416,6 +4422,12 @@ a.navbar-brand{
 }
 .navbar-default .navbar-nav>li.active>a, .navbar-default .navbar-nav>li:hover>a, .navbar-default .navbar-nav>li.active>a:hover{
 	color:#f7ae00;
+}
+.pagination{
+	font-size:20px;
+}
+.page-numbers.current{
+	color:#23527c;
 }
 @media (max-width: 1071px){
 	.search  #header .page-header, .page #header .page-header, .single #header .page-header{

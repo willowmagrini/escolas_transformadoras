@@ -102,7 +102,8 @@ get_header('escolas'); ?>
 		$args = array(
 			'post_type' => 'escola',
 			'paged'=> $paged,
-			'posts_per_page' =>8
+			'posts_per_page' =>8,
+			'orderby'        => 'rand',
 		);
 	
 		$WP_Query_escola = new WP_Query( $args );
@@ -135,10 +136,18 @@ get_header('escolas'); ?>
 			
 		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
 	}
-	
-
-	
 	?>
+	<div class="row papel sem-margem"><!-- row papel -->
+		<div class="col-md-6 pull-right ">
+			<h4>
+			<?php echo $odin_escolas_opts['destaque_esco_pre_tit'];?>
+			</h4>
+			<p><?php echo $odin_escolas_opts['destaque_esco_pre'];?></p>
+		</div>
+		<div class="col-md-6 pull-left">
+			<img id="boneco-home" src="<?php echo get_template_directory_uri(); ?>/assets/images/home4.png">
+		</div>
+	</div><!-- row papel -->
 </main>
 	<?php
 	get_footer();
