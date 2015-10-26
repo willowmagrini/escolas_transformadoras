@@ -7,6 +7,7 @@
  */
 
 get_header(''); ?>
+<?php $odin_exp_opts = get_option( 'odin_exp' );?>
 
 <main id="content" class="pagina-itens <?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 	<div class="row" id="ajax-itens">
@@ -54,16 +55,20 @@ get_header(''); ?>
 		
 	wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
 ?>
-	<div class="row conte-sua">
+	<div class="row  conte-sua">
 		<div class="img-conte sem-margem col-sm-4">
 			<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/img-conte.png">
 		</div>
 		<div class="col-sm-4 link-conte">
-				<h2><?php echo __('Envie sua estória','odin');?></h2>
+				<h2><?php echo $odin_exp_opts['destaque_exp_pre_tit'];?></h2>
+				
+				<p><?php echo $odin_exp_opts['destaque_exp_pre'];?></p>
+				
 				<a href="http://escolastransformadoras.com.br/contato/">
 					<img class="botao-conte" src="<?php echo get_template_directory_uri(); ?>/assets/images/botao-conte.png">
 				</a>
 		</div>
+		
 		<div class="col-sm-4 boneco-conte">
 			<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/boneco-conte.png">
 		</div>

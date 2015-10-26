@@ -38,8 +38,8 @@ get_header('front'); ?>
 						<div id="triangulo_indique"></div>
 						<a href="escolas-transformadoras">
 						
-							<h4><?php echo __('Conheça as ','odin')?></h4>
-							<h3><?php echo __('Escolas Transformadoras','odin')?></h3>
+							<h4><?php echo __('Conheça as Escolas ','odin')?></h4>
+							<h4><?php echo __('Transformadoras','odin')?></h4>
 						</a>
 						<?php echo $odin_general_opts['indique_uma'];?>
 					</div>

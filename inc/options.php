@@ -30,6 +30,10 @@ function opcoes_tema() {
 	           'id' => 'odin_faca', // Slug/ID of the Settings tab (Required)
 	           'title' => __( 'Faça Parte', 'odin' ), // Settings tab title (Required)
 	       ),
+			array(
+	           'id' => 'odin_exp', // Slug/ID of the Settings tab (Required)
+	           'title' => __( 'Experiências', 'odin' ), // Settings tab title (Required)
+	       ),
            
         )
     );
@@ -99,6 +103,33 @@ function opcoes_tema() {
                     )
 				)
 			),
+			'odin_exp_fields_section' => array( // Slug/ID of the section (Required)
+                'tab'   => 'odin_exp', // Tab ID/Slug (Required)
+                'title' => __( 'Página Experiências', 'odin' ), // Section title (Required)
+                'fields' => array( // Section fields (Required)
+					array(
+                        'id'         => 'destaque_exp_pre_tit', // Required
+                        'label'      => __( 'Título do Destaque  pré rodapé ', 'odin' ), // Required
+					    'type'        => 'text', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
+					array(
+                        'id'         => 'destaque_exp_pre', // Required
+                        'label'      => __( 'Destaque  pré rodapé ', 'odin' ), // Required
+					    'type'        => 'editor', // Obrigatório
+					    'default'     => '', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
+					
+					
+					
+				)
+            ),
 			'odin_sobre_fields_section' => array( // Slug/ID of the section (Required)
                 'tab'   => 'odin_sobre', // Tab ID/Slug (Required)
                 'title' => __( 'Página Sobre', 'odin' ), // Section title (Required)
@@ -152,6 +183,7 @@ function opcoes_tema() {
 					
 				)
             ),
+
             'odin_general_fields_section' => array( // Slug/ID of the section (Required)
                 'tab'   => 'odin_general', // Tab ID/Slug (Required)
                 'title' => __( 'Configurações do tema', 'odin' ), // Section title (Required)
