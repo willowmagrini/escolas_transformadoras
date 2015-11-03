@@ -1,4 +1,13 @@
 jQuery(document).ready(function($) {
+	$("#owl-carousel").owlCarousel({
+
+	    // Most important owl features
+	    items : 4,
+	pagination: false,
+	navigation: true,
+  	navigationText: ["<div id='nav-esq'></div>","<div id='nav-dir'></div>"]
+
+	})  
 	// fitVids.
 	$( '.entry-content' ).fitVids();
 	$('#maps').fitVids({ customSelector: "iframe" });

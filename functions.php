@@ -222,7 +222,12 @@ function odin_enqueue_scripts() {
 	wp_enqueue_style( 'odin-style', get_stylesheet_uri(), array(), null, 'all' );
 	wp_enqueue_style( 'odin-custom-style', $template_url . '/assets/css/custom.css', array(), null, 'all' );
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Asap', array(), null, 'all' );
+	if( is_page('equipe')) { 
+		wp_enqueue_script( 'owl-js',$template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.js', array(), null, true );
+		wp_enqueue_style( 'owl-style', $template_url .'/inc/owl-carousel/owl-carousel/owl.carousel.css', array(), null, 'all' );
+		wp_enqueue_style( 'owl-theme', $template_url .'/inc/owl-carousel/owl-carousel/owl.theme.css', array(), null, 'all' );
 
+ 	}
 	// jQuery.
 	wp_enqueue_script( 'jquery' );
 
@@ -398,3 +403,4 @@ function add_googleanalytics() { ?>
 	</script>
 <?php }
 add_image_size( 'quadrada', 500, 500, array( 'center', 'center' ) ); // Hard crop left top
+

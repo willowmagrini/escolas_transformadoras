@@ -164,7 +164,7 @@ function escola_cpt() {
 		}
 		/////////////////////////////////////////
 		
-		/////////////CPT noticias
+		/////////////CPT equipe
 		add_action( 'init', 'equipe_cpt' );
 
 		function equipe_cpt() {
@@ -177,7 +177,7 @@ function escola_cpt() {
 				'add_new_item'       => 'Adicionar novo membro',
 				'new_item'           => 'Novo membro de equipe' ,
 				'edit_item'          => 'Editar ',
-				'view_item'          => 'Ver todas' ,
+				'view_item'          => 'Ver todos' ,
 				'all_items'          => 'Todas' ,
 				'search_items'       => 'Buscar',
 				'parent_item_colon'  => 'Pai' ,
@@ -205,3 +205,44 @@ function escola_cpt() {
 			register_post_type( 'equipe', $args );
 		}
 		/////////////////////////////////////////
+			/////////////CPT comunidade
+			add_action( 'init', 'comunidade_cpt' );
+
+			function comunidade_cpt() {
+				$labels = array(                        
+					'name'               => 'comunidade',
+					'singular_name'      => 'Membro da comunidade',
+					'menu_name'          => 'Comunidade Inspiradora',
+					'name_admin_bar'     => 'Comunidade Inspiradora',
+					'add_new'            => 'Adicionar Membro da comunidade',
+					'add_new_item'       => 'Adicionar novo membro',
+					'new_item'           => 'Novo membro da comunidade' ,
+					'edit_item'          => 'Editar ',
+					'view_item'          => 'Ver todos' ,
+					'all_items'          => 'Todas' ,
+					'search_items'       => 'Buscar',
+					'parent_item_colon'  => 'Pai' ,
+					'not_found'          => 'Nenhuma encontrado' ,
+					'not_found_in_trash' => 'Nenhuma encontrado na lixeira' ,
+				);
+
+				$args = array(
+					'labels'             => $labels,
+					'public'             => true,
+					'publicly_queryable' => true,
+					'show_ui'            => true,
+					'show_in_menu'       => true,
+					'query_var'          => true,
+					'rewrite'            => array( 'slug' => 'comunidade' ),
+					'capability_type'    => 'post',
+					'has_archive'        => true,
+					'hierarchical'       => false,
+					'menu_position'      => null,
+					'menu-position' => 5,
+					'menu_icon' => 'dashicons-universal-access-alt',
+					'supports'           => array( 'title','comments', 'editor', 'thumbnail', 'excerpt' )
+				);
+
+				register_post_type( 'comunidade', $args );
+			}
+			/////////////////////////////////////////

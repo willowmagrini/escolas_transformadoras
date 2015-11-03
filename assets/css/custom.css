@@ -4537,6 +4537,91 @@ span.wpcf7-list-item{
 	overflow: hidden;
     max-height: 383px;
 }
+
+
+/*equipe*/
+.equipe-linha{
+	text-align:center;
+    margin: 10px 0 60px;
+}
+.cada-equipe{
+    margin: 10px;
+}
+.cada-equipe img{
+    max-width: 123px;
+}
+.cada-equipe p{
+    max-width: 195px;
+    font-size: 12px;
+}
+.cada-equipe a{
+	color:#01a6a8;
+}
+.cada-equipe >div{
+	margin-bottom:20px;
+}
+#equipe{
+	
+}
+#content.pagina.equipe{
+	max-width: 100%;
+	margin-bottom:0;
+    
+}
+#comunidade{
+	overflow:hidden;
+}
+#comunidade-interno{
+	width:10000px;
+}
+#comunidade .cada-equipe{
+	margin:15px;
+}
+#comunidade-background{
+	background:#fff;
+	text-align:center;
+	width: 100%;
+	    margin: 0 auto;
+	padding:10px 60px;
+}
+#comunidade-background h2{
+	color:#01a6a8;
+	padding:10px 0;
+}
+.owl-buttons > div{
+	position:absolute;
+	top:0%;
+	background-color:transparent!important;
+}
+.owl-next{
+	right:-70px;
+}
+#owl-carousel{
+	width:99%;
+}
+.owl-prev{
+	left:-70px;
+}
+#nav-dir{
+	background:url('../images/setanav.png');
+	height:125px;
+	background-size: cover;
+	background-color:transparent;
+	width:100px;
+}
+#nav-esq{
+	background:url('../images/setanav.png');
+	height:125px;
+	background-size: cover;
+	background-color:transparent;
+	width:100px;
+	-ms-transform: rotate(180deg); /* IE 9 */
+	-webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+	transform: rotate(180deg);
+	
+}
+.owl-theme .owl-controls .owl-buttons div{
+}
 @media (max-width: 1071px){
 	.search  #header .page-header, .page #header .page-header, .single #header .page-header{
 		width:19%;
@@ -4825,7 +4910,7 @@ span.wpcf7-list-item{
 	    right: 10px;
 	}
 	.home #logo{
-		width: 50%;
+		width: 35%;
 	    
 	}
 	.page-id-77 #content{
@@ -4919,9 +5004,11 @@ span.wpcf7-list-item{
 	.home #logo{
 	    width: 118%;
 	}
-	
-	#img-header, .img-header{
+	.img-header{
 		position:absolute!important;
+	}
+	#img-header{
+		position:absolute;
 	}
 	#olho-home {
 	    left: 0;
