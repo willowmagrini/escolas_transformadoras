@@ -3308,12 +3308,12 @@ a:hover, a:active, a:focus{
 	border: none;
     margin: 0px 0 20px;
 }
-.home #img-header{
+.home .img-header{
 	margin-top: 100px;
 	
 }
 
-.search #img-header, .home #img-header, .single #img-header, #maps, .page #img-header{
+.search #img-header, .home .img-header, .single #img-header, #maps, .page #img-header{
 	background-color:#f7f7d9;
 	-webkit-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
 	-moz-box-shadow: 0px 27px 12px -16px rgba(0,0,0,0.6);
@@ -3343,7 +3343,7 @@ a:hover, a:active, a:focus{
     height: initial;
 
 }
- #img-header{
+ #img-header, .img-header{
 	top:0;
 	width:100%;
 	left:0;
@@ -3472,12 +3472,13 @@ a:hover, a:active, a:focus{
 	background-color:#ee7d00;
 }
 #lista-home{
+	z-index: 9;
 	right:0;
 	-ms-transform: translate(50%,-50%);
     -webkit-transform: translate(50%,-50%);
     transform: translate(50%,-50%);
 }
-.video-indique img{
+.video-indique > img{
 	width:100%;
 }
 .papel{
@@ -4375,6 +4376,10 @@ a.navbar-brand{
 	margin-top: 0;
 	position:relative;
 	z-index:99;
+	max-width:1000px;
+}
+.page-template-page-faca #content .visao{
+	max-width:1000px;
 }
 .page-template-page .entry-content{
 	margin-top: -117px;
@@ -4437,6 +4442,101 @@ a.navbar-brand{
 .page-numbers.current{
 	color:#23527c;
 }
+#noticia-home{
+	background-color:#00a6a6;
+	height:383px;
+	text-align:right;
+	padding:50px;
+	color:#4ccece;
+	position:relative;
+}
+#noticia-home h1{
+    font-size: 70px;
+	text-transform:uppercase;
+}
+#noticia-home  a h1{
+	color:#4ccece;
+}
+#noticia-home  a:hover h1{
+	color:#308080;
+}
+#noticia-home p a:hover{
+	opacity:0.8;
+}
+
+#noticia-home p a{
+	color:#fff;
+}
+#noticia-home h4{
+	font-size:20px;
+	text-transform:uppercase;
+}
+#noticia-home hr{
+	width: 22%;
+	float: right;
+	height: 3px;
+	background: #fff;
+	border-radius: 21px;
+}
+#noticia-home p{
+	color:#fff;
+	width:80%;
+	float:right;
+	margin-top:10px;
+}
+.video-indique #thumb-video-play {
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+span.wpcf7-list-item{
+	display:block;
+	vertical-align:middle;
+	
+}
+.wpcf7  .wpcf7-list-item-label{
+    height: 37px;
+	display:inline-block;
+	vertical-align:middle;
+	color:#000;
+}
+.wpcf7 .wpcf7-list-item input{
+	width:initial;
+}
+.wpcf7 input, .wpcf7 textarea{
+	color:#000;
+	width:400px;
+}
+.wpcf7 p{
+	margin-top:30px;
+}
+.wpcf7 {
+	max-width:400px;
+	margin:0 auto!important;
+	display:block;
+}
+.wpcf7  span{
+	color:red;
+}
+.exp-insp{
+	z-index:10!important;
+}
+.video-indique{
+	position:relative;
+}
+#video-home>img{
+/*	max-height:initial!important;*/
+	width:auto;
+	height: 384px;
+	max-width:initial;
+    
+}
+#video-home{
+	overflow: hidden;
+    max-height: 383px;
+}
 @media (max-width: 1071px){
 	.search  #header .page-header, .page #header .page-header, .single #header .page-header{
 		width:19%;
@@ -4446,6 +4546,17 @@ a.navbar-brand{
 	}
 }
 @media (max-width: 992px){
+	#video-home>img {
+	    max-height: initial!important;
+	    width: 80%
+	}
+	#triangulo_indique{
+		display:none;
+	}
+	#noticia-home{
+		width:80%;
+		margin:0 auto;
+	}
 	.paginacao {	
 		width: 80%;
 		margin:0 auto;
@@ -4548,7 +4659,7 @@ a.navbar-brand{
 		width:526px;
 		
 	}
-	.home #img-header {
+	.home .img-header {
 	    margin-top: 0;
 	}
 	.home #header #main-navigation{
@@ -4566,10 +4677,19 @@ a.navbar-brand{
 	}
 }
 @media (max-width: 766px){
+	#video-home>img {
+	    max-height: initial!important;
+	    width: 100%;
+	    height: auto;
+	}
+	#noticia-home{
+		width:100%;
+		margin:0 auto;
+	}
 	.search #logo, .page #logo, .single #logo {
 	    height: 51px;
 	}
-	#img-header {
+	#img-header, .img-header {
 	    top: -1px;
 	}
 	.link-conte{
@@ -4739,6 +4859,9 @@ a.navbar-brand{
 	#filtro select{
 		width:100%;
 	}
+	#noticia-home h1 {
+	    font-size: 47px;
+	}
 }
 @media (min-width: 768px) {
 	.nav a {
@@ -4775,7 +4898,7 @@ a.navbar-brand{
 	}
 	.row.exp-insp img{
 		max-height:383px;
-		float:right;
+		float:left;
 	}
 	.row.exp-insp .col-md-6:nth-child(2) img {
 		float:left;
@@ -4797,14 +4920,16 @@ a.navbar-brand{
 	    width: 118%;
 	}
 	
-	#img-header{
-		position:absolute;
+	#img-header, .img-header{
+		position:absolute!important;
 	}
 	#olho-home {
 	    left: 0;
-	    -ms-transform: translate(-50%,100%);
-	    -webkit-transform: translate(-50%,100%);
-	    transform: translate(-50%,100%);
+		bottom:0;
+	    -ms-transform: translate(-50%,50%);
+	    -webkit-transform: translate(-50%,50%);
+	    transform: translate(-50%,50%);
+		z-index:10;
 	}
 	.home .page-header{
 		width:19%;

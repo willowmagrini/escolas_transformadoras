@@ -163,3 +163,45 @@ function escola_cpt() {
 			register_post_type( 'noticia', $args );
 		}
 		/////////////////////////////////////////
+		
+		/////////////CPT noticias
+		add_action( 'init', 'equipe_cpt' );
+
+		function equipe_cpt() {
+			$labels = array(                        
+				'name'               => 'equipe',
+				'singular_name'      => 'Membro de equipe',
+				'menu_name'          => 'Equipe',
+				'name_admin_bar'     => 'Equipe',
+				'add_new'            => 'Adicionar Membro de Equipe',
+				'add_new_item'       => 'Adicionar novo membro',
+				'new_item'           => 'Novo membro de equipe' ,
+				'edit_item'          => 'Editar ',
+				'view_item'          => 'Ver todas' ,
+				'all_items'          => 'Todas' ,
+				'search_items'       => 'Buscar',
+				'parent_item_colon'  => 'Pai' ,
+				'not_found'          => 'Nenhuma encontrado' ,
+				'not_found_in_trash' => 'Nenhuma encontrado na lixeira' ,
+			);
+
+			$args = array(
+				'labels'             => $labels,
+				'public'             => true,
+				'publicly_queryable' => true,
+				'show_ui'            => true,
+				'show_in_menu'       => true,
+				'query_var'          => true,
+				'rewrite'            => array( 'slug' => 'equipe' ),
+				'capability_type'    => 'post',
+				'has_archive'        => true,
+				'hierarchical'       => false,
+				'menu_position'      => null,
+				'menu-position' => 5,
+				'menu_icon' => 'dashicons-universal-access',
+				'supports'           => array( 'title','comments', 'editor', 'thumbnail', 'excerpt' )
+			);
+
+			register_post_type( 'equipe', $args );
+		}
+		/////////////////////////////////////////

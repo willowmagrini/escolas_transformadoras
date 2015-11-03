@@ -231,6 +231,15 @@ function opcoes_tema() {
 					        'textarea_rows' => 2
 					    ),
 					),
+					array(
+                        'id'         => 'video_home', // Required
+                        'label'      => __( 'Endereço do video da home no youtube ', 'odin' ), // Required
+					    'type'        => 'text', // Obrigatório
+					    'default'     => 'Default text', // Opcional
+					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
+					        'textarea_rows' => 2
+					    ),
+					),
 					
 				)
             ),

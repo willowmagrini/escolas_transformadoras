@@ -397,3 +397,4 @@ function add_googleanalytics() { ?>
 
 	</script>
 <?php }
+add_image_size( 'quadrada', 500, 500, array( 'center', 'center' ) ); // Hard crop left top

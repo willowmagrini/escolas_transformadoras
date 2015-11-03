@@ -128,7 +128,11 @@
 					</nav><!-- .navbar-collapse -->
 				</div><!-- #secondary-navigation-->
 			</div><!-- #menus -->
-			<img id="img-header" src="<?php echo get_template_directory_uri(); ?>/assets/images/header-img.jpg">
+			
+			<?php 
+			    echo do_shortcode("[metaslider id=704]"); 
+			?>
+						<!-- <img id="img-header" src="<?php echo get_template_directory_uri(); ?>/assets/images/header-img.jpg"> -->
 			
 		</div><!-- .container-->
 	</header><!-- #header -->

@@ -152,5 +152,6 @@
 		<a href="#">
 			<div id="botao-fechar">x</div>
 		</a>
-		<?php echo get_field('video')?></div>
+		<?php echo get_field('video')?>
+	</div>
 </article><!-- #post-## -->

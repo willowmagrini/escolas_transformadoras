@@ -75,6 +75,30 @@
 					<a target=_blank  href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
 					
 				<?php }?>
+                <br />
+                <br />
+                <div style="float: none; clear:both;">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3&appId=219271641464428";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>	
+                    <div style="top:-5px;" class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                    
+                     <a class="twitter-share-button">Tweet</a>
+                    <script>
+                    window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+                    </script>
+                    <!-- Place this tag in your head or just before your close body tag. -->
+					<script src="https://apis.google.com/js/platform.js" async defer></script>
+                    
+                    <!-- Place this tag where you want the +1 button to render. -->
+                    <div class="g-plusone" data-size="medium"></div>
+                    
+                </div>
 			
 			</div>
 			<div id="copyright" class="sem-margem col-sm-6">
