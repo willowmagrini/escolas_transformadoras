@@ -3566,7 +3566,7 @@ article .entry-meta{
 	-webkit-transform: translate(0,-100%);
 	transform: translate(0,-100%);
 }
-#modal-conteudo[modal-estado="ativo"]{
+#modal-conteudo[modal-estado="ativo"], .page-template-page-equipe #modal-conteudo[modal-estado="ativo"]{
 	-ms-transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
@@ -4622,6 +4622,30 @@ span.wpcf7-list-item{
 }
 .owl-theme .owl-controls .owl-buttons div{
 }
+.page-template-page-equipe #modal-conteudo{
+	background-color:#013b60;
+	padding: 1% 3%;
+    
+}
+.page-template-page-equipe #modal-conteudo h2{
+	color:#f5ac29;
+}
+.page-template-page-equipe #modal-conteudo >div>div>p{
+	color:#01a5a6;
+}
+.page-template-page-equipe #modal-conteudo{
+		color:#fff;
+	    -ms-transform: translate(0,1000%);
+	    -webkit-transform: translate(0,1000%);
+	    transform: translate(0,1000%);
+}
+.page-template-page-equipe #modal-conteudo >div> p{
+	margin-top:20px;
+}
+.page-template-page-equipe #modal-conteudo>div >div.col-sm-9{
+	padding: 30px 0;
+}
+
 @media (max-width: 1071px){
 	.search  #header .page-header, .page #header .page-header, .single #header .page-header{
 		width:19%;

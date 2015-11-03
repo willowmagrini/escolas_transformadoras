@@ -4,6 +4,35 @@ add_action( 'wp_enqueue_scripts', 'ajax_localize', 1 );
 function ajax_localize(){
 	wp_localize_script( 'odin-main', 'odin_main', array('ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 }
+
+// equipe
+function ajax_equipe_load_posts(){
+	?>
+
+	<?php 
+	$post_id=$_POST['postid'];
+	echo '<div class="animated fadeIn col-sm-3">'.get_the_post_thumbnail( $post_id, 'thumbnail' ).'</div>'; 
+	echo '<div class="animated fadeIn col-sm-9"><h2>'.get_the_title( $post_id ).'</h2>';
+	$cargo = get_field( "cargo" , $post_id);
+
+
+	    echo '<p class="animated fadeIn">'.$cargo.'</p></div><div class="clearfix"></div>';
+	$content_post = get_post($post_id);
+	$content = $content_post->post_content;
+	$content = apply_filters('the_content', $content);
+	$content = str_replace(']]>', ']]&gt;', $content);
+	echo $content;	
+	?>
+		
+		
+	<?php
+	wp_die();
+	
+}
+add_action( 'wp_ajax_equipe_load_posts', 'ajax_equipe_load_posts' );
+add_action( 'wp_ajax_nopriv_equipe_load_posts', 'ajax_equipe_load_posts' );
+// equipe
+
 function ajax_escola_load_posts(){
 	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 	$args = array(
@@ -105,6 +134,7 @@ add_action( 'wp_ajax_nopriv_itens_load_posts', 'ajax_itens_load_posts' );
 
 
 
+//ajax filtra escolas posts
 
 function ajax_escola_filtra_posts(){
 	global $wpdb;
@@ -200,3 +230,7 @@ function ajax_escola_filtra_posts(){
 add_action( 'wp_ajax_escola_filtra_posts', 'ajax_escola_filtra_posts' );
 add_action( 'wp_ajax_nopriv_escola_filtra_posts', 'ajax_escola_filtra_posts' );
 // do_action('wp_ajax_escola_filtra_posts');
+
+
+
+

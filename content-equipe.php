@@ -6,12 +6,12 @@
 			echo get_the_post_thumbnail( $post->ID, 'thumbnail' ); 
 		?>
 		</div>
-		<a href="<?php the_permalink()?>">
+		<a data-id="<?php echo $post->ID;?>" href="<?php the_permalink()?>">
 			<?php echo get_the_title();
 			?>
 		</a>
 		<?php 
-			the_excerpt();
+			echo the_excerpt();
 		?>
 	
 </div>

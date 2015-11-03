@@ -1,13 +1,16 @@
 jQuery(document).ready(function($) {
-	$("#owl-carousel").owlCarousel({
+	if ($('body').hasClass('page-template-page-equipe')){
+		$("#owl-carousel").owlCarousel({
 
-	    // Most important owl features
-	    items : 4,
-	pagination: false,
-	navigation: true,
-  	navigationText: ["<div id='nav-esq'></div>","<div id='nav-dir'></div>"]
+		    // Most important owl features
+		    items : 4,
+		pagination: false,
+		navigation: true,
+	  	navigationText: ["<div id='nav-esq'></div>","<div id='nav-dir'></div>"]
 
-	})  
+		})
+	}
+	
 	// fitVids.
 	$( '.entry-content' ).fitVids();
 	$('#maps').fitVids({ customSelector: "iframe" });
@@ -82,6 +85,7 @@ jQuery(document).ready(function($) {
 
 	});
 	//ajax escolas
+	
 	//ajax itens
 
 		$('.pagina-itens .btn-loadmore').on('click',function(e){
@@ -233,6 +237,37 @@ jQuery(document).ready(function($) {
 		
 		
 	});
+	//ajax equipe
+
+		$('.cada-equipe a').on('click',function(e){
+			e.preventDefault();
+			$('#modal-conteudo #html').html('');
+			
+			var data = {
+				'action': 'equipe_load_posts',
+			};
+		
+			data.postid = $(this).attr('data-id');
+			console.log(data);
+				$('#fundo-modal').attr('modal-estado','ativo');
+				$('#modal-conteudo').attr('modal-estado','ativo');
+
+
+				
+			$.post(odin_main.ajaxurl, data, function(response) {
+				$('#modal-conteudo #html').html(response);
+			});
+			$('.page-template-page-equipe #botao-fechar, #fundo-modal').click(function(f) {
+				console.log('passou')
+				f.preventDefault();
+				$('#fundo-modal').attr('modal-estado','inativo');
+				$('#modal-conteudo').attr('modal-estado','inativo');
+
+
+			});
+		});
+		//ajax equipe
+		
 	if($('#info-escola').length !== 0) {
 		$('#menu-item-94').addClass('active');
 		console.log('esc')

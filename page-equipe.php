@@ -106,6 +106,15 @@ get_header(); ?>
 					// If comments are open or we have at least one comment, load up the comment template.
 				endwhile;
 			?>
+			<div id="fundo-modal">	</div>
+			<div id="modal-conteudo">
+				
+				<a href="#">
+					<div id="botao-fechar">x</div>
+				</a>
+				<div class="animated fadeIn" id="html">
+				</div>		
+			</div>
 
 	</main><!-- #main -->
 
