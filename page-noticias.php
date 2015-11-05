@@ -20,14 +20,14 @@ get_header(''); ?>
 			'posts_per_page' =>4
 		);
 	
-		$WP_Query_escola = new WP_Query( $args );
+		$WP_Query_noticias = new WP_Query( $args );
 	
-		if( $WP_Query_escola->have_posts()  )
+		if( $WP_Query_noticias->have_posts()  )
 		{
 			
-			while ( $WP_Query_escola->have_posts() ) 
+			while ( $WP_Query_noticias->have_posts() ) 
 			{
-				$WP_Query_escola->the_post();
+				$WP_Query_noticias->the_post();
 				?>
 				<?php get_template_part('content','todos');
 				
@@ -36,7 +36,7 @@ get_header(''); ?>
 			?>
 		
 	</div> <!-- id="escolad" -->
-	<a data-type="post" class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-itens" data-max-paged="<?php echo $WP_Query_escola->max_num_pages;?>" style="<?php if ($WP_Query_escola->max_num_pages<2){echo 'display:none;';}?>" data-category="all">
+	<a data-type="post" class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-itens" data-max-paged="<?php echo $WP_Query_noticias->max_num_pages;?>" style="<?php if ($WP_Query_noticias->max_num_pages<2){echo 'display:none;';}?>" data-category="all">
 		<?php echo __('Mais Recursos ','odin'); ?>
 		<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/btn-loadmore-seta.png">
 		

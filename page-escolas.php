@@ -103,8 +103,9 @@ get_header('escolas'); ?>
 			'post_type' => 'escola',
 			'paged'=> $paged,
 			'posts_per_page' =>8,
-			'orderby'        => 'rand',
-		);
+			'orderby' => 'title',
+			'order'   => 'DESC',
+			);
 	
 		$WP_Query_escola = new WP_Query( $args );
 	

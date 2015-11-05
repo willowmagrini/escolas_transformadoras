@@ -38,7 +38,9 @@ function ajax_escola_load_posts(){
 	$args = array(
 		'paged'=> $_POST['paged'],
 		'post_type' => 'escola',
-		'posts_per_page'=>8
+		'posts_per_page'=>8,
+		'orderby' => 'title',
+		'order'   => 'DESC',
 	);
 	if (isset($_POST['meta'])){ //se tem meta dados pro query
 		$resposta = $_POST['meta'];//puxa os metas do ajax da forma meta_key:meta_value, meta_key:meta_value, 

@@ -30,8 +30,8 @@ get_header('front'); ?>
 							'paged'=> $paged,
 							'posts_per_page' =>1
 						);
-						$WP_Query_escola = new WP_Query( $args );
-								$WP_Query_escola->the_post();
+						$WP_Query_esc_front = new WP_Query( $args );
+								$WP_Query_esc_front->the_post();
 								?>
 								<a href="<?php the_permalink()?>">
 									<?php echo get_the_title();?>
@@ -44,7 +44,7 @@ get_header('front'); ?>
 				
 				<div id="video-home" class="col-md-6 sem-margem relative">
 					<?php
-					echo get_the_post_thumbnail( $WP_Query_escola->post->ID, 'quadrada' ); ?>
+					echo get_the_post_thumbnail( $WP_Query_esc_front->post->ID, 'quadrada' ); ?>
 					<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home2.png"> -->
 									
 				</div>

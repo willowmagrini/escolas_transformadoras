@@ -404,3 +404,5 @@ function add_googleanalytics() { ?>
 <?php }
 add_image_size( 'quadrada', 500, 500, array( 'center', 'center' ) ); // Hard crop left top
 
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );

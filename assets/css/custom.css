@@ -3828,18 +3828,13 @@ article .entry-meta{
 	margin: 0 20px;
 	
 }
-#titulo-conteudo{
-	max-height:400px;
-	overflow-y:scroll;
-	width:350px;
-	float:left;
-	font-size:15px;
-	margin:-50px 0 0 50px;
-	padding:20px 30px;
-	position:relative;
-	z-index:999;
-	background-color:#ffffff;
+#titulo-conteudo {
+    max-width: 1017px;
+    margin: 0 auto;
+    float: none;
+    display: block;
 }
+
 select.form-control {
     -webkit-appearance: menulist;
 }
@@ -3865,14 +3860,24 @@ div.wpcf7-mail-sent-ok {
     border: 2px solid #003b5f!important;
 }
 #titulo-conteudo .entry-header h1{ 
-	padding-bottom:20px;
-	font-size:20px;
-	color:#00b2ad;
+	padding-bottom: 20px;
+	    /* float: left; */
+	    font-size: 38px;
+	    color: #013b60;
+	    text-align: left;
+	    margin-top: 50px;
+	font-weight:bolder;
+	
+	
 }
-#titulo-conteudo p {
+.conteudo-single-escola {
+	color:#013b60;
+	font-size:18px;
+	font-weight:bolder;
+}
+#titulo-conteudo p{
 	padding-top:20px;
-	color:#808285;
-	border-top:1px solid #b1dcde;
+	color:#013b60;
 }
 
 #citacao, #filtro{
@@ -3971,6 +3976,15 @@ div.wpcf7-mail-sent-ok {
 	vertical-align:middle;
 	float:right;
 }
+#numeros-escola > div{
+	float:none;
+}
+#numeros-escola b{
+	color:#013b60;
+}
+#numeros-escola p{
+	color:#a7a9ac;
+}
 #video-escola{
 	position:relative;
 }
@@ -4024,11 +4038,16 @@ div.wpcf7-mail-sent-ok {
     transform: translate(-50%,-50%);
 }
 #info-escola{
+	font-size:14px;
 	position:relative;
 	width:420px;
 	height:380px;
 	background-color:#ffffff;
 	padding:30px 30px;
+	float:right;
+	z-index:9999;
+    margin: -135px 0 40px 40px;
+
 }
 #info-escola >div{
 	padding:20px;
@@ -4546,6 +4565,8 @@ span.wpcf7-list-item{
 }
 .cada-equipe{
     margin: 10px;
+    width: 190px;
+
 }
 .cada-equipe img{
     max-width: 123px;
@@ -4681,11 +4702,19 @@ span.wpcf7-list-item{
 	  
 	    margin-top: -40px;
 	}
+	#info-escola{
+		margin-top:115px!important;
+		margin-bottom:50px!important;
+		
+	}
 	.single-escola .inline-block{
 		display:block;
 		width:80%!important;
 		margin:0 auto!important;
 		float:none!important;
+	}
+ 	.conteudo-single-escola p{
+		font-size:16px;
 	}
 	.single-escola img.inline-block{
 		width:initial!important;
@@ -4953,6 +4982,17 @@ span.wpcf7-list-item{
 }
 
 @media (max-width: 600px){
+	#foto-escola-3 {
+		float: left!important;
+	    
+	}
+	#info-escola{
+		padding:10px 5px;
+	}
+	#info-escola >div {
+		padding:0;
+		margin-top:20px;
+	}
 	#filtro input{
 		width:100%!important;
 		margin:10px 0;

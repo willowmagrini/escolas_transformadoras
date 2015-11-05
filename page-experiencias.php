@@ -19,13 +19,13 @@ get_header(''); ?>
 			'posts_per_page' =>8
 		);
 	
-		$WP_Query_escola = new WP_Query( $args );
-		if( $WP_Query_escola->have_posts()  )
+		$WP_Query_exp = new WP_Query( $args );
+		if( $WP_Query_exp->have_posts()  )
 		{
 			
-			while ( $WP_Query_escola->have_posts() ) 
+			while ( $WP_Query_exp->have_posts() ) 
 			{
-				$WP_Query_escola->the_post();
+				$WP_Query_exp->the_post();
 				?>
 				<?php get_template_part('content','todos');
 				
@@ -41,7 +41,7 @@ get_header(''); ?>
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 					'format' => '?paged=%#%',
 					'current' => max( 1, get_query_var('paged') ),
-					'total' => $WP_Query_escola->max_num_pages
+					'total' => $WP_Query_exp->max_num_pages
 				) );
 				?>
 			</div>

@@ -29,14 +29,14 @@ get_header(); ?>
 									'post_type' => 'equipe',
 								);
 
-								$WP_Query_escola = new WP_Query( $args );
+								$WP_Query_equipe = new WP_Query( $args );
 
-								if( $WP_Query_escola->have_posts()  )
+								if( $WP_Query_equipe->have_posts()  )
 								{
 
-									while ( $WP_Query_escola->have_posts() ) 
+									while ( $WP_Query_equipe->have_posts() ) 
 									{
-										$WP_Query_escola->the_post();
+										$WP_Query_equipe->the_post();
 										if ($count == 0 ){
 											?>
 											<div id="equipe-l1" class= "sem-margem equipe-linha row">
