@@ -41,12 +41,13 @@ function image_resize2($src, $dst, $width, $height, $crop=0){
 
   imagecopyresampled($new, $img, 0, 0, $x, 0, $width, $height, $w, $h);
 
-  switch($type){
-    case 'bmp': imagewbmp($new, $dst); break;
-    case 'gif': imagegif($new, $dst); break;
-    case 'jpg': imagejpeg($new, $dst); break;
-    case 'png': imagepng($new, $dst); break;
-  }
+  // switch($type){
+  //   case 'bmp': imagewbmp($new, $dst); break;
+  //   case 'gif': imagegif($new, $dst); break;
+  //   case 'jpg': imagejpeg($new, $dst); break;
+  //   case 'png': imagepng($new, $dst); break;
+  // }
+imagepng($new, $dst);
   return true;
 }
 function resize($newWidth, $newHeight, $originalFile) {

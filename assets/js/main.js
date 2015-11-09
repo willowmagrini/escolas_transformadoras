@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+
 	if ($('body').hasClass('page-template-page-equipe')){
 		$("#owl-carousel").owlCarousel({
 

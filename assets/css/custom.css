@@ -3894,6 +3894,7 @@ div.wpcf7-mail-sent-ok {
 #filtro{
 	color:#000;
 }
+
 #maps{
 	background-color:#f7f7d9;
 	z-index:9;
@@ -3968,6 +3969,7 @@ div.wpcf7-mail-sent-ok {
 }
 #contato-escola p{
 	margin:0;
+	padding:0 0 5px 0;
 }
 #contato-escola div{
 	width:80%;
@@ -3984,6 +3986,8 @@ div.wpcf7-mail-sent-ok {
 }
 #numeros-escola p{
 	color:#a7a9ac;
+	margin:0;
+	padding:0 0 5px 0;
 }
 #video-escola{
 	position:relative;
@@ -4041,7 +4045,7 @@ div.wpcf7-mail-sent-ok {
 	font-size:14px;
 	position:relative;
 	width:420px;
-	height:380px;
+	height:initial;
 	background-color:#ffffff;
 	padding:30px 30px;
 	float:right;
