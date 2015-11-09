@@ -4245,6 +4245,14 @@ a.navbar-brand{
 	
 }
 .page-template-page-escolas #titulo-conteudo{
+	max-height: 400px;
+	    overflow-y: scroll;
+	    width: 350px;
+	    float: left;
+	    font-size: 15px;
+	    position: relative;
+	    z-index: 999;
+	    background-color: #ffffff;
 		margin: 0;
 	    max-height: 700px;
 	    position: absolute;
