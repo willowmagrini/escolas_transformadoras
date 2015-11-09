@@ -1,5 +1,7 @@
 jQuery(document).ready(function($) {
-
+	$('#maps').click(function () {
+	    $('#maps iframe').css("pointer-events", "auto");
+	});
 	if ($('body').hasClass('page-template-page-equipe')){
 		$("#owl-carousel").owlCarousel({
 
