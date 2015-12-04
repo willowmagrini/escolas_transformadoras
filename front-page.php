@@ -69,9 +69,16 @@ get_header('front'); ?>
 					<img class="absolute" id="lista-home" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-lista.png">
 					<div class="video-indique">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/video-img.png">
-						<a id="link-video-escola" target="blank" href="#">
-							<img id="thumb-video-play" class="absolute" src="<?php echo get_template_directory_uri().'/assets/images/thumb-video-play.png';?>">
-						</a>
+						<?php
+						if ($odin_general_opts['video_home']){
+							?>
+							<a id="link-video-escola" target="blank" href="#">
+								<img id="thumb-video-play" class="absolute" src="<?php echo get_template_directory_uri().'/assets/images/thumb-video-play.png';?>">
+							</a>
+							
+							<?php
+						}
+						?>
 					</div>
 				</div>
 			</div><!-- row indique -->

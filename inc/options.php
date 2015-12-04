@@ -233,7 +233,7 @@ function opcoes_tema() {
 					),
 					array(
                         'id'         => 'video_home', // Required
-                        'label'      => __( 'Endereço do video da home no youtube ', 'odin' ), // Required
+                        'label'      => __( 'ID do video da home no youtube ', 'odin' ), // Required
 					    'type'        => 'text', // Obrigatório
 					    'default'     => 'Default text', // Opcional
 					    'options'     => array( // Opcional (aceita argumentos do wp_editor)

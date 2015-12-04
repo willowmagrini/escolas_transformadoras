@@ -403,57 +403,105 @@ function add_googleanalytics() { ?>
 	</script>
 <?php }
 add_image_size( 'quadrada', 500, 500, array( 'center', 'center' ) ); // Hard crop left top
-
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_excerpt', 'wpautop' );
-
+// 
+// remove_filter( 'the_content', 'wpautop' );
+// remove_filter( 'the_excerpt', 'wpautop' );
+// 
 
 function mascara_imagem($post_id){
+	
 	$imagens=get_post_gallery_images($post_id);
-	$count=0;
-	$upload_dir = wp_upload_dir();
-	$dir_dest = $upload_dir['basedir'].'/mask-img/'.get_the_ID();
-	if (!file_exists($dir)) {
-	    mkdir($dir, 0755, true);
-	}
 	
-	$tamanhos = array( 
-					array( 420 , 380),
-					array( 420 , 380),
-					array( 420 , 195),
-					array( 220 , 220),
-					array( 420 , 220),
-	             );
-	
-	foreach ($tamanhos as $tamanho){
-	 if ($count == 3){
-			$foto[$count]= $imagens[$count];
-			$foto[$count] = image_resize2($foto[$count],$dir_dest.'/foto'.$count.'.png', $tamanho[0], $tamanho[1], 1);
-			$mask_img3 = get_stylesheet_directory_uri().'/assets/images/mask-img1.png';
-			$mask_img3 = imagecreatefrompng( $mask_img3 );
-			$foto[$count] = imagecreatefrompng($dir_dest.'/foto'.$count.'.png' );
-			imagealphamask( $foto[$count], $mask_img3 );
-			imagepng( $foto[$count], $dir_dest.'/foto'.$count.'.png');
-			
-		}
-		else{
-			$foto[$count]= $imagens[$count];
-		}
-		
-		$foto[$count] = image_resize2($foto[$count],$dir_dest.'/foto'.$count.'.png', $tamanho[0], $tamanho[1], 1);
-		$count++;
-		
-	}
-	$thumb_video = get_field('thumbnail_do_video', $post_id, true)['url'];
-	$thumb_video = image_resize2($thumb_video,$dir_dest.'/thumb_video.png', 420, 195, 1);
-	$mask_video = get_stylesheet_directory_uri().'/assets/images/mask-thumb-video.png';
-	$mask_video = imagecreatefrompng( $mask_video );
-	$thumb_video = imagecreatefrompng($dir_dest.'/thumb_video.png' );
-	
-   	imagealphamask( $thumb_video, $mask_video );
+	if (count($imagens)>=5){
+		$count=0;
+		$upload_dir = wp_upload_dir();
 
-   	imagepng( $thumb_video, $dir_dest.'/thumb_video.png');
-	// echo '<script>alert("'.$dir_dest.'/thumb_video.png'.'")</script>';
+		$dir_dest = $upload_dir['basedir'].'/mask-img/'.get_the_ID();
+
+		if (!file_exists($dir_dest)) {
+		    mkdir($dir_dest, 0755, true);
+		} 	
+
+
+		$tamanhos = array( 
+						array( 420 , 380),
+						array( 420 , 380),
+						array( 420 , 195),
+						array( 220 , 220),
+						array( 420 , 220),
+		             );
+		foreach ($tamanhos as $tamanho){
+			if ($count == 3){
+				$foto[$count]= $imagens[$count];
+				$foto[$count] = image_resize2($foto[$count],$dir_dest.'/foto'.$count.'.png', $tamanho[0], $tamanho[1], 1);
+				$mask_img3 = get_stylesheet_directory_uri().'/assets/images/mask-img1.png';
+				$mask_img3 = imagecreatefrompng( $mask_img3 );
+				$foto[$count] = imagecreatefrompng($dir_dest.'/foto'.$count.'.png' );
+				imagealphamask( $foto[$count], $mask_img3 );
+				imagepng( $foto[$count], $dir_dest.'/foto'.$count.'.png');
+			}
+			else{
+				$foto[$count]= $imagens[$count];
+				$foto[$count] = image_resize2($foto[$count],$dir_dest.'/foto'.$count.'.png', $tamanho[0], $tamanho[1], 1);
+				
+			}
+			$count++;
+		}
+	}
 
 }
 add_action( 'save_post_escola', 'mascara_imagem' );
+
+
+function my_acf_save_post( $post_id ) {
+	$upload_dir = wp_upload_dir();
+	
+	$dir_dest = $upload_dir['basedir'].'/mask-img/'.get_the_ID();
+	if (!file_exists($dir_dest)) {
+	    mkdir($dir_dest, 0755, true);
+	} 	
+	
+	    $thumb_video = get_field('thumbnail_do_video', $post_id, true);
+	if ($thumb_video['url'] !=""){
+		$thumb_video = image_resize2($thumb_video['url'],$dir_dest.'/thumb_video.png', 420, 195, 1);
+		$mask_video = get_stylesheet_directory_uri().'/assets/images/mask-thumb-video.png';
+		$mask_video = imagecreatefrompng( $mask_video );
+		$thumb_video = imagecreatefrompng($dir_dest.'/thumb_video.png' );
+	   	imagealphamask( $thumb_video, $mask_video );
+	  	imagepng( $thumb_video, $dir_dest.'/thumb_video.png');
+		
+	}
+	
+	   	
+	    $foto_redonda = get_field('imagem_redonda', $post_id, true);
+	if ($foto_redonda !=""){
+		$foto_redonda = image_resize2($foto_redonda,$dir_dest.'/foto_redonda.png', 200, 200, 1);
+		$mask_redonda = get_stylesheet_directory_uri().'/assets/images/mask-redonda.png';
+		$mask_redonda = imagecreatefrompng( $mask_redonda );
+		$foto_redonda = imagecreatefrompng($dir_dest.'/foto_redonda.png' );
+		imagealphamask( $foto_redonda, $mask_redonda );
+		imagepng( $foto_redonda, $dir_dest.'/foto_redonda.png');
+	}
+	
+	
+	$foto_redonda_geral = get_field('foto_redonda_geral', $post_id, true);
+	if ($foto_redonda_geral !=""){
+		$foto_redonda_geral = image_resize2($foto_redonda_geral,$dir_dest.'/foto_redonda_geral.png', 200, 200, 1);
+		
+		$mask_redonda = get_stylesheet_directory_uri().'/assets/images/mask-redonda.png';
+		
+		$mask_redonda = imagecreatefrompng( $mask_redonda );
+		
+		$foto_redonda_geral = imagecreatefrompng($dir_dest.'/foto_redonda_geral.png' );
+		
+		imagealphamask( $foto_redonda_geral, $mask_redonda );
+		imagepng( $foto_redonda_geral, $dir_dest.'/foto_redonda_geral.png');
+		// echo '<script>alert("'.imagepng( $foto_redonda_geral, $dir_dest.'/foto_redonda_geral.png').'")</script>';
+		
+	}
+}
+
+// run after ACF saves the $_POST['acf'] data
+add_action('acf/save_post', 'my_acf_save_post', 20);
+// echo '<script>alert("'.$foto[$count].'")</script>';
+

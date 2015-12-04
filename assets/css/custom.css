@@ -3859,6 +3859,10 @@ html input.wpcf7-submit:hover;{
 div.wpcf7-mail-sent-ok {
     border: 2px solid #003b5f!important;
 }
+.type-escola #titulo-conteudo .entry-header h1{ 
+    max-width: 570px;
+	}
+
 #titulo-conteudo .entry-header h1{ 
 	padding-bottom: 20px;
 	    /* float: left; */
@@ -3870,11 +3874,11 @@ div.wpcf7-mail-sent-ok {
 	
 	
 }
-.conteudo-single-escola {
+/*.conteudo-single-escola {
 	color:#013b60;
 	font-size:18px;
 	font-weight:bolder;
-}
+}*/
 #titulo-conteudo p{
 	padding-top:20px;
 	color:#013b60;
@@ -3901,7 +3905,7 @@ div.wpcf7-mail-sent-ok {
 #maps{
 	background-color:#f7f7d9;
 	z-index:9;
-	margin-top: 62px;
+    margin-top: 57px;
     
 	}
 	
@@ -5141,4 +5145,14 @@ span.wpcf7-list-item{
 .paginacao > div{
 	display:inline-block!important;
 	width:initial!important;
+}
+.coin-slider .cs-buttons{
+	position: absolute!important;
+    bottom: 0!important;
+    background: rgba(0, 0, 0, 0.35);
+	z-index:99999;
+	opacity:0;
+}
+.coin-slider:hover .cs-buttons{
+	opacity:1;
 }
