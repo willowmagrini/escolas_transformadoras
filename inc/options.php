@@ -196,17 +196,8 @@ function opcoes_tema() {
 					    'description' => __( 'Imagem padrão para ocupar o lugar no Header quando o post/página não tem imagem destacada.', 'odin' ), // Opcional
 					),
 					array(
-                        'id'         => 'destaque_insp', // Required
-                        'label'      => __( 'Destaque Experiências Inspiradoras na Home ', 'odin' ), // Required
-					    'type'        => 'editor', // Obrigatório
-					    'default'     => 'Default text', // Opcional
-					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
-					        'textarea_rows' => 3
-					    ),
-					),
-					array(
                         'id'         => 'indique_uma', // Required
-                        'label'      => __( 'Destaque Indique uma escola ', 'odin' ), // Required
+                        'label'      => __( 'Destaque home ', 'odin' ), // Required
 					    'type'        => 'editor', // Obrigatório
 					    'default'     => 'Default text', // Opcional
 					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
@@ -215,7 +206,7 @@ function opcoes_tema() {
 					),
 					array(
                         'id'         => 'destaque_recursos_tit', // Required
-                        'label'      => __( 'Título do Destaque Recusrsos pré rodapé ', 'odin' ), // Required
+                        'label'      => __( 'Título  pré rodapé ', 'odin' ), // Required
 					    'type'        => 'text', // Obrigatório
 					    'default'     => 'Default text', // Opcional
 					    'options'     => array( // Opcional (aceita argumentos do wp_editor)
@@ -224,7 +215,7 @@ function opcoes_tema() {
 					),
 					array(
                         'id'         => 'destaque_recursos', // Required
-                        'label'      => __( 'Destaque Recusrsos pré rodapé ', 'odin' ), // Required
+                        'label'      => __( 'Texto pré rodapé ', 'odin' ), // Required
 					    'type'        => 'editor', // Obrigatório
 					    'default'     => 'Default text', // Opcional
 					    'options'     => array( // Opcional (aceita argumentos do wp_editor)

@@ -130,7 +130,7 @@
 			</div><!-- #menus -->
 			
 			<?php 
-			    echo do_shortcode("[metaslider id=633]"); 
+			    echo do_shortcode("[metaslider id=750]"); 
 			?>
 						<!-- <img id="img-header" src="<?php echo get_template_directory_uri(); ?>/assets/images/header-img.jpg"> -->
 			

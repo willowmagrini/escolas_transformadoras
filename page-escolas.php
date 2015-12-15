@@ -90,6 +90,7 @@ get_header('escolas'); ?>
 					<h3><?php echo  __('busca','odin')?></h3>
 					<p><?php echo  __('Encontre a escola por palavra-chave','odin')?></p>
 					<input type="text" id="filtro-palavra" name="s" placeholder="Palavra-Chave"></input>
+					<input type="hidden" id="filtro-type" name="post_type" value="escola" placeholder="Palavra-Chave"></input>
 					<button type="submit" id="filtro-enviar" name="enviar" placeholder=""></input>		
 				</div>
 			</form>
@@ -145,7 +146,7 @@ get_header('escolas'); ?>
 			<p><?php echo $odin_escolas_opts['destaque_esco_pre'];?></p>
 		</div>
 		<div class="col-md-6 pull-left">
-			<img id="boneco-home" src="<?php echo get_template_directory_uri(); ?>/assets/images/home4.png">
+			<img id="boneco-home" src="<?php echo get_template_directory_uri(); ?>/assets/images/escola.png">
 		</div>
 	</div><!-- row papel -->
 </main>

@@ -34,13 +34,24 @@ get_header(''); ?>
 				
 			}
 			?>
+				<div class="clearfix"></div>
+				<div class="row pagination">
+					<?php
+					$big = 999999999; // need an unlikely integer
+
+					echo paginate_links( array(
+						'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+						'format' => '?paged=%#%',
+						'current' => max( 1, get_query_var('paged') ),
+						'total' => $WP_Query_noticias->max_num_pages
+					) );
+					?>
+				</div>
+				<div class="clearfix"></div>
+			<br>
+			
 		
 	</div> <!-- id="escolad" -->
-	<a data-type="post" class="btn btn-loadmore" data-estado-botao="aparecido" data-paged="2" data-loading="<img src='<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif'>" data-selector="#ajax-itens" data-max-paged="<?php echo $WP_Query_noticias->max_num_pages;?>" style="<?php if ($WP_Query_noticias->max_num_pages<2){echo 'display:none;';}?>" data-category="all">
-		<?php echo __('Mais Recursos ','odin'); ?>
-		<img class="" src="<?php echo get_template_directory_uri(); ?>/assets/images/btn-loadmore-seta.png">
-		
-	</a>
 		
 		<?php
 		}

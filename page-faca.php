@@ -25,7 +25,7 @@ get_header(); ?>
 				</div>
 			
 				<div class="col-sm-6">
-					<a href="http://escolastransformadoras.com.br/faca-parte/inscreva-se-ou-indique-uma-escola">
+					<a href="inscreva-se-ou-indique-uma-escola">
 
 						<img class="icon-visao" src="http://escolastransformadoras.com.br/wp-content/uploads/2015/09/bola_indique1.png">
 						<h3><?php echo  __('Inscreva-se ou Indique<br> uma Escola','odin');?></h3>

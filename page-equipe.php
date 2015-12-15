@@ -27,6 +27,8 @@ get_header(); ?>
 								$count = 0;
 								$args = array(
 									'post_type' => 'equipe',
+									'orderby' => 'title',
+									'order'   => 'ASC',
 								);
 
 								$WP_Query_equipe = new WP_Query( $args );
@@ -72,6 +74,8 @@ get_header(); ?>
 										<?php
 										$args = array(
 											'post_type' => 'comunidade',
+											'orderby' => 'title',
+											'order'   => 'ASC',
 										);
 
 										$WP_Query_comunidade = new WP_Query( $args );

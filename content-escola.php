@@ -7,7 +7,10 @@
  * @package Odin
  * @since 2.2.0
  */
+
 ?>
+<?php  $gallery = get_post_gallery_images( $post ); ?> 
+
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="row conteudo-citacao">
@@ -31,12 +34,17 @@
 							</div>
 						</div>
 						<div id="numeros-escola" class="">
-							<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-pessoas.png';?>">
+							<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-nivel-ensino.png';?>">
 							<div class="border-bottom inline-block">
 								<p><b><?php echo get_field( "numero_de_alunos" );	?></b></p>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div id="numeros-escola2" class="">
+							<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-categoria.png';?>">
+							<div class="border-bottom inline-block">
 								<p><b><?php echo get_field( "numero_de_professores" );	?> </b></p>
 								<div class="clearfix"></div>
-								
 							</div>
 						</div>
 						<div id="contato-escola" class="">
@@ -75,53 +83,7 @@
 		</div><!-- titulo-conteudo -->
 	
 	</div><!-- .row.conteudo-citacao -->
-		<?php
-		if ((file_exists($caminho.'/thumb_video.png')) && (count($gallery)>=5)){
 		
-		?>
-		<div class="row  info">
-			<div id="foto-escola-1" class="inline-block esquerda">
-			<img src="<?php echo $url.'/foto0.png'; ?>" width="420" height="380" alt="" />
-			</div>
-			<div class = ""></div>
-
-			<div id="foto-escola-2" class="inline-block esquerda">
-				<img src="<?php echo $url.'/foto1.png'; ?>" width="420" height="380" alt="" />
-			</div>
-
-			<div id="foto-escola-2-5" class="inline-block esquerda">
-				<img src="<?php echo $url.'/foto2.png'; ?>" width="420" height="195" alt="" />
-			
-			</div>
-			<div id="video-escola" class="inline-block esquerda">
-				<?php 
-				if (get_field('video')){?>
-					<a id="link-video-escola" target="blank" href="#">
-						<img id="thumb-video-play" class="absolute" src="<?php echo get_template_directory_uri().'/assets/images/thumb-video-play.png';?>">
-					</a>
-				<?php
-				}
-				?>
-				<img src="<?php echo $url.'/thumb_video.png'; ?>" width="420" height="195" alt="" />
-			
-			</div>
-			<div class=""></div>
-			<div id="foto3-foto4">
-				<div id="foto-escola-3" class="inline-block esquerda">
-					<img src="<?php echo $url.'/foto3.png' ?>" width="220" height="220" alt="" />
-				</div>
-	
-				<div id="foto-escola-4" class="inline-block esquerda">
-					
-					<img src="<?php echo $url.'/foto4.png' ?>" width="440" height="220" alt="" />
-				
-				</div>
-			</div ><!-- id="foto3-foto4" -->
-		</div>	
-		<?php
-		}
-		
-		?>
 	<div id="fundo-modal">	</div>
 	<div id="modal-conteudo">
 		<a href="#">

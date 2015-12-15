@@ -64,7 +64,11 @@ get_header('front'); ?>
 							<h4><?php echo __('Conheça as Escolas ','odin')?></h4>
 							<h4><?php echo __('Transformadoras','odin')?></h4>
 						</a>
+
+						<hr>
+						<div class="clearfix"></div>
 						<?php echo $odin_general_opts['indique_uma'];?>
+						
 					</div>
 					<img class="absolute" id="lista-home" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-lista.png">
 					<div class="video-indique">

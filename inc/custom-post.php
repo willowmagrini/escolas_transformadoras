@@ -82,20 +82,20 @@ function escola_cpt() {
 	/////////////////////////////////////////
 	
 	/////////////CPT recursos
-	add_action( 'init', 'recurso_cpt' );
+	add_action( 'init', 'material' );
 
-	function recurso_cpt() {
+	function material() {
 		$labels = array(                        
-			'name'               => 'recursos',
-			'singular_name'      => 'Recurso inovador',
-			'menu_name'          => 'Recursos inovadores',
-			'name_admin_bar'     => 'Recurso inovador',
+			'name'               => 'Materiais',
+			'singular_name'      => 'Material',
+			'menu_name'          => 'Materiais',
+			'name_admin_bar'     => 'Material',
 			'add_new'            => 'Adicionar Novo',
-			'add_new_item'       => 'Adicionar Novo recurso inovador',
-			'new_item'           => 'Novo recurso inovador' ,
-			'edit_item'          => 'Editar recurso inovador',
-			'view_item'          => 'Ver todas' ,
-			'all_items'          => 'Todas' ,
+			'add_new_item'       => 'Adicionar Novo Materioal',
+			'new_item'           => 'Novo material' ,
+			'edit_item'          => 'Editar material',
+			'view_item'          => 'Ver todos' ,
+			'all_items'          => 'Todos' ,
 			'search_items'       => 'Buscar',
 			'parent_item_colon'  => 'Pai' ,
 			'not_found'          => 'Nenhuma encontrado' ,
@@ -118,7 +118,7 @@ function escola_cpt() {
 			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
 		);
 
-		register_post_type( 'recurso', $args );
+		register_post_type( 'material', $args );
 	}
 	/////////////////////////////////////////
 
@@ -199,7 +199,7 @@ function escola_cpt() {
 				'menu_position'      => null,
 				'menu-position' => 5,
 				'menu_icon' => 'dashicons-universal-access',
-				'supports'           => array( 'title','comments', 'editor', 'thumbnail', 'excerpt' )
+				'supports'           => array( 'title', 'editor', 'thumbnail')
 			);
 
 			register_post_type( 'equipe', $args );
@@ -240,7 +240,7 @@ function escola_cpt() {
 					'menu_position'      => null,
 					'menu-position' => 5,
 					'menu_icon' => 'dashicons-universal-access-alt',
-					'supports'           => array( 'title','comments', 'editor', 'thumbnail', 'excerpt' )
+					'supports'           => array( 'title', 'editor', 'thumbnail' )
 				);
 
 				register_post_type( 'comunidade', $args );

@@ -13,7 +13,7 @@ get_header(''); ?>
 		<?php
 		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 		$args = array(
-			'post_type' => 'recurso',
+			'post_type' => 'material',
 			'paged'=> $paged,
 			'posts_per_page' =>8
 		);
