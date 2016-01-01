@@ -4401,10 +4401,15 @@ a.navbar-brand{
 .boneco-conte{
     margin-top: -45px;
 }
+
 .page-template-page-experiencias #footer{
 	-webkit-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
 	-moz-box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
 	box-shadow: 0px -10px 5px -5px rgba(0,0,0,0.6);
+}
+.fb-comments iframe{
+	margin-top: 40px;
+    
 }
 .pagina-itens h1{
 	text-transform:uppercase;
@@ -4609,7 +4614,7 @@ span.wpcf7-list-item{
 #video-home>img{
 /*	max-height:initial!important;*/
 	width:auto;
-	height: 384px;
+/*	height: 384px;*/
 	max-width:initial;
     
 }
@@ -5139,7 +5144,7 @@ span.wpcf7-list-item{
 	    z-index: 99;
 	}
 	.row.exp-insp img{
-		max-height:383px;
+/*		max-height:383px;*/
 		float:left;
 	}
 	.row.exp-insp .col-md-6:nth-child(2) img {
