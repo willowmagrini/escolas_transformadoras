@@ -120,6 +120,67 @@ function escola_cpt() {
 
 		register_post_type( 'material', $args );
 	}
+	/**
+	 * Add custom taxonomies
+	 *
+	 * Additional custom taxonomies can be defined here
+	 * http://codex.wordpress.org/Function_Reference/register_taxonomy
+	 */
+	function add_custom_taxonomies() {
+	  // Add new "Locations" taxonomy to Posts
+	  register_taxonomy('autor', 'material', array(
+	    // Hierarchical taxonomy (like categories)
+	    'hierarchical' => false,
+	    // This array of options controls the labels displayed in the WordPress Admin UI
+	    'labels' => array(
+	      'name' => _x( 'Autor', 'taxonomy general name' ),
+	      'singular_name' => _x( 'Autor', 'taxonomy singular name' ),
+	      'search_items' =>  __( 'Buscar Autores' ),
+	      'all_items' => __( 'Todos autores' ),
+	      'edit_item' => __( 'Editar Autor' ),
+	      'update_item' => __( 'Atualizar' ),
+	      'add_new_item' => __( 'Adicionar novo Autor' ),
+	      'new_item_name' => __( 'Novo Autor' ),
+	      'menu_name' => __( 'Autores' ),
+		  'separate_items_with_commas' => __('Separe os itens com virgulas'),
+		  'choose_from_most_used' => __('Escolha dentre os mais utilizados')
+		
+	
+	    ),
+	    // Control the slugs used for this taxonomy
+	    'rewrite' => array(
+	      'slug' => 'autor', // This controls the base slug that will display before each term
+	      'with_front' => false, // Don't display the category base before "/locations/"
+	      'hierarchical' => false // This will allow URL's like "/locations/boston/cambridge/"
+	    ),
+	  ));
+	register_taxonomy('tema', 'material', array(
+	    // Hierarchical taxonomy (like categories)
+	    'hierarchical' => false,
+	    // This array of options controls the labels displayed in the WordPress Admin UI
+	    'labels' => array(
+	      'name' => _x( 'Tema', 'taxonomy general name' ),
+	      'singular_name' => _x( 'Tema', 'taxonomy singular name' ),
+	      'search_items' =>  __( 'Buscar Temas' ),
+	      'all_items' => __( 'Todos temas' ),
+	      'edit_item' => __( 'Editar tema' ),
+	      'update_item' => __( 'Atualizar' ),
+	      'add_new_item' => __( 'Adicionar novo tema' ),
+	      'new_item_name' => __( 'Novo tema' ),
+	      'menu_name' => __( 'Temas' ),
+		  'separate_items_with_commas' => __('Separe os itens com virgulas'),
+		  'choose_from_most_used' => __('Escolha dentre os mais utilizados')
+		
+	    ),
+	    // Control the slugs used for this taxonomy
+	    'rewrite' => array(
+	      'slug' => 'tema', // This controls the base slug that will display before each term
+	      'with_front' => false, // Don't display the category base before "/locations/"
+	      'hierarchical' => false // This will allow URL's like "/locations/boston/cambridge/"
+	    ),
+	  ));
+	}
+	add_action( 'init', 'add_custom_taxonomies', 0 );
 	/////////////////////////////////////////
 
 		/////////////CPT noticias
