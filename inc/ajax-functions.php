@@ -312,36 +312,70 @@ function ajax_material_filtra_posts(){
 			$WP_Query_material->the_post();
 			$taxonomias=wp_get_post_terms($WP_Query_material->post->ID,array('autor','tema'));
 			
-			foreach($taxonomias as $inci=>$valor){
-				if ($verificador && ($selecionadas['taxonomia'] != $valor->taxonomy) ){					
-					if (isset($tax_vet[$valor->taxonomy][$valor->name])){
-						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
+			foreach($taxonomias as $inci=>$valor){////para cada taxonomia dos posts ($valor->taxonomy = nome da taxonomia $valor->term_taxonomy_id = id do termo, $valor->name = nome do termo)
+				
+				if (isset($tax[$valor->taxonomy]) && ($valor->term_taxonomy_id == $tax[$valor->taxonomy]) ){//se a taxonomia esta selecionada e é o termo selecionado
+					if (!isset($tax_vet[$valor->taxonomy][$valor->term_taxonomy_id])){///se não existe o termo no vetor contador ele é criado
+						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]=array(
+							'nome'  => $valor->name,
+							'cont'  => 1
+						);
 					}
-					else{
-						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
-					} 
+					else  {///se  existe o termo no vetor contador somamos 1 na conta
+						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]['cont']++;
+					}
 					
+				}
+				else if (!isset($tax[$valor->taxonomy])){//se a taxonomia não esta selecionada
+					if (!isset($tax_vet[$valor->taxonomy][$valor->term_taxonomy_id])){
+						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]=array(
+							'nome'  => $valor->name,
+							'cont'  => 1
+						);
+					}
+					else  {
+						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]['cont']++;
+					}
 					
 				}
-				else if ($selecionadas['taxonomia'] == $valor->taxonomy ){
-					if ($valor->term_taxonomy_id == $selecionadas['id']){
-						if (isset($tax_vet[$valor->taxonomy][$valor->name])){
-							$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
-						}
-						else{
-							$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
-						}
-						
-					}
-				}
-				else{
-					if (isset($tax_vet[$valor->taxonomy][$valor->name])){
-						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
-					}
-					else{
-						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
-					}
-				}
+				
+				
+
+				
+				
+				
+				
+				
+				
+				// if ($verificador && ($selecionadas['taxonomia'] != $valor->taxonomy) ){					
+				// 	if (isset($tax_vet[$valor->taxonomy][$valor->name])){
+				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
+				// 	}
+				// 	else{
+				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
+				// 	} 
+				// 	
+				// 	
+				// }
+				// else if ($selecionadas['taxonomia'] == $valor->taxonomy ){
+				// 	if ($valor->term_taxonomy_id == $selecionadas['id']){
+				// 		if (isset($tax_vet[$valor->taxonomy][$valor->name])){
+				// 			$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
+				// 		}
+				// 		else{
+				// 			$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
+				// 		}
+				// 		
+				// 	}
+				// }
+				// else{
+				// 	if (isset($tax_vet[$valor->taxonomy][$valor->name])){
+				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
+				// 	}
+				// 	else{
+				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
+				// 	}
+				// }
 				
 					
 			// 	if ($tax[$valor->taxonomy][$valor->name]==""){
@@ -374,9 +408,9 @@ function ajax_material_filtra_posts(){
 			$term_tema = get_term( $tax['tema'], 'tema' );
 			
 		 	$term_name=$term_autor->name;
-			echo "<pre>";
-			print_r($term_name);
-			echo "</pre>";
+			// echo "<pre>";
+			// print_r($term_name);
+			// echo "</pre>";
 		
 			$term_qtd=$tax_vet['autor'][$term_name][$tax['autor']];
 			$html='
@@ -418,7 +452,7 @@ function ajax_material_filtra_posts(){
 			echo $valor;
 		}
 		
-		echo $html;
+		// echo $html;
 			echo "<pre>";
 			print_r($tax_vet);
 			echo "</pre>";
