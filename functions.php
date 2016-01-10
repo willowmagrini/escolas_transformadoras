@@ -520,3 +520,10 @@ add_image_size( 'foto1', 420, 380, array( 'left', 'top' ) ); // Hard crop left t
 add_image_size( 'foto2', 420, 195, array( 'left', 'top' ) ); // Hard crop left top
 add_image_size( 'foto3', 420, 220, array( 'left', 'top' ) ); // Hard crop left top
 add_image_size( 'foto4', 420, 220, array( 'left', 'top' ) ); // Hard crop left top
+
+
+function drop_tags($nome,$tax,$include,$selected)
+{?>
+		<?php wp_dropdown_categories( 'show_option_none='.$nome.'&option_none_value=&taxonomy='.$tax.'&show_count=1&class=ajax-filtro-materiais taxonomia&id='.$tax.'&name='.$tax.'&include='.$include.'&option_none_value=0&selected='.$selected ); ?>
+<?php
+}

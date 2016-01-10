@@ -120,6 +120,50 @@ jQuery(document).ready(function($) {
 
 		});
 		//ajax itens
+		//ajax materiais filtros
+	$('.ajax-filtro-materiais').change(function(e){
+		var meta = {};
+		var tax = {};
+		var data = {'action': 'material_filtra_posts'};
+		data.termo= $(this).children('option:selected').attr("value");
+		$( "select.ajax-filtro-materiais option:selected" ).each(function() {
+			if ($(this).parent().hasClass('taxonomia')){
+			 	nome = ($( this ).parent().attr('name'));
+				termo = ($( this ).attr('value'));
+				if (termo != 0 ){
+					tax[nome] = termo;
+				}
+				
+			}
+			else{
+				meta_key = ($( this ).parent().attr('name'));
+				meta_value = ($( this ).attr('value'));
+				if (meta_value != ""){
+					meta[meta_key] = meta_value;
+				}
+			}
+		});
+		console.log(tax);			
+		data.meta = meta;
+		data.tax=tax;
+		$.ajax({
+			type: 'POST',
+			url: odin_main.ajaxurl,
+			data: data,
+			dataType: 'json',
+			complete: function(response){
+				obj=response;
+				console.log(obj)
+				// console.log(obj.html)
+				$('#ajax-itens').html(obj.responseText);
+				
+			},
+		});
+		
+			
+	});
+
+		//ajax materiais filtros
 	
 	
 	//ajax filtros
@@ -140,8 +184,6 @@ jQuery(document).ready(function($) {
 		
 		data.meta = meta;
 		id=$(this).attr("id");
-		console.log(data)
-
 		var elem = this;
 		var selector = $('.btn-loadmore').attr('data-selector');
 		$.ajax({
@@ -171,10 +213,6 @@ jQuery(document).ready(function($) {
 				}
 				$(selector).html(obj.html);
 				$(selector).scrollView();
-				
-				
-				
-				
 			},
 		});
 	});
@@ -240,6 +278,44 @@ jQuery(document).ready(function($) {
 		
 		
 	});
+	$('.link-video-material').click(function(e) {
+		e.preventDefault();
+		$('#video-material').html
+		$('#fundo-modal').attr('modal-estado','ativo');
+		$('#modal-conteudo').attr('modal-estado','ativo');
+		postId = $(this).parent().attr("data-postid");
+	
+			var data = {
+				'postid': postId,
+				'action': 'material_load_video',
+			};
+		$.post(odin_main.ajaxurl, data, function(response) {
+			$('#video-material').html(response);
+		});
+		
+		$('#botao-fechar, #fundo-modal').click(function(f) {
+			f.preventDefault();
+			$('#video-material').empty();
+			url = $('#modal-conteudo iframe').attr('src');
+			$('#modal-conteudo iframe').attr('src','');
+		
+			$('#fundo-modal').attr('modal-estado','inativo');
+			$('#modal-conteudo').attr('modal-estado','inativo');
+			$('#modal-conteudo iframe').attr('src',url);
+			
+			
+		});
+		function pausecomp(millis)
+		 {
+		  var date = new Date();
+		  var curDate = null;
+		  do { curDate = new Date(); }
+		  while(curDate-date < millis);
+		}
+		
+		
+	});
+	
 	//ajax equipe
 
 		$('.cada-equipe a').on('click',function(e){

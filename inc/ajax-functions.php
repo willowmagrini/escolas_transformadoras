@@ -236,3 +236,197 @@ add_action( 'wp_ajax_nopriv_escola_filtra_posts', 'ajax_escola_filtra_posts' );
 
 
 
+//////materiais/////
+function ajax_material_load_video(){
+	$postid = $_POST['postid'];
+	$video=get_field("video",$postid);
+	?>
+	<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ajax-loader.gif"> -->
+	
+	<?php
+	echo $videos[$postid]=$video->html;
+	wp_die();
+	
+}
+add_action( 'wp_ajax_material_load_video', 'ajax_material_load_video' );
+add_action( 'wp_ajax_nopriv_material_load_video', 'ajax_material_load_video' );
+
+
+
+//////materiais/ filtro////
+function ajax_material_filtra_posts(){
+	global $wpdb;
+	$ajax_response = array();
+	
+	$html = "";
+	$tax=$_POST['tax'];
+	$meta=$_POST['meta'];
+	$args= array(
+		'post_type' => 'material',
+		'posts_per_page'=>8,
+		'tax_query' => array(
+				'relation' => 'AND',
+				
+			),
+	);
+	// echo count($tax);
+	// echo "<pre>";
+	// print_r($tax);
+	// echo "</pre>";
+	if ($tax!=""){
+		$selecionadas=array();
+		foreach ($tax as  $nome => $id ) {
+			array_push($args['tax_query'], array(
+			 	 'taxonomy' => $nome,
+			 	 'field'    => 'term_id',
+			 	 'terms'    => $id,
+			 	 )
+			);
+		}
+		$verificador=true;
+	}
+	else{
+		$verificador=false;
+		$selecionadas= array();
+
+		
+	}
+	if ($meta!=""){
+		foreach ($meta as  $chave => $valor ) {
+				$args['meta_query'][$chave.'_clause'] = array('meta_key' => $chave,'value' => $valor);
+				$args['meta_query']['relation'] ='AND';
+		}
+	}
+	
+	// $teste=$_POST['tax'];
+	
+	$WP_Query_material = new WP_Query( $args);
+	$ajax_response['html']="";
+	$ajax_response['teste']="";
+	$ajax_response['query']=$WP_Query_material;
+	
+
+	if( $WP_Query_material->have_posts()  )	{
+		while ( $WP_Query_material->have_posts() ) 
+		{
+			$WP_Query_material->the_post();
+			$taxonomias=wp_get_post_terms($WP_Query_material->post->ID,array('autor','tema'));
+			
+			foreach($taxonomias as $inci=>$valor){
+				if ($verificador && ($selecionadas['taxonomia'] != $valor->taxonomy) ){					
+					if (isset($tax_vet[$valor->taxonomy][$valor->name])){
+						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
+					}
+					else{
+						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
+					} 
+					
+					
+				}
+				else if ($selecionadas['taxonomia'] == $valor->taxonomy ){
+					if ($valor->term_taxonomy_id == $selecionadas['id']){
+						if (isset($tax_vet[$valor->taxonomy][$valor->name])){
+							$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
+						}
+						else{
+							$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
+						}
+						
+					}
+				}
+				else{
+					if (isset($tax_vet[$valor->taxonomy][$valor->name])){
+						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
+					}
+					else{
+						$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
+					}
+				}
+				
+					
+			// 	if ($tax[$valor->taxonomy][$valor->name]==""){
+			// 		$tax[$valor->taxonomy][$valor->name]=1;
+			// 	}
+			// 	else{
+			// 		$tax[$valor->taxonomy][$valor->name]++;					
+			// 	}
+			//  	$tax[$valor->taxonomy][$valor->name];
+			// 			
+			}
+			
+			
+			// foreach($tax as $taxonomia=>$termo){
+			// 	echo "<br>";
+			// 	echo $taxonomia;
+			// 	foreach ($termo as $nome=>$cont);
+			// 	echo $nome.": ".$cont;
+			// }
+			// get_template_part('content','material');
+		}
+
+		
+		if (count($tax)>1){
+			foreach($tax as $tax_keys=>$tax_id){
+				echo  $tax_keys."->".$tax_id;
+			}
+			
+			$term_autor = get_term( $tax['autor'], 'autor' );
+			$term_tema = get_term( $tax['tema'], 'tema' );
+			
+		 	$term_name=$term_autor->name;
+			echo "<pre>";
+			print_r($term_name);
+			echo "</pre>";
+		
+			$term_qtd=$tax_vet['autor'][$term_name][$tax['autor']];
+			$html='
+			<select name="autor" id="autor" class=" taxonomia">
+				<option value="" >Autor</option>
+				<option selected="selected" class="level-0" value="='.$tax['autor'].'">'.$term_name.'&nbsp;&nbsp;('.$term_qtd.')</option>
+			</select>';
+			$term_name=$term_tema->name;
+			echo "<pre>";
+			print_r($term_name);
+			echo "</pre>";
+			
+			$term_qtd=$tax_vet['tema'][$term_name][$tax['tema']];
+			$html .='
+			<select name="tema" id="tema" class=" taxonomia">
+				<option value="" >Tema</option>
+				<option selected="selected" class="level-0" value="='.$tax['tema'].'">'.$term_name.'&nbsp;&nbsp;('.$term_qtd.')</option>
+			</select>';		
+			$term_tema = get_term( $tax['tema'], 'tema' );
+		}
+		else if (count($tax)==1){
+			// echo $tax[0];
+		  	$tax_keys = array_keys($tax);
+		 	$tax_keys[0];
+			
+			$term = get_term( $tax[ $tax_keys[0]], $tax_keys[0] );
+			$term_name=$term->name;
+			$term_qtd=$tax_vet[$tax_keys[0]][$term_name][$tax[$tax_keys[0]]];
+			echo "<pre>";
+			print_r($term_name);
+			echo "</pre>";
+			// echo $tax_keys[0];
+			$html='<select name="'.$tax_keys[0].'" id="'.$tax_keys[0].'" class=" taxonomia">
+							<option value="" >Todos</option>
+						<option selected="selected" class="level-0" value="='.$tax[$tax_keys[0]].'">'.$term_name.'&nbsp;&nbsp;('.$term_qtd.')</option>
+						</select>';
+		}
+		foreach ($meta as $chave=>$valor){
+			echo $valor;
+		}
+		
+		echo $html;
+			echo "<pre>";
+			print_r($tax_vet);
+			echo "</pre>";
+		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+	}
+	wp_die();
+	
+}
+add_action( 'wp_ajax_material_filtra_posts', 'ajax_material_filtra_posts' );
+add_action( 'wp_ajax_nopriv_material_filtra_posts', 'ajax_material_filtra_posts' );
+//////materiais/ filtro////

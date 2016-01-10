@@ -133,7 +133,7 @@ function escola_cpt() {
 	    'hierarchical' => false,
 	    // This array of options controls the labels displayed in the WordPress Admin UI
 	    'labels' => array(
-	      'name' => _x( 'Autor', 'taxonomy general name' ),
+	      'name' => _x( 'Autores', 'taxonomy general name' ),
 	      'singular_name' => _x( 'Autor', 'taxonomy singular name' ),
 	      'search_items' =>  __( 'Buscar Autores' ),
 	      'all_items' => __( 'Todos autores' ),
@@ -159,7 +159,7 @@ function escola_cpt() {
 	    'hierarchical' => false,
 	    // This array of options controls the labels displayed in the WordPress Admin UI
 	    'labels' => array(
-	      'name' => _x( 'Tema', 'taxonomy general name' ),
+	      'name' => _x( 'Temas', 'taxonomy general name' ),
 	      'singular_name' => _x( 'Tema', 'taxonomy singular name' ),
 	      'search_items' =>  __( 'Buscar Temas' ),
 	      'all_items' => __( 'Todos temas' ),
