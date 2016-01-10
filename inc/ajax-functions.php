@@ -338,63 +338,8 @@ function ajax_material_filtra_posts(){
 					}
 					
 				}
-				
-				
-
-				
-				
-				
-				
-				
-				
-				// if ($verificador && ($selecionadas['taxonomia'] != $valor->taxonomy) ){					
-				// 	if (isset($tax_vet[$valor->taxonomy][$valor->name])){
-				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
-				// 	}
-				// 	else{
-				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
-				// 	} 
-				// 	
-				// 	
-				// }
-				// else if ($selecionadas['taxonomia'] == $valor->taxonomy ){
-				// 	if ($valor->term_taxonomy_id == $selecionadas['id']){
-				// 		if (isset($tax_vet[$valor->taxonomy][$valor->name])){
-				// 			$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
-				// 		}
-				// 		else{
-				// 			$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
-				// 		}
-				// 		
-				// 	}
-				// }
-				// else{
-				// 	if (isset($tax_vet[$valor->taxonomy][$valor->name])){
-				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]++;
-				// 	}
-				// 	else{
-				// 		$tax_vet[$valor->taxonomy][$valor->name][$valor->term_taxonomy_id]=1;
-				// 	}
-				// }
-				
-					
-			// 	if ($tax[$valor->taxonomy][$valor->name]==""){
-			// 		$tax[$valor->taxonomy][$valor->name]=1;
-			// 	}
-			// 	else{
-			// 		$tax[$valor->taxonomy][$valor->name]++;					
-			// 	}
-			//  	$tax[$valor->taxonomy][$valor->name];
-			// 			
 			}
 			
-			
-			// foreach($tax as $taxonomia=>$termo){
-			// 	echo "<br>";
-			// 	echo $taxonomia;
-			// 	foreach ($termo as $nome=>$cont);
-			// 	echo $nome.": ".$cont;
-			// }
 			// get_template_part('content','material');
 		}
 
