@@ -122,6 +122,9 @@ jQuery(document).ready(function($) {
 		//ajax itens
 		//ajax materiais filtros
 	$('.ajax-filtro-materiais').change(function(e){
+		$('select').prop('disabled', 'disabled');
+		$('#ajax-itens').animate({opacity: 0}, 700);
+		
 		var meta = {};
 		var tax = {};
 		var data = {'action': 'material_filtra_posts'};
@@ -138,14 +141,15 @@ jQuery(document).ready(function($) {
 			else{
 				meta_key = ($( this ).parent().attr('name'));
 				meta_value = ($( this ).attr('value'));
-				if (meta_value != ""){
+				if (meta_value != "0"){
 					meta[meta_key] = meta_value;
 				}
 			}
 		});
-		console.log(tax);			
+		console.log(meta);
 		data.meta = meta;
 		data.tax=tax;
+		console.log(data.meta);
 		$.ajax({
 			type: 'POST',
 			url: odin_main.ajaxurl,
@@ -153,12 +157,24 @@ jQuery(document).ready(function($) {
 			dataType: 'json',
 			complete: function(response){
 				obj=response;
-				console.log(obj)
 				// console.log(obj.html)
 				$('#ajax-itens').html(obj.responseText);
+				$('.resposta').each(function(){
+					console.log($(this).html());
+					id=$(this).attr('id-obj');
+					nome=$(this).attr('nome');
+					$('#'+id).html('<option  value="0">'+nome+'</option>'+$(this).html());
+				});
+				$('option:selected').each(function(){
+					$(this).siblings('option[value="0"]').text('Todos')
+				});
+				$('select').prop('disabled', false);
+				$('#ajax-itens').animate({opacity: 1}, 700);
+				
 				
 			},
 		});
+		
 		
 			
 	});

@@ -9,19 +9,26 @@
 get_header(''); ?>
 
 <main id="content" class="pagina-itens pagina-materiais <?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
-	<div class="fundo-filtro">
-		<?php drop_tags('Autor', 'autor')?>
-		<?php drop_tags('Tema', 'tema')?>
+	<div id="filtro" class="fundo-filtro">
+		
+		<?php
+		$values = $wpdb->get_col("SELECT pm.meta_value FROM {$wpdb->postmeta} pm
+	        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+	        WHERE pm.meta_key = 'tipo' 
+	        AND p.post_status = 'publish' 
+	        AND p.post_type = 'material'");
+		$values=(array_count_values($values));
+		
+		?>
+		<?php drop_tags('Autores', 'autor')?>
+		<?php drop_tags('Temas', 'tema')?>
 		<select name="tipo" id="tipo" class="ajax-filtro-materiais custom-field" >
-			<option  value=""><?php echo __( 'Tipo','odin'); ?></option>
+			<option  value="0"><?php echo __( 'Tipo','odin'); ?></option>
 			<?php  
-			$values = $wpdb->get_col("SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
-		        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-		        WHERE pm.meta_key = 'tipo' 
-		        AND p.post_status = 'publish' 
-		        AND p.post_type = 'material'");						
-			foreach ($values as $value) {
-				echo '<option  data-key="tipo" value="'.$value.'">'.$value.'</option>';
+						
+			
+			foreach ($values as $value=>$contador) {
+				echo '<option  data-key="tipo" value="'.$value.'">'.$value.'&nbsp;&nbsp;(' .$contador. ')</option>';
 			}
 			?>
 		</select>

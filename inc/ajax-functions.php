@@ -298,8 +298,6 @@ function ajax_material_filtra_posts(){
 		}
 	}
 	
-	// $teste=$_POST['tax'];
-	
 	$WP_Query_material = new WP_Query( $args);
 	$ajax_response['html']="";
 	$ajax_response['teste']="";
@@ -307,14 +305,28 @@ function ajax_material_filtra_posts(){
 	
 
 	if( $WP_Query_material->have_posts()  )	{
+		if (isset($tipo)){
+			$tipo[get_field('tipo')]=0;
+		}
 		while ( $WP_Query_material->have_posts() ) 
 		{
 			$WP_Query_material->the_post();
 			$taxonomias=wp_get_post_terms($WP_Query_material->post->ID,array('autor','tema'));
-			
 			foreach($taxonomias as $inci=>$valor){////para cada taxonomia dos posts ($valor->taxonomy = nome da taxonomia $valor->term_taxonomy_id = id do termo, $valor->name = nome do termo)
-				
 				if (isset($tax[$valor->taxonomy]) && ($valor->term_taxonomy_id == $tax[$valor->taxonomy]) ){//se a taxonomia esta selecionada e é o termo selecionado
+					if (!isset($tax_vet[$valor->taxonomy][$valor->term_taxonomy_id])){///se não existe o termo no vetor contador ele é criado
+						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]=array(
+							'nome'  => $valor->name,
+							'cont'  => 1,
+							'selecionado' =>1
+						);
+					}
+					else  {///se  existe o termo no vetor contador somamos 1 na conta
+						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]['cont']++;
+					}
+					
+				}
+				else if (!isset($tax[$valor->taxonomy])){//se a taxonomia não esta selecionada (elimina o caso tax selecionada mas termo não é o selecionado)
 					if (!isset($tax_vet[$valor->taxonomy][$valor->term_taxonomy_id])){///se não existe o termo no vetor contador ele é criado
 						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]=array(
 							'nome'  => $valor->name,
@@ -324,83 +336,44 @@ function ajax_material_filtra_posts(){
 					else  {///se  existe o termo no vetor contador somamos 1 na conta
 						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]['cont']++;
 					}
-					
-				}
-				else if (!isset($tax[$valor->taxonomy])){//se a taxonomia não esta selecionada
-					if (!isset($tax_vet[$valor->taxonomy][$valor->term_taxonomy_id])){
-						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]=array(
-							'nome'  => $valor->name,
-							'cont'  => 1
-						);
-					}
-					else  {
-						$tax_vet[$valor->taxonomy][$valor->term_taxonomy_id]['cont']++;
-					}
-					
 				}
 			}
-			
-			// get_template_part('content','material');
-		}
-
-		
-		if (count($tax)>1){
-			foreach($tax as $tax_keys=>$tax_id){
-				echo  $tax_keys."->".$tax_id;
+			foreach ($meta as $chave=>$valor){
+				
 			}
-			
-			$term_autor = get_term( $tax['autor'], 'autor' );
-			$term_tema = get_term( $tax['tema'], 'tema' );
-			
-		 	$term_name=$term_autor->name;
-			// echo "<pre>";
-			// print_r($term_name);
-			// echo "</pre>";
-		
-			$term_qtd=$tax_vet['autor'][$term_name][$tax['autor']];
-			$html='
-			<select name="autor" id="autor" class=" taxonomia">
-				<option value="" >Autor</option>
-				<option selected="selected" class="level-0" value="='.$tax['autor'].'">'.$term_name.'&nbsp;&nbsp;('.$term_qtd.')</option>
-			</select>';
-			$term_name=$term_tema->name;
-			echo "<pre>";
-			print_r($term_name);
-			echo "</pre>";
-			
-			$term_qtd=$tax_vet['tema'][$term_name][$tax['tema']];
-			$html .='
-			<select name="tema" id="tema" class=" taxonomia">
-				<option value="" >Tema</option>
-				<option selected="selected" class="level-0" value="='.$tax['tema'].'">'.$term_name.'&nbsp;&nbsp;('.$term_qtd.')</option>
-			</select>';		
-			$term_tema = get_term( $tax['tema'], 'tema' );
+			$tipo[get_field('tipo')]++;
+			get_template_part('content','material');
 		}
-		else if (count($tax)==1){
-			// echo $tax[0];
-		  	$tax_keys = array_keys($tax);
-		 	$tax_keys[0];
+		echo "<div class='clearfix'></div>";
+		foreach($tax_vet as $taxonomia=>$id){
+			echo '<div class="resposta" nome="'.get_taxonomy($taxonomia)->labels->name.'" objeto="select" id-obj="'.$taxonomia.'">';
 			
-			$term = get_term( $tax[ $tax_keys[0]], $tax_keys[0] );
-			$term_name=$term->name;
-			$term_qtd=$tax_vet[$tax_keys[0]][$term_name][$tax[$tax_keys[0]]];
-			echo "<pre>";
-			print_r($term_name);
-			echo "</pre>";
-			// echo $tax_keys[0];
-			$html='<select name="'.$tax_keys[0].'" id="'.$tax_keys[0].'" class=" taxonomia">
-							<option value="" >Todos</option>
-						<option selected="selected" class="level-0" value="='.$tax[$tax_keys[0]].'">'.$term_name.'&nbsp;&nbsp;('.$term_qtd.')</option>
-						</select>';
+				foreach ($id as $chave=>$valor){
+					echo '<option ';
+					if ($valor['selecionado']){
+						echo 'selected="selected"';
+					}
+				 	echo 'class="level-0" value="' .$chave. '">' .$valor['nome']. '&nbsp;&nbsp;(' .$valor['cont']. ')</option>';
+				}
+			echo '</div>';
 		}
-		foreach ($meta as $chave=>$valor){
-			echo $valor;
-		}
-		
-		// echo $html;
-			echo "<pre>";
-			print_r($tax_vet);
-			echo "</pre>";
+			
+			echo '<div class="resposta" nome="Tipo" objeto="select" id-obj="tipo">';
+			foreach ($tipo as $nome=>$contador){
+				echo '<option ';
+				if ($meta['tipo']==$nome){
+					echo 'selected="selected"';
+				}
+				echo 'data-key="tipo" value="'.$nome.'">'.$nome. '&nbsp;&nbsp;(' .$contador. ')</option>';
+				
+			}
+			echo '</div>';
+			
+			
+		 // echo $html;
+			// echo "<div><pre>";
+			// print_r($tax_vet);
+			// echo "</pre></div>";
 		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
 	}
 	wp_die();
