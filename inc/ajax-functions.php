@@ -257,7 +257,7 @@ add_action( 'wp_ajax_nopriv_material_load_video', 'ajax_material_load_video' );
 function ajax_material_filtra_posts(){
 	global $wpdb;
 	$ajax_response = array();
-	
+	$busca = $_POST['busca'];
 	$html = "";
 	$tax=$_POST['tax'];
 	$meta=$_POST['meta'];
@@ -268,10 +268,11 @@ function ajax_material_filtra_posts(){
 				'relation' => 'AND',
 				
 			),
+		's'		    => $busca
 	);
 	// echo count($tax);
 	// echo "<pre>";
-	// print_r($tax);
+	// print_r($args);
 	// echo "</pre>";
 	if ($tax!=""){
 		$selecionadas=array();
@@ -311,6 +312,7 @@ function ajax_material_filtra_posts(){
 		while ( $WP_Query_material->have_posts() ) 
 		{
 			$WP_Query_material->the_post();
+			
 			$taxonomias=wp_get_post_terms($WP_Query_material->post->ID,array('autor','tema'));
 			foreach($taxonomias as $inci=>$valor){////para cada taxonomia dos posts ($valor->taxonomy = nome da taxonomia $valor->term_taxonomy_id = id do termo, $valor->name = nome do termo)
 				if (isset($tax[$valor->taxonomy]) && ($valor->term_taxonomy_id == $tax[$valor->taxonomy]) ){//se a taxonomia esta selecionada e é o termo selecionado
@@ -375,6 +377,11 @@ function ajax_material_filtra_posts(){
 			// print_r($tax_vet);
 			// echo "</pre></div>";
 		wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+	}
+	else{
+		echo'<div class="resposta" nome="Autores" objeto="select" id-obj="autor"></div>';
+		echo'<div class="resposta" nome="Temas" objeto="select" id-obj="tema"></div>';
+		echo'<div class="resposta" nome="Tipo" objeto="select" id-obj="tipo"></div>';
 	}
 	wp_die();
 	

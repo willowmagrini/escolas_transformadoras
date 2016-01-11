@@ -32,6 +32,13 @@ get_header(''); ?>
 			}
 			?>
 		</select>
+		<input type="text" id="filtro-palavra" name="s" placeholder="Palavra-Chave"></input>
+		<input type="hidden" id="filtro-type" name="post_type" value="escola" placeholder="Palavra-Chave"></input>
+		<button type="submit" id="filtro-limpar" name="limpar" placeholder="">
+		<button type="submit" id="filtro-enviar" name="enviar" placeholder="">
+		
+	
+
 	</div>
 	<div class="row" id="ajax-itens">
 		<?php

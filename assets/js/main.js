@@ -121,7 +121,35 @@ jQuery(document).ready(function($) {
 		});
 		//ajax itens
 		//ajax materiais filtros
-	$('.ajax-filtro-materiais').change(function(e){
+	$('.ajax-filtro-materiais').change(function(e){	
+		busca = $('#filtro-palavra').val();
+		materiaisFiltro(busca);
+			
+	});
+	$('#filtro-enviar').click(function(e){	
+		busca = $('#filtro-palavra').val();
+		materiaisFiltro(busca);
+			
+	});
+	$('#filtro-limpar').click(function(e){	
+		console.log('teste');
+		$('#filtro-palavra').val('');
+		$('option[value="0"]').each(function(){
+			$(this).attr('selected','selected')
+		})
+		busca = $('#filtro-palavra').val();
+		materiaisFiltro(busca);
+			
+	});
+	$('#filtro-palavra').keypress(function (e) {
+	  if (e.which == 13) {
+	   	busca = $('#filtro-palavra').val();
+		materiaisFiltro(busca);
+	    return false;    //<---- Add this line
+	  }
+	});
+	
+	function materiaisFiltro(busca){
 		$('select').prop('disabled', 'disabled');
 		$('#ajax-itens').animate({opacity: 0}, 700);
 		
@@ -149,6 +177,7 @@ jQuery(document).ready(function($) {
 		console.log(meta);
 		data.meta = meta;
 		data.tax=tax;
+		data.busca=busca;
 		console.log(data.meta);
 		$.ajax({
 			type: 'POST',
@@ -170,17 +199,16 @@ jQuery(document).ready(function($) {
 				});
 				$('select').prop('disabled', false);
 				$('#ajax-itens').animate({opacity: 1}, 700);
-				
-				
 			},
 		});
-		
-		
-			
-	});
+	}
 
 		//ajax materiais filtros
+	/////botao busca///
 	
+	
+	
+	////botao busca////
 	
 	//ajax filtros
 

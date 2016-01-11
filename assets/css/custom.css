@@ -4021,7 +4021,8 @@ div.wpcf7-mail-sent-ok {
 #video-escola{
 	position:relative;
 }
-.row.destaque-escolas, .filtro-escolas, #ajax-escolas, #ajax-itens{
+.row.destaque-escolas, .filtro-escolas, #ajax-escolas, #ajax-itens, .pagina-materiais #filtro{
+	
     max-width: 992px;
 	margin:0 auto;
 }
@@ -4333,7 +4334,14 @@ a.navbar-brand{
 	border:none;
 	padding:0 10px;
 	position:relative;
+	
 }
+#filtro select option{
+	font-size:18px!important;
+}
+/*#filtro select option[value="0"]{
+	font-size:22px;
+}*/
 .btn-drop{
 	position:absolute;
 	right:0;
@@ -4371,9 +4379,9 @@ a.navbar-brand{
 	
 }
 #filtro input{
-	height:33.33px;
-	vertical-align:bottom;
-	margin-top:20px;
+	height:31px;
+	vertical-align:top;
+	margin-top:22px;
 	border:none;
 	border-radius:5px;
 	padding:0 10px;
@@ -4383,15 +4391,46 @@ a.navbar-brand{
 	font-size:22px;
 	width:80%;	
 }
-#filtro-enviar{
-	background-image: url('../images/enviar-btn.png');
+#filtro-limpar{
+	background-image: url('../images/limpar-btn.png');
 	background-repeat:no-repeat;
-	height: 35.33px;
-    width: 35.33px;
+	height: 31px;
+    width: 64px;
 	border:none;
+	border-radius:0;
+	vertical-align:top;
+	margin-top:22px;
 	background-color:transparent;
 	background-size:contain;
-	margin-left:-10px;
+    margin-left: -6px;
+	
+}
+#filtro-palavra{
+	border-top-right-radius:0!important;
+	border-bottom-right-radius:0!important;
+	
+}
+#filtro-limpar:focus,  #filtro-enviar:focus{
+	border:none;
+	box-shadow:none;
+	outline:none;
+}
+#filtro-limpar:active, #filtro-enviar:active{
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+#filtro-enviar{
+	border-bottom-left-radius:0;
+	border-top-left-radius:0;
+	background-image: url('../images/enviar-btn.png');
+	background-repeat:no-repeat;
+	height: 31px;
+    width: 31px;
+	border:none;
+	vertical-align:top;
+	margin-top:22px;
+	background-color:transparent;
+	background-size:contain;
 }
 #filtro-pais{
 	color:#003a5f;
@@ -4500,6 +4539,9 @@ a.navbar-brand{
 }
 .pagina-materiais #filtro select{
 	display:inline-block;
+}
+.pagina-materiais #filtro input[type="text"]{
+	width:200px;
 }
 .pagina-itens h1{
 	text-transform:uppercase;
@@ -4852,7 +4894,7 @@ span.wpcf7-list-item{
 		width: 80%;
 		margin:0 auto;
 	}
-	#ajax-itens {
+	#ajax-itens, .pagina-materiais #filtro {
 	    width: 100%!important;
 		margin-bottom:20px;
 	}
@@ -5067,7 +5109,7 @@ span.wpcf7-list-item{
 	.item-nome {
 	    height: initial;
 	}
-	#ajax-itens {
+	#ajax-itens, .pagina-materiais #filtro {
 	    max-width:100%;
 	    margin: 0 auto 20px;
 	}
