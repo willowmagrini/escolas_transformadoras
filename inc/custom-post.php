@@ -115,7 +115,7 @@ function escola_cpt() {
 			'hierarchical'       => false,
 			'menu_position'      => null,
 			'menu_icon' => 'dashicons-lightbulb',
-			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
+			'supports'           => array( 'title', 'thumbnail', 'excerpt' )
 		);
 
 		register_post_type( 'material', $args );

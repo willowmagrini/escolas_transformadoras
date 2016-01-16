@@ -4334,6 +4334,9 @@ a.navbar-brand{
 	border:none;
 	padding:0 10px;
 	position:relative;
+	border-radius: 5px;
+	height: 31px;
+	text-align: left;
 	
 }
 #filtro select option{
@@ -4451,8 +4454,11 @@ a.navbar-brand{
     
 }
 .pagina-materiais .resumo{
-	visibility:hidden;
-	position:absolute;
+	display:none;
+	position:relative;
+}
+.pagina-materiais #ajax-itens{
+	margin-bottom:35px;
 }
 .pagina-materiais .item-titulo, .pagina-materiais .item-autor, .pagina-materiais .item-tema{
 	
@@ -4467,8 +4473,8 @@ a.navbar-brand{
 	color:#262827;
 }
 .pagina-materiais .item-imagem{
-	width:180px;
-	height:180px;
+	width:150px;
+	height:150px;
 	overflow:hidden;
 	border-radius:180px;
 	margin: 25px auto;
@@ -4480,40 +4486,47 @@ a.navbar-brand{
 	padding:0!important;
 }
 .pagina-materiais .item:hover .resumo{
-	visibility:visible;
+	display:block;
 	position:relative;
 }
 
 .pagina-materiais .item:hover .item-titulo, .pagina-materiais .item:hover .item-autor,.pagina-materiais .item:hover .item-tema{
-	visibility:hidden;
-	position:absolute;
+	display:none;
+	position:relative;
 	
 }
 .pagina-materiais .item-imagem img.tipo{
-	visibility:hidden;
-	position:absolute;
+	display:none;
+	position:relative;
 	
 }
 .pagina-materiais .item:hover .item-imagem img.tipo{
-	visibility:visible;
+	display:block;
 }
 .pagina-materiais .item:hover .item-imagem img.thumb{
-	visibility:hidden;
+	display:none;
 	
 }
 
 
 .pagina-materiais .item-imagem img{
-	position:absolute;
-	height:180px;
+	height:150px;
 	width:auto;
 	max-width:initial;
 	display: block;
     
 	
 }
+#titulo-materiais{
+	color:#003a5f;
+	margin-top:35px;
+	font-size:35px;
+}
 .pagina-materiais .item-imagem img.thumb{
-	transform: translate(-90px);
+/*	transform: translate(-90px);*/
+}
+.pagina-materiais .col-sm-3{
+    min-height: 390px;
 }
 .pagina-materiais .col-sm-3:nth-child(4n+1){
 	clear:left;
@@ -4532,6 +4545,8 @@ a.navbar-brand{
 	float:none;
 	display:block;
 	text-align:left;
+	font-size: 19px;
+    
 	border-bottom-right-radius: 80px;
 	padding: 10px 50px 33px;
     

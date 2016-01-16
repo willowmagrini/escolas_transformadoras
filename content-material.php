@@ -5,7 +5,7 @@
 				
 				switch ($tipo) {
 				    case "Link":
-				    $link=get_field('link');
+				    $link=get_field('link_material')['url'];
 					    
 					?>
 						<a target="_blank" href="<?php echo $link;?>">
@@ -30,8 +30,8 @@
 						$video=get_field("video");
 						$videos[$post->ID]=$video->html;
 						?>
-						<a data-postID="<?php echo $post->ID?>" href="#">
-							<?php the_post_thumbnail('full', array('class' => "thumb"));?>
+						<a class="link-video-material" data-postID="<?php echo $post->ID?>" href="#">
+							<?php the_post_thumbnail('full', array('class' => "thumb link-video-material"));?>
 							
 							<img class="link-video-material tipo animated fadeIn" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-video.png">";
 						</a>

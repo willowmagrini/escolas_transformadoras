@@ -263,7 +263,7 @@ function ajax_material_filtra_posts(){
 	$meta=$_POST['meta'];
 	$args= array(
 		'post_type' => 'material',
-		'posts_per_page'=>8,
+		'posts_per_page'=>-1,
 		'tax_query' => array(
 				'relation' => 'AND',
 				
@@ -340,9 +340,6 @@ function ajax_material_filtra_posts(){
 					}
 				}
 			}
-			foreach ($meta as $chave=>$valor){
-				
-			}
 			$tipo[get_field('tipo')]++;
 			get_template_part('content','material');
 		}
@@ -382,6 +379,7 @@ function ajax_material_filtra_posts(){
 		echo'<div class="resposta" nome="Autores" objeto="select" id-obj="autor"></div>';
 		echo'<div class="resposta" nome="Temas" objeto="select" id-obj="tema"></div>';
 		echo'<div class="resposta" nome="Tipo" objeto="select" id-obj="tipo"></div>';
+		echo '<h2>'.__('Não existem materiais com esses critérios...', 'odin').'</h2>';
 	}
 	wp_die();
 	

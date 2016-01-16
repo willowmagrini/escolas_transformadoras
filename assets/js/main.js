@@ -174,11 +174,9 @@ jQuery(document).ready(function($) {
 				}
 			}
 		});
-		console.log(meta);
 		data.meta = meta;
 		data.tax=tax;
 		data.busca=busca;
-		console.log(data.meta);
 		$.ajax({
 			type: 'POST',
 			url: odin_main.ajaxurl,
@@ -189,7 +187,6 @@ jQuery(document).ready(function($) {
 				// console.log(obj.html)
 				$('#ajax-itens').html(obj.responseText);
 				$('.resposta').each(function(){
-					console.log($(this).html());
 					id=$(this).attr('id-obj');
 					nome=$(this).attr('nome');
 					$('#'+id).html('<option  value="0">'+nome+'</option>'+$(this).html());
@@ -199,6 +196,7 @@ jQuery(document).ready(function($) {
 				});
 				$('select').prop('disabled', false);
 				$('#ajax-itens').animate({opacity: 1}, 700);
+				linkaVideos();
 			},
 		});
 	}
@@ -322,43 +320,47 @@ jQuery(document).ready(function($) {
 		
 		
 	});
-	$('.link-video-material').click(function(e) {
-		e.preventDefault();
-		$('#video-material').html
-		$('#fundo-modal').attr('modal-estado','ativo');
-		$('#modal-conteudo').attr('modal-estado','ativo');
-		postId = $(this).parent().attr("data-postid");
+	linkaVideos();
+	function linkaVideos(){
+		$('.link-video-material').click(function(e) {
+			e.preventDefault();
+			$('#video-material').html('<img src="http://rede.com.br/escolastransformadoras/wp-content/themes/Escolas_transformadoras/assets/images/ajax-loader.gif">')
+			$('#fundo-modal').attr('modal-estado','ativo');
+			$('#modal-conteudo').attr('modal-estado','ativo');
+			postId = $(this).parent().attr("data-postid");
+
+				var data = {
+					'postid': postId,
+					'action': 'material_load_video',
+				};
+			$.post(odin_main.ajaxurl, data, function(response) {
+				$('#video-material').html(response);
+			});
+
+			$('#botao-fechar, #fundo-modal').click(function(f) {
+				f.preventDefault();
+				$('#video-material').empty();
+				url = $('#modal-conteudo iframe').attr('src');
+				$('#modal-conteudo iframe').attr('src','');
+
+				$('#fundo-modal').attr('modal-estado','inativo');
+				$('#modal-conteudo').attr('modal-estado','inativo');
+				$('#modal-conteudo iframe').attr('src',url);
+
+
+			});
+			function pausecomp(millis)
+			 {
+			  var date = new Date();
+			  var curDate = null;
+			  do { curDate = new Date(); }
+			  while(curDate-date < millis);
+			}
+
+
+		});
+	}
 	
-			var data = {
-				'postid': postId,
-				'action': 'material_load_video',
-			};
-		$.post(odin_main.ajaxurl, data, function(response) {
-			$('#video-material').html(response);
-		});
-		
-		$('#botao-fechar, #fundo-modal').click(function(f) {
-			f.preventDefault();
-			$('#video-material').empty();
-			url = $('#modal-conteudo iframe').attr('src');
-			$('#modal-conteudo iframe').attr('src','');
-		
-			$('#fundo-modal').attr('modal-estado','inativo');
-			$('#modal-conteudo').attr('modal-estado','inativo');
-			$('#modal-conteudo iframe').attr('src',url);
-			
-			
-		});
-		function pausecomp(millis)
-		 {
-		  var date = new Date();
-		  var curDate = null;
-		  do { curDate = new Date(); }
-		  while(curDate-date < millis);
-		}
-		
-		
-	});
 	
 	//ajax equipe
 
@@ -371,7 +373,6 @@ jQuery(document).ready(function($) {
 			};
 		
 			data.postid = $(this).attr('data-id');
-			console.log(data);
 				$('#fundo-modal').attr('modal-estado','ativo');
 				$('#modal-conteudo').attr('modal-estado','ativo');
 

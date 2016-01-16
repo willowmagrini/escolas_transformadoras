@@ -40,13 +40,14 @@ get_header(''); ?>
 	
 
 	</div>
+	<h2 id="titulo-materiais">MATERIAIS</H2>
 	<div class="row" id="ajax-itens">
 		<?php
 		$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 		$args = array(
 			'post_type' => 'material',
 			'paged'=> $paged,
-			'posts_per_page' =>8
+			'posts_per_page' =>-1
 		);
 	
 		$WP_Query_material = new WP_Query( $args );
