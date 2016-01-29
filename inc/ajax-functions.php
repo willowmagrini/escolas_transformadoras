@@ -38,7 +38,7 @@ function ajax_escola_load_posts(){
 	$args = array(
 		'paged'=> $_POST['paged'],
 		'post_type' => 'escola',
-		'posts_per_page'=>8,
+		'posts_per_page'=>-1,
 		'orderby' => 'title',
 		'order'   => 'DESC',
 	);
@@ -145,7 +145,7 @@ function ajax_escola_filtra_posts(){
 	$html = "";
 	$args= array(
 		'post_type' => 'escola',
-		'posts_per_page'=>8
+		'posts_per_page'=>-1
 		
 	);
 	$ajax_response['teste'] ="nao";

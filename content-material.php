@@ -65,13 +65,13 @@
 			</div>
 			<div class="item-tema animated fadeIn">
 				<?php 
-				$term_list = wp_get_post_terms($post->ID, 'tema', array("fields" => "all"));
-				foreach ($term_list as $term){
-					echo $term->name;
-					if ($term !== end($term_list)){
-				        echo ', ';
-					}
-				}
+				// $term_list = wp_get_post_terms($post->ID, 'tema', array("fields" => "all"));
+				// foreach ($term_list as $term){
+				// 	echo $term->name;
+				// 	if ($term !== end($term_list)){
+				//         echo ', ';
+				// 	}
+				// }
 				?>
 			</div>				
 		</div>
