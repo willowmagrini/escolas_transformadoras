@@ -22,6 +22,44 @@ get_header(); ?>
 
 						<div class="entry-content">
 						
+							
+							<div id="comunidade-background">
+									<h2>Comunidade Inspiradora</h2>
+										
+										
+									<div id="owl-carousel" class="owl-carousel">
+										<?php
+										$args = array(
+											'post_type' => 'comunidade',
+											'orderby' => 'title',
+											'order'   => 'ASC',
+										);
+
+										$WP_Query_comunidade = new WP_Query( $args );
+
+										if( $WP_Query_comunidade->have_posts()  ){
+
+											while ( $WP_Query_comunidade->have_posts() ) 
+											{
+												$WP_Query_comunidade->the_post();
+									
+												get_template_part('content','equipe');
+										
+										
+											}
+								
+
+										?>
+										<div class="clearfix"></div>
+										<br>
+									</div>
+									
+									
+							</div>
+							<?php
+								}
+								wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
+							?>
 							<div class="row sem-margem" id="equipe">
 								<?php
 								$count = 0;
@@ -61,44 +99,6 @@ get_header(); ?>
 								<div class="clearfix"></div>
 								<br>
 							</div> <!-- id="escolad" -->
-							<?php
-								}
-								wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
-							?>
-							
-							<div id="comunidade-background">
-									<h2>Comunidade Inspiradora</h2>
-										
-										
-									<div id="owl-carousel" class="owl-carousel">
-										<?php
-										$args = array(
-											'post_type' => 'comunidade',
-											'orderby' => 'title',
-											'order'   => 'ASC',
-										);
-
-										$WP_Query_comunidade = new WP_Query( $args );
-
-										if( $WP_Query_comunidade->have_posts()  ){
-
-											while ( $WP_Query_comunidade->have_posts() ) 
-											{
-												$WP_Query_comunidade->the_post();
-									
-												get_template_part('content','equipe');
-										
-										
-											}
-								
-
-										?>
-										<div class="clearfix"></div>
-										<br>
-									</div>
-									
-									
-							</div>
 							<?php
 								}
 								wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
