@@ -18,13 +18,13 @@ get_header(); ?>
 					// Include the page content template.
 					?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<?php the_title( '<header class="entry-header"><h1 class="entry-title">', '</h1></header><!-- .entry-header -->' ); ?>
+						
 
 						<div class="entry-content">
 						
 							
 							<div id="comunidade-background">
-									<h2>Comunidade Inspiradora</h2>
+									<h2>Comunidade Ativadora</h2>
 										
 										
 									<div id="owl-carousel" class="owl-carousel">
@@ -61,6 +61,8 @@ get_header(); ?>
 								wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly
 							?>
 							<div class="row sem-margem" id="equipe">
+								<h2>Equipe</h2>
+								
 								<?php
 								$count = 0;
 								$args = array(

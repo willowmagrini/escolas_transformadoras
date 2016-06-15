@@ -4827,7 +4827,8 @@ span.wpcf7-list-item{
 	    margin: 0 auto;
 	padding:10px 60px;
 }
-#comunidade-background h2{
+#comunidade-background h2, #equipe h2{
+	text-align:center;
 	color:#01a6a8;
 	padding:10px 0;
 }

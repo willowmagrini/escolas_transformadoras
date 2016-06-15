@@ -12,7 +12,7 @@ get_header(''); ?>
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 		<div class="row visao">
 			<div class="col-sm-4"> 
-				<a href="http://escolastransformadoras.com.br/sobre/visao/">
+				<a href="visao/">
 					<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-olho2.png">
 					<h3><?php echo __('visão', 'odin')?></h3>
 				</a>
@@ -20,7 +20,7 @@ get_header(''); ?>
 				
 			</div>
 			<div class="col-sm-4">
-				<a href="http://escolastransformadoras.com.br/sobre/competencias-transformadoras/">
+				<a href="competencias-transformadoras/">
 				
 					<img class="icon-visao"  src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-alvo.png">
 					<h3><?php echo __('Competências Transformadoras', 'odin')?></h3>
@@ -28,10 +28,10 @@ get_header(''); ?>
 				<?php echo $odin_sobre_opts['estrategia'];?>
 			 </div>
 			<div class="col-sm-4">
-				<a href="http://escolastransformadoras.com.br/sobre/equipe/">
+				<a href="comunidade-ativadora/">
 				
 					<img class="icon-visao" src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-equipe.png">
-					<h3><?php echo __('Equipe', 'odin')?></h3>
+					<h3><?php echo __('Comunidade Ativadora', 'odin')?></h3>
 				</a>
 				
 				<?php echo $odin_sobre_opts['equipe'];?>
