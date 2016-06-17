@@ -8,6 +8,8 @@
  * @since 2.2.0
  */
 ?><!DOCTYPE html>
+<?php $odin_footer_opts = get_option( 'odin_footer' );?>
+
 <html class="no-js" <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -37,6 +39,23 @@
 			</div><!-- .site-header-->
 			<div id="menus" class="col-md-9 sem-margem">
 				<div id="top-navigation" class="navbar navbar-default">
+				<div class="socials-header">
+					<?php if ($odin_footer_opts['face']!=""){?>
+						<a target=_blank  href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face-azul.png">          </a>
+					<?php }?>
+					<?php if ($odin_footer_opts['twitter']!=""){?>
+						<a target=_blank  href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter-azul.png">    </a>
+					<?php }?>
+					<?php if ($odin_footer_opts['flicker']!=""){?>
+						<a target=_blank  href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker-azul.png">    </a>
+						
+					<?php }?>
+					<?php if ($odin_footer_opts['youtube']!=""){?>
+						<a target=_blank  href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-azul.png">    </a>
+						
+					<?php }?>
+				</div>
+				
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-navigation">
 						<span class="sr-only"><?php _e( 'Toggle navigation', 'odin' ); ?></span>
@@ -96,6 +115,22 @@
 				</div><!-- #main-navigation-->
 		
 				<div id="responsive-navigation" class="navbar navbar-default">
+					<div class="socials-header">
+						<?php if ($odin_footer_opts['face']!=""){?>
+							<a target=_blank  href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face-azul.png">          </a>
+						<?php }?>
+						<?php if ($odin_footer_opts['twitter']!=""){?>
+							<a target=_blank  href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter-azul.png">    </a>
+						<?php }?>
+						<?php if ($odin_footer_opts['flicker']!=""){?>
+							<a target=_blank  href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker-azul.png">    </a>
+							
+						<?php }?>
+						<?php if ($odin_footer_opts['youtube']!=""){?>
+							<a target=_blank  href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube-azul.png">    </a>
+							
+						<?php }?>
+					</div>
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-navigation">
 						<span class="sr-only"><?php _e( 'Toggle navigation', 'odin' ); ?></span>

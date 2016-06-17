@@ -3300,6 +3300,16 @@ a:hover, a:active, a:focus{
 	border:none;
 	box-shadow:none;
 	}
+
+  .socials-header img{
+    margin:0 5px;
+  }
+  .socials-header {
+    display: block;
+    margin: 0;
+    text-align: right;
+    padding: 14px;
+}
 #header{
 	position:relative;
 	z-index:99;
@@ -5269,6 +5279,12 @@ span.wpcf7-list-item{
 	#main-navigation, #top-navigation{
 		display:block!important;
 	}
+    .socials-header{
+    display: inline-block;
+    margin: 14px 0 14px 22%;
+    padding: 0px;
+
+  }
 	#responsive-navigation{
 		display:none!important;
 	}

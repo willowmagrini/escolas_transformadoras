@@ -35,6 +35,30 @@
 			</div><!-- .site-header-->
 			<div id="menus" class="col-md-9 sem-margem">
 				<div id="top-navigation" class="navbar navbar-default">
+					aaa
+									<?php if ($odin_footer_opts['face']!=""){?>
+					<a target=_blank  href="<?php echo $odin_footer_opts['face'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/face.png">          </a>
+				<?php }?>
+				<?php if ($odin_footer_opts['twitter']!=""){?>
+					<a target=_blank  href="<?php echo $odin_footer_opts['twitter'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/twitter.png">    </a>
+				<?php }?>
+				<?php if ($odin_footer_opts['linkedin']!=""){?>
+					<a target=_blank  href="<?php echo $odin_footer_opts['linkedin'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/linkedin.png">  </a>
+					
+				<?php }?>
+				<?php if ($odin_footer_opts['flicker']!=""){?>
+					<a target=_blank  href="<?php echo $odin_footer_opts['flicker'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/flicker.png">    </a>
+					
+				<?php }?>
+				<?php if ($odin_footer_opts['google']!=""){?>
+					<a target=_blank  href="<?php echo $odin_footer_opts['google'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/google.png">      </a>
+					
+				<?php }?>
+				<?php if ($odin_footer_opts['youtube']!=""){?>
+					<a target=_blank  href="<?php echo $odin_footer_opts['youtube'];?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/youtube.png">    </a>
+					
+				<?php }?>
+
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-navigation">
 						<span class="sr-only"><?php _e( 'Toggle navigation', 'odin' ); ?></span>
