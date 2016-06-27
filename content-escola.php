@@ -58,6 +58,33 @@
 							<div class="clearfix"></div>
 							
 						</div>
+						<?php if (get_field( "alunos" )!=""): ?>
+							<div id="alunos-escola" class="">
+								<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-alunos.png';?>">
+								<div class="border-bottom inline-block">
+									<p><b><?php echo get_field( "alunos" );	?></b></p>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+						<?php endif ?>
+						<?php if (get_field( "ano_de_eleicao" )!=""): ?>
+							<div id="ano-escola" class="">
+								<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-ano.png';?>">
+								<div class="border-bottom inline-block">
+									<p><b><?php echo get_field( "ano_de_eleicao" );	?></b></p>
+									<div class="clearfix"></div>
+								</div>
+							</div>	
+						<?php endif ?>
+						<?php if (get_field( "nome_do_lider" )!=""): ?>
+							<div id="nome-lider-escola" class="">
+								<img class="inline-block icon-info" src="<?php echo get_template_directory_uri().'/assets/images/icon-lider.png';?>">
+								<div class="border-bottom inline-block">
+									<p><b><?php echo get_field( "nome_do_lider" );	?></b></p>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+						<?php endif ?>
 					</div>
 			<?php 
 				$content= get_the_content( );

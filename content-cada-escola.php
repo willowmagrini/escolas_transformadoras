@@ -12,7 +12,12 @@
 			<img src="<?php echo $url.'/foto_redonda.png'; ?>"alt="" />
 					
 					<?php  }
-					else{
+				elseif (get_field('imagem_redonda')!="") {
+				?>
+			<img src="<?php echo get_field('imagem_redonda');?>" alt="" />
+				<?php 
+				}
+				else{
 					?>
 			<img src="<?php echo get_template_directory_uri();?>/assets/images/sem-foto.png" alt="" />
 			<?php 	}?>
