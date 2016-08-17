@@ -13,8 +13,12 @@
 					
 					<?php  }
 				elseif (get_field('imagem_redonda')!="") {
+				$image = get_field('imagem_redonda');
+				
+				$image_url = $image['sizes']['redonda'];
+ 
 				?>
-			<img src="<?php echo get_field('imagem_redonda');?>" alt="" />
+			<img src="<?php echo $image_url;?>" alt="" />
 				<?php 
 				}
 				else{

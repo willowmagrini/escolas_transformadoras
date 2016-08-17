@@ -3958,8 +3958,6 @@ div.wpcf7-mail-sent-ok {
     
 }
 .img-redonda img{
- border-radius: 300px;
-
 	width:100%;
 	max-width:200px;
 }
@@ -5290,7 +5288,7 @@ span.wpcf7-list-item{
 	}
     .socials-header{
     display: inline-block;
-    margin: 14px 0 14px 14%;
+    margin: 14px 0 14px 22%;
     padding: 0px;
 
   }
